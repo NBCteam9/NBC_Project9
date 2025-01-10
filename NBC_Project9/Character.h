@@ -17,10 +17,11 @@ private:
 	int experience;
 	int gold;
 	vector<Item*> inventory;
-	Character(string name);
+	Character(string _name);
 public:
-	static Character* getInstance(string name = "");
+	static Character* getInstance(string _name = "");
 	vector<Item*>& getInventory();
+	int getLevel();
 	int getHealth();
 	void setHealth(int _health);
 	int getMaxHealth();
