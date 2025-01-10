@@ -5,6 +5,6 @@ class Goblin :
     public Monster
 {
 public:
-    virtual string getName() override;
+    string getName();
 };
 

@@ -3,6 +3,5 @@
 
 string Goblin::getName()
 {
-	cout << "goblin" << endl;
 	return name;
 }
