@@ -20,7 +20,7 @@ private:
 	Character(string name);
 public:
 	static Character* getInstance(string name = "");
-	vector<Item*> getInventory();
+	vector<Item*>& getInventory();
 	int getHealth();
 	void setHealth(int _health);
 	int getAttack();
