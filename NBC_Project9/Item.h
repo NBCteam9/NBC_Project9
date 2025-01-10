@@ -10,6 +10,6 @@ class Item
 private:
 	string name;
 public:
-	string GetName();
-	void Use(Character* Character);
+	virtual const string GetName();
+	virtual void Use(Character* Character) = 0;
 };
