@@ -10,7 +10,7 @@ void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {
 		Item* curItem = availableItems[index];
-		cout << index << " : " << curItem->GetName() << " : " << curItem->getPrice() << "G" << endl;
+		cout << index << " : " << curItem->getName() << " : " << curItem->getPrice() << "G" << endl;
 	}
 }
 
@@ -30,7 +30,7 @@ void Shop::buyItem(int index, Character* player)
 	}
 	else {
 		player->setGold(playerGold - item->getPrice());
-		cout << item->GetName() << "을/를 구매했습니다. (남은 골드 : " << player->getGold() << ")" << endl;
+		cout << item->getName() << "을/를 구매했습니다. (남은 골드 : " << player->getGold() << ")" << endl;
 	}
 
 	//플레이어 인벤토리에 아이템 추가
@@ -51,7 +51,7 @@ void Shop::sellItem(int index, Character* player)
 	//플레이어 골드 늘리기 구현
 	int playerGold = player->getGold();
 	player->setGold(playerGold + item->getPrice());
-	cout << item->GetName() << "을/를 판매했습니다. (남은 골드 : " << player->getGold() << ")" << endl;
+	cout << item->getName() << "을/를 판매했습니다. (남은 골드 : " << player->getGold() << ")" << endl;
 
 	//플레이어 인벤토리에 아이템 제거
 	playerInventory.erase(playerInventory.begin() + index);
