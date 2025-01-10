@@ -10,7 +10,7 @@ Character* Character::getInstance(string name)
 	return nullptr;
 }
 
-vector<Item*> Character::getInventory()
+vector<Item*>& Character::getInventory()
 {
 	return inventory;
 }
