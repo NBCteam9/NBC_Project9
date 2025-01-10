@@ -20,11 +20,12 @@ int main()
 //   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
 //   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
 // 중복테스트 -선우-
-//제가
-//일단
-//주석을
-//많이
-//달아볼게요
-//깃 설정만 했는데
-//왜케힘들죠
-//ㄹㅇ...
+
+// test conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
+// conflict test conflict test conflict test conflict test 
