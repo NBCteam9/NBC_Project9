@@ -56,7 +56,14 @@ int Character::getGold()
 
 void Character::setGold(int val)
 {
-	gold = val;
+	if (val < 0)
+	{
+		gold = 0;
+	}
+	else
+	{
+		gold = val;
+	}
 }
 
 void Character::DisplayStatus()
