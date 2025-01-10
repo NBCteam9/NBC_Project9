@@ -22,11 +22,11 @@ void Monster::TakeDamage(int damage)
 
 	if (health <= 0)
 	{
-		cout << name << "몬스터가 쓰러졌습니다" << endl;
+		cout << name << "몬스터가 쓰러졌다" << endl;
 		health = 0;
 	}
 	else
 	{
-		cout << name << "몬스터가" << damage << "만큼 피해를 입었습니다" << "남은 몬스터의 체력:" << health << endl;
+		cout << name << "몬스터가" << damage << "만큼 피해를 입음" << "남은 몬스터의 체력:" << health << endl;
 	}
 }
