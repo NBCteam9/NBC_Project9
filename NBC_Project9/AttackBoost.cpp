@@ -2,7 +2,8 @@
 
 AttackBoost::AttackBoost()
 {
-
+	name = "공격력 물약";
+	attackIncrease = 10;
 }
 
 const string AttackBoost::getName()
