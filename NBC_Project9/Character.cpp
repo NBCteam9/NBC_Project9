@@ -22,6 +22,16 @@ void Character::setHealth(int _health)
 {
 	health = _health;
 }
+
+int Character::getMaxHealth()
+{
+	return maxHealth;
+}
+void Character::setMaxHealth(int val)
+{
+	maxHealth = val;
+}
+
 int Character::getAttack()
 {
 	return attack;

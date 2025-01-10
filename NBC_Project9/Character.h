@@ -12,7 +12,7 @@ private:
 	string name;
 	int level;
 	int health;
-	int maxhealth;
+	int maxHealth;
 	int attack;
 	int experience;
 	int gold;
@@ -23,6 +23,8 @@ public:
 	vector<Item*>& getInventory();
 	int getHealth();
 	void setHealth(int _health);
+	int getMaxHealth();
+	void setMaxHealth(int _health);
 	int getAttack();
 	void setAttack(int _attack);
 	int getExperience();
