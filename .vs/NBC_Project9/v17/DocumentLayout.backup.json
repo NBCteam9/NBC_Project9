@@ -1,18 +1,10 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\NBC\\NBC_Project9\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\NBC\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:NBC_Project9\\NBC_Project9.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-=======
-  "WorkspaceRootPath": "C:\\NBC_Project\\NBC_Project9\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{048F8941-83E7-4FD8-8477-0E75C306E17C}|NBC_Project9\\NBC_Project9.vcxproj|C:\\NBC_Project\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{048F8941-83E7-4FD8-8477-0E75C306E17C}|NBC_Project9\\NBC_Project9.vcxproj|solutionrelative:NBC_Project9\\NBC_Project9.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
->>>>>>> 3ccfe10f805cbc77dd0f4fae3a3abd10bca6ee89
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
           "SelectedChildIndex": 4,
-=======
-          "SelectedChildIndex": 3,
->>>>>>> 3ccfe10f805cbc77dd0f4fae3a3abd10bca6ee89
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,13 +22,10 @@
             },
             {
               "$type": "Bookmark",
-<<<<<<< HEAD
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
-=======
->>>>>>> 3ccfe10f805cbc77dd0f4fae3a3abd10bca6ee89
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
@@ -51,18 +36,16 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "NBC_Project9.cpp",
-<<<<<<< HEAD
               "DocumentMoniker": "C:\\NBC\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp",
               "RelativeDocumentMoniker": "NBC_Project9\\NBC_Project9.cpp",
+<<<<<<< HEAD
               "ToolTip": "C:\\NBC\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp",
               "RelativeToolTip": "NBC_Project9\\NBC_Project9.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
 =======
-              "DocumentMoniker": "C:\\NBC_Project\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp",
-              "RelativeDocumentMoniker": "NBC_Project9\\NBC_Project9.cpp",
-              "ToolTip": "C:\\NBC_Project\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp*",
-              "RelativeToolTip": "NBC_Project9\\NBC_Project9.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\NBC_Project\\NBC_Project9\\NBC_Project9\\NBC_Project9.cpp",
+              "RelativeToolTip": "NBC_Project9\\NBC_Project9.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
 >>>>>>> 3ccfe10f805cbc77dd0f4fae3a3abd10bca6ee89
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-10T06:25:56.366Z",
