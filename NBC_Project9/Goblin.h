@@ -5,6 +5,6 @@ class Goblin :
     public Monster
 {
 public:
-    string getName();
+    Goblin(string n, int h, int a);
 };
 

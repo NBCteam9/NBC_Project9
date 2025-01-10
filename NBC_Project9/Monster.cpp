@@ -1,5 +1,8 @@
 #include "Monster.h"
 
+Monster::Monster(string n, int h, int a) : name(n), health(h), attack(a) {
+	cout << "monster spawn!" << endl;
+}
 
 string Monster::getName()
 {

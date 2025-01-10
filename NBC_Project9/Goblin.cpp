@@ -1,7 +1,7 @@
 #include "Goblin.h"
 
 
-string Goblin::getName()
+Goblin::Goblin(string n, int h, int a) : Monster(n, h, a)
 {
-	return name;
+	cout << "Goblin Spawned!!" << endl;
 }

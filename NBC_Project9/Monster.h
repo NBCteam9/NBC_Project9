@@ -11,6 +11,8 @@ protected:
 	int health;
 	int attack;
 public:
+	Monster(string n, int h, int a);	
+
 	string getName();
 	int getHealth();
 	int getAttack();
