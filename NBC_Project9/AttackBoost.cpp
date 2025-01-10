@@ -18,3 +18,8 @@ void AttackBoost::use(Character* character)
 	character->setAttack(character->getAttack() + attackIncrease);
 	cout << " 현재 공격력 : " << character->getAttack() << endl;
 }
+
+bool isUsable()
+{
+	return true;
+}
