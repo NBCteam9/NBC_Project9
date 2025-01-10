@@ -10,8 +10,8 @@ class Item
 protected:
 	int price;
 public:
-	virtual const string GetName() = 0;
-	virtual void Use(Character* Character) = 0;
-	virtual const bool isUsable() = 0;
-	const int getPrice() { return price; }
+	virtual const string getName() const = 0;
+	virtual void use(Character* Character) = 0;
+	virtual bool isUsable() const = 0;
+	virtual int getPrice() const = 0;
 };
