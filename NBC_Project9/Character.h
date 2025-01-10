@@ -28,6 +28,8 @@ public:
 	int getAttack();
 	void setAttack(int _attack);
 	int getExperience();
+	int getGold();
+	void setGold(int val);
 	void setExperience(int _experience);
 	void DisplayStatus();
 	void LevelUp();
