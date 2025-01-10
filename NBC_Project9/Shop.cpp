@@ -10,9 +10,7 @@ void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {
 		Item* curItem = availableItems[index];
-		cout << index << "번 아이템 : " << curItem->GetName() << endl;
-
-		//아이템의 가격 주세요...
+		cout << index << " : " << curItem->GetName() << " : " << curItem->getPrice() << "G" << endl;
 	}
 }
 
@@ -28,7 +26,6 @@ void Shop::buyItem(int index, Character* player)
 
 	vector<Item*>& playerInventory = player->getInventory();
 	playerInventory.push_back(availableItems[index]);
-
 }
 
 void Shop::sellItem(int index, Character* player)

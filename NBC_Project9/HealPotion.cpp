@@ -16,6 +16,6 @@ HealPotion::use(Character* character) {
 	else {
 		currentHealth += 50;//체력 50 증가
 		cout << "물약을 사용했습니다 체력이 50 회복됩니다. 남은 체력 = " << currentHealth << endl;
+		character->setHealth(currentHealth); // 체력 재설정
 	}
-	return currentHealth; //증가된 체력 반환
 }
