@@ -13,6 +13,7 @@ const string AttackBoost::getName()
 
 void AttackBoost::use(Character* character)
 {
-	character->UseItem(attackIncrease);
-	cout << "공격력이 " << attackIncrease << " 올랐습니다." << endl;
+	cout << "공격력이 " << attackIncrease << " 올랐습니다.";
+	character->setAttack(character->getAttack() + attackIncrease);
+	cout << " 현재 공격력 : " << character->getAttack() << endl;
 }
