@@ -11,7 +11,7 @@ protected:
 	int health;
 	int attack;
 public:
-	virtual string getName();
+	string getName();
 	int getHealth();
 	int getAttack();
 	void TakeDamage(int damage);
