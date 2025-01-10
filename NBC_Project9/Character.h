@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Item.h"
 using namespace std;
+
+class Item;
 
 class Character
 {

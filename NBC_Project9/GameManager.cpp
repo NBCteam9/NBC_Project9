@@ -2,7 +2,7 @@
 
 Monster* GameManager::GenerateMonster(int level)
 {
-
+	return nullptr;
 }
 void GameManager::Battle(Character* player)
 {

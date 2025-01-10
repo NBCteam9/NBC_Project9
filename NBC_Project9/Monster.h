@@ -1,15 +1,17 @@
 #pragma once
+
 #include <iostream>
+#include <string>
 
 using namespace std;
 class Monster
 {
-private:
+protected:
 	string name;
 	int health;
 	int attack;
 public:
-	string getName();
+	virtual string getName();
 	int getHealth();
 	int getAttack();
 	void TakeDamage(int damage);

@@ -1,19 +1,21 @@
 #include "Character.h"
+#include "Item.h"
 Character::Character(string name)
 {
 
 }
 
-static Character* CharactergetInstance(string name = "")
+Character* Character::getInstance(string name)
 {
+	return nullptr;
 }
-void CharacterDisplayStatus()
+void Character::DisplayStatus()
 {
-
+	
 }
 void Character::LevelUp()
 {
-
+	
 }
 void Character::UseItem(int index)
 {

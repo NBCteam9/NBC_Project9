@@ -1,5 +1,10 @@
 #pragma once
+
 #include "Character.h"
+#include <string>
+
+using namespace std;
+
 class Item
 {
 private:

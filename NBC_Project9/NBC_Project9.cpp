@@ -2,10 +2,19 @@
 //서누테스트2123234
 
 #include <iostream>
+#include "GameManager.h"
 
 int main()
 {
-    std::cout << "Hello World!\n"; //test
+    vector<Monster*> a;
+    a.push_back(new Monster());
+    a.push_back(new Goblin());
+    for (auto b : a)
+    {
+        b->getName();
+    }
+
+    //std::cout << "Hello World!\n"; //test
     // test test
 }
 
