@@ -7,9 +7,7 @@ using namespace std;
 
 class Item
 {
-private:
-	string name;
 public:
-	string GetName();
-	void Use(Character* Character);
+	virtual const string GetName() = 0;
+	virtual void Use(Character* Character) = 0;
 };
