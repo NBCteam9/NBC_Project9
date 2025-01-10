@@ -107,5 +107,5 @@ void Character::LevelUp()
 void Character::UseItem(int index)
 {
 	if (inventory.size() < index) return;
-	inventory[index]->Use(instance);
+	inventory[index]->use(instance);
 }
