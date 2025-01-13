@@ -22,7 +22,7 @@ int main()
 				return 0;
 			}
 			else {
-				cout << "Congratulations! Game cleared!" << endl;
+				cout << "Congratulations! Game Clear!" << endl;
 				return 0;
 			}
 

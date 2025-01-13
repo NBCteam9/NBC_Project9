@@ -20,6 +20,7 @@ Monster* GameManager::GenerateMonster(int level)
 	{
 	case 0:
 		output = new Goblin(level);
+
 		break;
 	case 1:
 		output = new Orc(level);
