@@ -13,6 +13,7 @@ int main()
 	cin.clear();
 	cin >> name;
 	Character* warrior = Character::getInstance(name);
+
 	while (1)
 	{
 		if (gm.Battle(warrior) == false) {
