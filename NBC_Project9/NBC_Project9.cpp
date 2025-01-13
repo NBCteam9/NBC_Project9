@@ -17,7 +17,7 @@ int main()
 	while (1)
 	{
 		if (gm.Battle(warrior) == false) {
-			return;
+			return 1;
 		}
 		gm.Battle(warrior);
 		cout << "You want to go shop?? (Y/N)";
