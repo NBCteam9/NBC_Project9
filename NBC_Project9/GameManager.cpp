@@ -46,16 +46,16 @@ Monster* GameManager::GenerateBossMonster(int level)
 	switch (randValue)
 	{
 	case 0:
-		output = new Goblin(level * 1.5f);
+		output = new Goblin(15);
 		break;
 	case 1:
-		output = new Orc(level * 1.5f);
+		output = new Orc(15);
 		break;
 	case 2:
-		output = new Troll(level * 1.5f);
+		output = new Troll(15);
 		break;
 	case 3:
-		output = new Slime(level * 1.5f);
+		output = new Slime(15);
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateBossMonster randValue over" << endl;
@@ -72,13 +72,13 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	int curPlayerGold = player->getGold();
 	player->setGold(curPlayerGold + 10 + rand() % 10);
 
-	int itemDropRandom = rand() % 100;
+	/*int itemDropRandom = rand() % 100;
 
 	if (itemDropRandom < 30) {
 		Item* dropItem = monster->dropItem();
 		player->getInventory().push_back(dropItem);
 		cout << "You got a " << dropItem->getName() << endl;
-	}
+	}*/
 }
 
 GameManager::GameManager()
@@ -94,6 +94,8 @@ void GameManager::VisitShop(Character* player)
 	{
 		int shopOption = 0;
 		cout << "Buy : 1, Sell : 2, Exit : 0" << endl;
+		cin >> shopOption;
+
 		if (shopOption == 0) break;
 
 		switch (shopOption)
@@ -118,7 +120,7 @@ void GameManager::VisitShop(Character* player)
 		}
 	}
 
-	cout << "You exited the shop." << endl;
+	cout << "You exited the shop." << endl << endl;
 }
 
 bool GameManager::Battle(Character* player)
@@ -151,7 +153,7 @@ bool GameManager::Battle(Character* player)
 			monster->TakeDamage(player->getAttack());
 
 			if (monster->getHealth() <= 0) {
-				cout << monster->getName() << " defeat! : Victory!" << endl;
+				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
 				OnBattleVictory(player, monster);
 				return true;
 			}
