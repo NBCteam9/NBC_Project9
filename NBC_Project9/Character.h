@@ -28,11 +28,11 @@ public:
 	void setMaxHealth(int _health);
 	int getAttack();
 	void setAttack(int _attack);
-	int getExperience();
+	void AddExperience(int val);
 	int getGold();
 	void setGold(int val);
-	void setExperience(int _experience);
 	void DisplayStatus();
+	void TakeDamage(int val);
 	void LevelUp();
 	void UseItem(int index);
 };
