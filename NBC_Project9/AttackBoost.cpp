@@ -5,7 +5,11 @@ AttackBoost::AttackBoost()
 	name = "Attack Boost";
 	attackIncrease = 10;
 	price = 100;
-	isUsable = true;
+}
+
+bool AttackBoost::isUsable(Character* character) const
+{
+	return true;
 }
 
 const string AttackBoost::getName() const
