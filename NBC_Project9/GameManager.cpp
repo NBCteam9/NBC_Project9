@@ -7,12 +7,13 @@
 #include "Troll.h"
 #include "Item.h"
 #include "Slime.h"
+#include "Shop.h"
 
 Monster* GameManager::GenerateMonster(int level)
 {
 	Monster* output = nullptr;
 
-	int randValue = rand() % 1;
+	int randValue = rand() % 4;
 
 	switch (randValue)
 	{
@@ -36,6 +37,34 @@ Monster* GameManager::GenerateMonster(int level)
 	return output;
 }
 
+Monster* GameManager::GenerateBossMonster(int level)
+{
+	Monster* output = nullptr;
+
+	int randValue = rand() % 4;
+
+	switch (randValue)
+	{
+	case 0:
+		output = new Goblin(level * 1.5f);
+		break;
+	case 1:
+		output = new Orc(level * 1.5f);
+		break;
+	case 2:
+		output = new Troll(level * 1.5f);
+		break;
+	case 3:
+		output = new Slime(level * 1.5f);
+		break;
+	default:
+		cout << "ERROR : GameManager GenerateBossMonster randValue over" << endl;
+		break;
+	}
+
+	return output;
+}
+
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
 	player->AddExperience(50);
@@ -52,13 +81,59 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
+GameManager::GameManager()
+{
+	shop = new Shop();
+}
+
 void GameManager::VisitShop(Character* player)
 {
+	cout << "Welcome to the shop!" << endl;
+
+	while (true)
+	{
+		int shopOption = 0;
+		cout << "Buy : 1, Sell : 2, Exit : 0" << endl;
+		if (shopOption == 0) break;
+
+		switch (shopOption)
+		{
+		case 1:
+			shop->displayItem();
+			int buyIndex;
+			cout << "Choose the number of the item you wish to purchase." << endl;
+			cin >> buyIndex;
+			shop->buyItem(buyIndex, player);
+			break;
+		case 2:
+			DisplayInventory(player);
+			int sellIndex;
+			cout << "Choose the number of the item you wish to sell." << endl;
+			cin >> sellIndex;
+			shop->sellItem(sellIndex, player);
+			break;
+		default:
+			cout << "That option is not available." << endl;
+			break;
+		}
+	}
+
+	cout << "You exited the shop." << endl;
 }
 
 bool GameManager::Battle(Character* player)
 {
-	Monster* monster = GenerateMonster(player->getLevel());
+	Monster* monster = nullptr;
+
+	if (player->getLevel() >= 10) {
+		monster = GenerateBossMonster(player->getLevel());
+		cout << "BossMonster " << monster->getName() << " appears!" << endl;
+	}
+	else {
+		monster = GenerateMonster(player->getLevel());
+		cout << "Monster " << monster->getName() << " appears!" << endl;
+	}
+
 	vector<Item*> playerInventory = player->getInventory();
 
 	bool isPlayerTurn = true;
@@ -72,17 +147,21 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
 			monster->TakeDamage(player->getAttack());
+
 			if (monster->getHealth() <= 0) {
+				cout << monster->getName() << " defeat! : Victory!" << endl;
 				OnBattleVictory(player, monster);
-				cout << "Victory!" << endl;
 				return true;
 			}
 		}
 		else {
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
 			player->TakeDamage(monster->getAttack());
+
 			if (player->getHealth() <= 0) {
-				cout << "Defeat..." << endl;
+				cout << player->getName() << " Defeat..." << endl;
 				return false;
 			}
 		}

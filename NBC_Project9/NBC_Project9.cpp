@@ -15,21 +15,18 @@ int main()
 		Character* warrior = Character::getInstance(name);
 		while (1)
 		{
-			gm.Battle(warrior);
-			//조건문으로 게임 오버 조건 확인
+			if (gm.Battle(warrior) == false) {
+				return;
+			}	
 			
+			gm.Battle(warrior);
 			cout << "You want to go shop?? (Y/N)";
 			string choice;
 			cin >> choice;
 			if (choice == "Y" || choice == "y") {
-				//상점 방문
+				gm.VisitShop(warrior);
 			}
-
-
-
-
-
-
+			
 		}
 	}
 	return 0;

@@ -8,8 +8,8 @@ private:
 	const int attackIncrease = 10;
 public:
 	AttackBoost();
-	bool isUsable(Character* character) const;
-	const string getName() const;
-	void use(Character* Character);
-	int getPrice() const;
+	bool isUsable(Character* character) const override;
+	const string getName() const override;
+	void use(Character* Character) override;
+	int getPrice() const override;
 };
