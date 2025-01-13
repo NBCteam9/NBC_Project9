@@ -13,7 +13,7 @@ Monster* GameManager::GenerateMonster(int level)
 {
 	Monster* output = nullptr;
 
-	int randValue = rand() % 4;
+	int randValue = getRandomInt() % 4;
 
 	switch (randValue)
 	{
@@ -41,7 +41,7 @@ Monster* GameManager::GenerateBossMonster(int level)
 {
 	Monster* output = nullptr;
 
-	int randValue = rand() % 4;
+	int randValue = getRandomInt() % 4;
 
 	switch (randValue)
 	{
@@ -70,7 +70,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	player->AddExperience(50);
 
 	int curPlayerGold = player->getGold();
-	player->setGold(curPlayerGold + 10 + rand() % 10);
+	player->setGold(curPlayerGold + 10 + getRandomInt() % 10);
 
 	/*int itemDropRandom = rand() % 100;
 
@@ -79,6 +79,14 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 		player->getInventory().push_back(dropItem);
 		cout << "You got a " << dropItem->getName() << endl;
 	}*/
+}
+
+int GameManager::getRandomInt()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dis(0, 99);
+	return dis(gen);
 }
 
 GameManager::GameManager()
