@@ -12,6 +12,7 @@ protected:
 	string name;
 	int health;
 	int attack;
+	int getRandomNum(int n);
 public:
 	Monster(int level);
 
@@ -20,5 +21,4 @@ public:
 	int getAttack();
 	void TakeDamage(int damage);
 	Item* dropItem();
-	int getRandomNum();
 };
