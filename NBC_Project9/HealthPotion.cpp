@@ -11,7 +11,7 @@ bool HealthPotion::isUsable(Character* character) const
 	int currentHealth = character->getHealth();
 	int maxHealth = character->getMaxHealth();
 
-	if (maxHealth - currentHealth <= healthRestore)
+	if (maxHealth - currentHealth >= healthRestore)
 	{
 		return true;
 	}

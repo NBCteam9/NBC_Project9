@@ -12,6 +12,7 @@ int main()
 	string name;
 	cin.clear();
 	cin >> name;
+	cout << endl;
 	Character* warrior = Character::getInstance(name);
 
 	while (true)
@@ -37,7 +38,8 @@ int main()
 		cin >> choice;
 		if (choice == "Y" || choice == "y") {
 			gm.VisitShop(warrior);
-		}			
+		}
+		cout << endl;
 	}
 	return 0;
 }
