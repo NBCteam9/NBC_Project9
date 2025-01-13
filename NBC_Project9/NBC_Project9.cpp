@@ -37,8 +37,7 @@ int main()
 		cin >> choice;
 		if (choice == "Y" || choice == "y") {
 			gm.VisitShop(warrior);
-		}
-			
+		}			
 	}
 	return 0;
 }

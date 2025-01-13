@@ -73,6 +73,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	player->setGold(curPlayerGold + 10 + getRandomInt() % 10);
 
 	Item* dropItem = monster->dropItem();
+
 	if (dropItem != nullptr) {
 		player->getInventory().push_back(dropItem);
 	}
@@ -133,7 +134,6 @@ void GameManager::VisitShop(Character* player)
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
-
 	if (player->getLevel() >= 10) {
 		monster = GenerateBossMonster(player->getLevel());
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
@@ -143,7 +143,7 @@ bool GameManager::Battle(Character* player)
 		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
 
-	vector<Item*> playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->getInventory();
 
 	bool isPlayerTurn = true;
 
