@@ -39,7 +39,7 @@ int main()
 		if (choice == "Y" || choice == "y") {
 			gm.VisitShop(warrior);
 		}
-		cout << endl;
+		cout << "\n====================\n" << endl;
 	}
 	return 0;
 }
