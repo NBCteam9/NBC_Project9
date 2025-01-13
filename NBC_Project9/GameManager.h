@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "Monster.h"
 #include "Goblin.h"
+#include "Orc.h"
 
 class GameManager
 {
