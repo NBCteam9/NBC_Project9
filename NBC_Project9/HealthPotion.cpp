@@ -1,4 +1,4 @@
-#include "HealPotion.h"
+#include "HealthPotion.h"
 
 HealthPotion::HealthPotion()
 {

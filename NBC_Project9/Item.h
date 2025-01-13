@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Character.h"
+#include "AttackBoost.h"
+#include "HealthPotion.h"
 #include <string>
 
 using namespace std;
