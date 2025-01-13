@@ -72,7 +72,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	player->AddExperience(50);
 
 	int curPlayerGold = player->getGold();
-	player->setGold(curPlayerGold + 10 + getRandomInt() % 10);
+	player->setGold(curPlayerGold + monster->getDropGold());
 
 	Item* dropItem = monster->dropItem();
 
