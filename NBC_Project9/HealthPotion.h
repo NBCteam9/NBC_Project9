@@ -2,7 +2,8 @@
 
 #include "Item.h"
 
-class HealthPotion {
+class HealthPotion : public Item
+{
 private:
 	string name;
 	int healthRestore;

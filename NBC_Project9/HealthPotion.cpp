@@ -4,6 +4,7 @@ HealthPotion::HealthPotion()
 {
 	name = "Health Potion";
 	healthRestore = 50;
+	price = 100;
 }
 
 string HealthPotion::getName()
