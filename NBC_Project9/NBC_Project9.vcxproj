@@ -134,7 +134,6 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="NBC_Project9.cpp" />
     <ClCompile Include="Orc.cpp" />
-    <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackBoost.h" />
