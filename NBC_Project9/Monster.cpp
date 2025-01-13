@@ -20,16 +20,12 @@ int Monster::getAttack()
 void Monster::TakeDamage(int damage)
 {
 	int preHp = health;
-	int curHp = health - damage;
-	
+	health -= damage;
 	if (health <= 0)
 	{
 		health = 0;
 	}
-	else
-	{
-		cout << name << " Your Attack!! " << preHp << "->" << curHp << endl;
-	}
+	cout << preHp << " -> " << health << endl;
 }
 
 int Monster::getRandomNum(int n) {

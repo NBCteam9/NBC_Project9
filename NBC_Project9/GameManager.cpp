@@ -72,13 +72,10 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	int curPlayerGold = player->getGold();
 	player->setGold(curPlayerGold + 10 + getRandomInt() % 10);
 
-	/*int itemDropRandom = rand() % 100;
-
-	if (itemDropRandom < 30) {
-		Item* dropItem = monster->dropItem();
+	Item* dropItem = monster->dropItem();
+	if (dropItem != nullptr) {
 		player->getInventory().push_back(dropItem);
-		cout << "You got a " << dropItem->getName() << endl;
-	}*/
+	}
 }
 
 int GameManager::getRandomInt()
