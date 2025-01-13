@@ -5,6 +5,6 @@ class Goblin :
     public Monster
 {
 public:
-    Goblin(string n, int h, int a);
+    Goblin(int level);
 };
 
