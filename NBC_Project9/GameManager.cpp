@@ -45,15 +45,26 @@ void GameManager::OnBattleVictory(Character* player)
 	player->getInventory().push_back(GenerateItem());
 }
 
+GameManager::GameManager()
+{
+}
+
 void GameManager::Battle(Character* player)
 {
 	Monster* monster = GenerateMonster(player->getLevel());
+	vector<Item*> playerInventory = player->getInventory();
 
 	bool isPlayerTurn = true;
 
 	while (true)
 	{
 		if (isPlayerTurn) {
+			for (int index = playerInventory.size() - 1; index >= 0; index--) {
+				if (playerInventory[index]->isUsable()) {
+					player->UseItem(index);
+				}
+			}
+
 			monster->TakeDamage(player->getAttack());
 			if (monster->getHealth() <= 0) {
 				OnBattleVictory(player);

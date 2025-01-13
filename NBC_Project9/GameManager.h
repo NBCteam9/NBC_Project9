@@ -7,11 +7,13 @@ using namespace std;
 class GameManager
 {
 private:
-	Monster* GenerateMonster(int level);
-	Item* GenerateItem();
+	class Monster* GenerateMonster(int level);
+	class Item* GenerateItem();
 	void OnBattleVictory(class Character* player);
 
 public:
+	GameManager();
+
 	void Battle(class Character* player);
 	void DisplayInventory(class Character* player);
 };
