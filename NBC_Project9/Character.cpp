@@ -1,5 +1,8 @@
 #include "Character.h"
 #include "Item.h"
+
+Character* Character::instance = nullptr;
+
 Character::Character(string _name)
 {
 	name = _name;
