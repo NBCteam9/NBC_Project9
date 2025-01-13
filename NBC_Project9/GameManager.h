@@ -12,8 +12,6 @@ private:
 	void OnBattleVictory(class Character* player);
 
 public:
-	GameManager();
-
 	void Battle(class Character* player);
 	void DisplayInventory(class Character* player);
 };

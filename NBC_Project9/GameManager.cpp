@@ -3,7 +3,10 @@
 #include "Character.h"
 #include "Monster.h"
 #include "Goblin.h"
+#include "Orc.h"
+#include "Troll.h"
 #include "Item.h"
+#include "Slime.h"
 
 Monster* GameManager::GenerateMonster(int level)
 {
@@ -14,12 +17,16 @@ Monster* GameManager::GenerateMonster(int level)
 	switch (randValue)
 	{
 	case 0:
+		output = new Goblin(level);
 		break;
 	case 1:
+		output = new Orc(level);
 		break;
 	case 2:
+		output = new Troll(level);
 		break;
 	case 3:
+		output = new Slime(level);
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
@@ -57,10 +64,6 @@ void GameManager::OnBattleVictory(Character* player)
 	player->setGold(curPlayerGold + 10 + rand() % 10);
 
 	player->getInventory().push_back(GenerateItem());
-}
-
-GameManager::GameManager()
-{
 }
 
 void GameManager::Battle(Character* player)
