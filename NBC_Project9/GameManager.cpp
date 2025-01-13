@@ -72,13 +72,13 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	int curPlayerGold = player->getGold();
 	player->setGold(curPlayerGold + 10 + rand() % 10);
 
-	int itemDropRandom = rand() % 100;
+	/*int itemDropRandom = rand() % 100;
 
 	if (itemDropRandom < 30) {
 		Item* dropItem = monster->dropItem();
 		player->getInventory().push_back(dropItem);
 		cout << "You got a " << dropItem->getName() << endl;
-	}
+	}*/
 }
 
 GameManager::GameManager()
@@ -94,6 +94,8 @@ void GameManager::VisitShop(Character* player)
 	{
 		int shopOption = 0;
 		cout << "Buy : 1, Sell : 2, Exit : 0" << endl;
+		cin >> shopOption;
+
 		if (shopOption == 0) break;
 
 		switch (shopOption)

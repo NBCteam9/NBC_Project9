@@ -1,9 +1,13 @@
 #include "Shop.h"
 #include "Character.h"
 #include "Item.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
 
 Shop::Shop()
 {
+	availableItems.push_back(new HealthPotion());
+	availableItems.push_back(new AttackBoost());
 }
 
 void Shop::displayItem()
