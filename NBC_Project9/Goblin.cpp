@@ -1,5 +1,4 @@
 #include "Goblin.h"
-#include <cstdlib>
 
 Goblin::Goblin(int level) : Monster(level)
 {
