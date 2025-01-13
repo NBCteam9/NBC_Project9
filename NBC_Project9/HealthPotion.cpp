@@ -8,10 +8,10 @@ HealthPotion::HealthPotion()
 
 bool HealthPotion::isUsable(Character* character) const
 {
-	int currentHealth = character->getHealth(); //ÇöÀç Ã¼·Â ¹Þ¾Æ¿À±â
-	int maxHealth = character->getMaxHealth(); //ÃÖ´ë Ã¼·Â ¹Þ¾Æ¿À±â
+	int currentHealth = character->getHealth(); //ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+	int maxHealth = character->getMaxHealth(); //ï¿½Ö´ï¿½ Ã¼ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 
-	if (maxHealth - currentHealth <= healthRestore)  // È¸º¹·® ¸¸Å­ ±îÀÌ¸é »ç¿ë°¡´É
+	if (maxHealth - currentHealth <= healthRestore)  // È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 	{
 		return true;
 	}
@@ -28,10 +28,10 @@ const string HealthPotion::getName() const
 
 void HealthPotion::use(Character* character)
 {
-	int currentHealth = character->getHealth();	//ÇöÀç Ã¼·Â ¹Þ¾Æ¿À±â
-	currentHealth += 50;	//Ã¼·Â 50 Áõ°¡
+	int currentHealth = character->getHealth();	//ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+	currentHealth += 50;	//Ã¼ï¿½ï¿½ 50 ï¿½ï¿½ï¿½ï¿½
 	cout << "Use HealPotion, +50 HP , Your HP :  " << currentHealth << endl;
-	character->setHealth(currentHealth); // Ã¼·Â Àç¼³Á¤
+	character->setHealth(currentHealth); // Ã¼ï¿½ï¿½ ï¿½ç¼³ï¿½ï¿½
 }
 
 int HealthPotion::getPrice() const
