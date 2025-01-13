@@ -16,6 +16,7 @@ protected:
 	// int getRandomNum(int n, int m);
 	int getRandomNum(int min, int max);
 	int dropRate;
+	int dropGold;
 public:
 	Monster(int level);
 
@@ -24,4 +25,5 @@ public:
 	int getAttack();
 	void TakeDamage(int damage);
 	Item* dropItem();
+	int getDropGold();
 };

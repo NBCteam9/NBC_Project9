@@ -64,3 +64,7 @@ Item* Monster::dropItem() {
 
 	return nullptr;
 }
+
+int Monster::getDropGold() {
+	return dropGold;
+}
