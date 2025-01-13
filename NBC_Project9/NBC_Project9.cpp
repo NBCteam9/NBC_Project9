@@ -5,6 +5,7 @@
 int main()
 {
     GameManager gm;
+
 	while (true)
 	{
 		cout << "Welcome to Game!" << endl;
@@ -13,21 +14,33 @@ int main()
 		cin.clear();
 		cin >> name;
 		Character* warrior = Character::getInstance(name);
+
 		while (1)
 		{
-			if (gm.Battle(warrior) == false) {
-				return;
-			}	
+			if (warrior->getLevel() >= 10) {
+				if (gm.Battle(warrior) == false) {
+					break;
+				}
+				else {
+					cout << "Congratulations! Game cleared!" << endl;
+					break;
+				}
+			}
+			else {
+				if (gm.Battle(warrior) == false) {
+					break;
+				}
+			}
+
 			
-			gm.Battle(warrior);
 			cout << "You want to go shop?? (Y/N)";
 			string choice;
 			cin >> choice;
 			if (choice == "Y" || choice == "y") {
 				gm.VisitShop(warrior);
-			}
-			
+			}			
 		}
 	}
+
 	return 0;
 }
