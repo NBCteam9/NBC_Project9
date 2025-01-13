@@ -2,9 +2,10 @@
 
 AttackBoost::AttackBoost()
 {
-	name = "공격력 물약";
+	name = "Attack Boost";
 	attackIncrease = 10;
 	price = 100;
+	isUsable = true;
 }
 
 const string AttackBoost::getName() const
@@ -14,14 +15,9 @@ const string AttackBoost::getName() const
 
 void AttackBoost::use(Character* character)
 {
-	cout << "공격력이 " << attackIncrease << " 올랐다.";
+	cout << "Attack increased " << attackIncrease << "!";
 	character->setAttack(character->getAttack() + attackIncrease);
-	cout << " 현재 공격력 : " << character->getAttack() << endl;
-}
-
-bool AttackBoost::isUsable() const
-{
-	return true;
+	cout << " Current attack : " << character->getAttack() << endl;
 }
 
 int AttackBoost::getPrice() const
