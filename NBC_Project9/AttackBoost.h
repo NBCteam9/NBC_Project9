@@ -10,6 +10,5 @@ public:
 	AttackBoost();
 	const string getName() const;
 	void use(Character* Character);
-	bool isUsable() const;
 	int getPrice() const;
 };
