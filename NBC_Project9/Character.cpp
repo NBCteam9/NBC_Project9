@@ -98,8 +98,7 @@ void Character::DisplayStatus()
 
 void Character::TakeDamage(int val)
 {
-	health -= val;
-	
+	health -= val;	
 }
 
 void Character::LevelUp()

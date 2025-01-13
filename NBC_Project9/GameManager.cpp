@@ -127,9 +127,11 @@ bool GameManager::Battle(Character* player)
 
 	if (player->getLevel() >= 10) {
 		monster = GenerateBossMonster(player->getLevel());
+		cout << "BossMonster " << monster->getName() << " appears!" << endl;
 	}
 	else {
 		monster = GenerateMonster(player->getLevel());
+		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
 
 	vector<Item*> playerInventory = player->getInventory();
@@ -145,16 +147,21 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << "'s Health :" << monster->getHealth() << endl;
 			monster->TakeDamage(player->getAttack());
+
 			if (monster->getHealth() <= 0) {
+				cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << " defeat! : Victory!" << endl;
 				OnBattleVictory(player, monster);
-				cout << "Victory!" << endl;
 				return true;
 			}
 		}
 		else {
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << "'s Health :" << monster->getHealth() << endl;
 			player->TakeDamage(monster->getAttack());
+
 			if (player->getHealth() <= 0) {
+				cout << monster->getName() << " attacks the " << player->getName() << "! " << player->getName() << "' defeat..." << endl;
 				cout << "Defeat..." << endl;
 				return false;
 			}
