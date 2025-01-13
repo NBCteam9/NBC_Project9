@@ -9,4 +9,5 @@ Slime::Slime(int level) : Monster(level)
 	health = 15 + level * (10 + healthRandomValue);
 	attack = 2 + level * (2 + attackRandomValue);
 	dropRate = 10;
+	dropGold = getRandomNum(3, 5);
 }
