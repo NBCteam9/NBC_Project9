@@ -5,5 +5,5 @@ class Orc :
     public Monster
 {
 public:
-    Orc(string n, int h, int a);
+    Orc(int level);
 };
