@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include "Item.h"
+#include <cstdlib> // rand(), srand()
 
 using namespace std;
 class Monster
@@ -17,4 +19,6 @@ public:
 	int getHealth();
 	int getAttack();
 	void TakeDamage(int damage);
+	Item* dropItem();
+	int getRandomNum();
 };

@@ -36,3 +36,7 @@ void Monster::TakeDamage(int damage)
 		cout << name << "몬스터가" << damage << "만큼 피해를 입음" << "남은 몬스터의 체력:" << health << endl;
 	}
 }
+
+int getRandomNum(int n) {
+	return rand() % n;
+}
