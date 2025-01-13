@@ -8,6 +8,8 @@ class GameManager
 {
 private:
 	Monster* GenerateMonster(int level);
+	Item* GenerateItem();
+	void OnBattleVictory(class Character* player);
 
 public:
 	void Battle(class Character* player);
