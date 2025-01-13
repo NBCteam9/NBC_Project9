@@ -27,7 +27,7 @@ void Monster::TakeDamage(int damage)
 	}
 	else
 	{
-		cout << name << "monster get damaged" << damage << "current Monster HP:" << health << endl;
+		cout << name << " monster get damaged " << damage << ", current Monster HP:" << health << endl;
 	}
 }
 
