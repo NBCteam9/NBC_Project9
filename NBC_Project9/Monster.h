@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
-#include "Item.h"
 #include <cstdlib> // rand(), srand()
+#include "Item.h"
 
 using namespace std;
 class Monster
