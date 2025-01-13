@@ -1,21 +1,24 @@
 #include "Monster.h"
 
-Monster::Monster(string n, int h, int a) : name(n), health(h), attack(a) {
+Monster::Monster(int level) : name("default"), health(0), attack(0) {
 	cout << "monster spawn!" << endl;
 }
 
 string Monster::getName()
 {
+	cout << name << endl;
 	return name;
 }
 
 int Monster::getHealth()
 {
+	cout << health << endl;
 	return health;
 }
 
 int Monster::getAttack()
 {
+	cout << attack << endl;
 	return attack;
 }
 

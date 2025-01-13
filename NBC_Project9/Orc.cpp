@@ -1,7 +1,7 @@
 #include "Orc.h"
 
 
-Orc::Orc(string n, int h, int a) : Monster(n, h, a)
+Orc::Orc(int level) : Monster(level)
 {
 	cout << "Orc Spawned!!" << endl;
 }
