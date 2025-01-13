@@ -7,6 +7,7 @@ HealthPotion::HealthPotion()
 	price = 100;
 }
 
+
 string HealthPotion::getName()
 {
 	return name;
