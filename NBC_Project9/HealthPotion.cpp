@@ -1,9 +1,10 @@
-#include "HealPotion.h"
+#include "HealthPotion.h"
 
 HealthPotion::HealthPotion()
 {
 	name = "Health Potion";
 	healthRestore = 50;
+	price = 100;
 }
 
 string HealthPotion::getName()

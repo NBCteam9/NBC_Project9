@@ -63,16 +63,6 @@ void Character::setAttack(int _attack)
 	attack = _attack;
 }
 
-int Character::getExperience()
-{
-	return experience;
-}
-
-void Character::setExperience(int _experience)
-{
-	experience = _experience;
-}
-
 int Character::getGold()
 {
 	return gold;
@@ -90,12 +80,26 @@ void Character::setGold(int val)
 	}
 }
 
+void Character::AddExperience(int val)
+{
+	experience += val;
+	if (experience >= 100)
+		LevelUp();
+}
+
 void Character::DisplayStatus()
 {
-	cout << "체력:" << health << "/" << maxHealth << endl;
-	cout << "공격력:" << attack << endl;
-	cout << "현재 경험치:" << experience << endl;
-	cout << "소지 골드:" << gold << endl;
+	cout << "Health:" << health << "/" << maxHealth << endl;
+	cout << "Attack:" << attack << endl;
+	cout << "Experience:" << experience << endl;
+	cout << "Gold:" << gold << endl;
+	cout << "Level:" << level;
+}
+
+void Character::TakeDamage(int val)
+{
+	health -= val;
+	
 }
 
 void Character::LevelUp()
@@ -106,6 +110,9 @@ void Character::LevelUp()
 	health = maxHealth;
 	attack += 5;
 	experience -= 100;
+	cout << "Level Up!" << endl;
+	cout << "Health:" << health << "/" << maxHealth << endl;
+	cout << "Attack:" << attack << endl;
 }
 void Character::UseItem(int index)
 {
