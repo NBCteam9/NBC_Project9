@@ -34,7 +34,7 @@ int Monster::getRandomNum(int n) {
 	return rand() % n;
 }
 
-Item* Monster::dropItem(int dropRate) {
+Item* Monster::dropItem() {
 	int r1 = getRandomNum(100);
 
 	if (r1 < dropRate) {

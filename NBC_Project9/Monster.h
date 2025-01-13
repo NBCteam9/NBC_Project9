@@ -21,5 +21,5 @@ public:
 	int getHealth();
 	int getAttack();
 	void TakeDamage(int damage);
-	Item* dropItem(int dropRate);
+	Item* dropItem();
 };
