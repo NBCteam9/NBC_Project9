@@ -20,12 +20,12 @@ void Shop::displayItem()
 
 void Shop::buyItem(int index, Character* player)
 {
-	if (index >= availableItems.size()) {
+	if (index - 1 >= availableItems.size()) {
 		cout << "The " << index << "th item does not exist in the shop." << endl;
 		return;
 	}
 
-	Item* item = availableItems[index];
+	Item* item = availableItems[index - 1];
 
 	int playerGold = player->getGold();
 	if (playerGold < item->getPrice()) {
@@ -37,23 +37,23 @@ void Shop::buyItem(int index, Character* player)
 	cout << "You have purchased the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->getInventory();
-	playerInventory.push_back(availableItems[index]);
+	playerInventory.push_back(availableItems[index - 1]);
 }
 
 void Shop::sellItem(int index, Character* player)
 {
 	vector<Item*>& playerInventory = player->getInventory();
 
-	if (index >= playerInventory.size()) {
+	if (index - 1 >= playerInventory.size()) {
 		cout << "the " << index << "th item does not exist in your inventory." << endl;
 		return;
 	}
 
-	Item* item = availableItems[index];
+	Item* item = availableItems[index - 1];
 
 	int playerGold = player->getGold();
 	player->setGold(playerGold + item->getPrice());
 	cout << "You have sold the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
-	playerInventory.erase(playerInventory.begin() + index);
+	playerInventory.erase(playerInventory.begin() + index - 1);
 }

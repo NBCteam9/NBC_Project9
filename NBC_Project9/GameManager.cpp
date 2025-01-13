@@ -1,4 +1,5 @@
 #include <random>
+#include <Windows.h>
 #include "GameManager.h"
 #include "Character.h"
 #include "Monster.h"
@@ -142,6 +143,7 @@ bool GameManager::Battle(Character* player)
 		monster = GenerateMonster(player->getLevel());
 		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
+	Sleep(500);
 
 	vector<Item*>& playerInventory = player->getInventory();
 
@@ -162,6 +164,8 @@ bool GameManager::Battle(Character* player)
 			if (monster->getHealth() <= 0) {
 				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
 				OnBattleVictory(player, monster);
+				player->DisplayStatus();
+				DisplayInventory(player);
 				return true;
 			}
 		}
@@ -176,6 +180,7 @@ bool GameManager::Battle(Character* player)
 		}
 
 		isPlayerTurn = !isPlayerTurn;
+		Sleep(500);
 	}
 }
 
@@ -185,6 +190,6 @@ void GameManager::DisplayInventory(Character* player)
 
 	for (int index = 0; index < player->getInventory().size(); index++){
 		Item* item = playerInventory[index];
-		cout << index << ": " << item->getName() << "(Price : " << item->getPrice() << "G)";
+		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
 	}
 }
