@@ -120,7 +120,7 @@ void GameManager::VisitShop(Character* player)
 		}
 	}
 
-	cout << "You exited the shop." << endl;
+	cout << "You exited the shop." << endl << endl;
 }
 
 bool GameManager::Battle(Character* player)
@@ -153,7 +153,7 @@ bool GameManager::Battle(Character* player)
 			monster->TakeDamage(player->getAttack());
 
 			if (monster->getHealth() <= 0) {
-				cout << monster->getName() << " defeat! : Victory!" << endl;
+				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
 				OnBattleVictory(player, monster);
 				return true;
 			}
