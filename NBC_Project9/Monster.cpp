@@ -32,6 +32,5 @@ void Monster::TakeDamage(int damage)
 }
 
 int Monster::getRandomNum(int n) {
-	cout << 'a';
 	return rand() % n;
 }
