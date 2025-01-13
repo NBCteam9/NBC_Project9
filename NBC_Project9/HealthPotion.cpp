@@ -21,7 +21,7 @@ bool HealthPotion::isUsable(Character* character) const
 	}
 }
 
-string HealthPotion::getName() const
+const string HealthPotion::getName() const
 {
 	return name;
 }

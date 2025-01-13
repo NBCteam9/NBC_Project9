@@ -10,7 +10,7 @@ private:
 public:
 	HealthPotion();
 	bool isUsable(Character* character) const;
-	string getName() const;
+	const string getName() const;
 	void use(Character* character);
 	int getPrice() const;
 };
