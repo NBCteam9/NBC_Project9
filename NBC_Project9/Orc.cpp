@@ -6,7 +6,7 @@ Orc::Orc(int level) : Monster(level)
 	int attackRandomValue = getRandomNum(5);
 
 	name = "Orc";
-	health = 45 + level * (30 + healthRandomValue);
-	attack = 7 + level * (7 + attackRandomValue);
+	health = 45 + level * (25 + healthRandomValue);
+	attack = 7 + level * (6 + attackRandomValue);
 	dropRate = 30;
 }
