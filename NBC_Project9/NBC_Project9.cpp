@@ -13,9 +13,23 @@ int main()
 		cin.clear();
 		cin >> name;
 		Character* warrior = Character::getInstance(name);
-		while ()
+		while (1)
 		{
 			gm.Battle(warrior);
+			//조건문으로 게임 오버 조건 확인
+			
+			cout << "You want to go shop?? (Y/N)";
+			string choice;
+			cin >> choice;
+			if (choice == "Y" || choice == "y") {
+				//상점 방문
+			}
+
+
+
+
+
+
 		}
 	}
 	return 0;
