@@ -36,34 +36,20 @@ Monster* GameManager::GenerateMonster(int level)
 	return output;
 }
 
-Item* GameManager::GenerateItem()
-{
-	Item* output = nullptr;
-
-	int randValue = rand() % 1;
-
-	switch (randValue)
-	{
-	case 0:
-		break;
-	case 1:
-		break;
-	default:
-		cout << "ERROR : GameManager GenerateItem randValue over" << endl;
-		break;
-	}
-
-	return output;
-}
-
-void GameManager::OnBattleVictory(Character* player)
+void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
 	player->AddExperience(50);
 
 	int curPlayerGold = player->getGold();
 	player->setGold(curPlayerGold + 10 + rand() % 10);
 
-	player->getInventory().push_back(GenerateItem());
+	int itemDropRandom = rand() % 100;
+
+	if (itemDropRandom < 30) {
+		Item* dropItem = monster->dropItem();
+		player->getInventory().push_back(dropItem);
+		cout << "You got a " << dropItem->getName() << endl;
+	}
 }
 
 void GameManager::Battle(Character* player)
@@ -77,20 +63,22 @@ void GameManager::Battle(Character* player)
 	{
 		if (isPlayerTurn) {
 			for (int index = playerInventory.size() - 1; index >= 0; index--) {
-				if (playerInventory[index]->isUsable) {
+				if (playerInventory[index]->isUsable(player)) {
 					player->UseItem(index);
 				}
 			}
 
 			monster->TakeDamage(player->getAttack());
 			if (monster->getHealth() <= 0) {
-				OnBattleVictory(player);
+				OnBattleVictory(player, monster);
+				cout << "Victory!" << endl;
 				break;
 			}
 		}
 		else {
 			player->TakeDamage(monster->getAttack());
 			if (player->getHealth() <= 0) {
+				cout << "Defeat..." << endl;
 				break;
 			}
 		}
