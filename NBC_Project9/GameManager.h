@@ -1,13 +1,15 @@
 #pragma once
 
-#include "Character.h"
-#include "Monster.h"
-#include "Goblin.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 
 class GameManager
 {
-public:
+private:
 	Monster* GenerateMonster(int level);
-	void Battle(Character* player);
-	void DisplayInventory(Character* player);
+
+public:
+	void Battle(class Character* player);
+	void DisplayInventory(class Character* player);
 };

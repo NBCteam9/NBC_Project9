@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Item.h"
-class HealPotion {
+
+class HealthPotion {
 private:
-	int const healthRestore;
 	string name;
+	int healthRestore;
 public:
-	HealthPotion() : healthRestore(50) {};
+	HealthPotion();
 	string getName();
 	void use(Character* character);
 };
