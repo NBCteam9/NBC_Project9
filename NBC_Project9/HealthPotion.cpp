@@ -11,14 +11,13 @@ bool HealthPotion::isUsable(Character* character) const
 	int currentHealth = character->getHealth(); //현재 체력 받아오기
 	int maxHealth = character->getMaxHealth(); //최대 체력 받아오기
 
-	if (currentHealth == maxHealth)  // 풀피일때 물약 못먹게 설정
+	if (maxHealth - currentHealth <= healthRestore)  // 회복량 만큼 까이면 사용가능
 	{
-		cout << "Max Hp" << endl;
-		return false;
+		return true;
 	}
 	else
 	{
-		return true;
+		return false;
 	}
 }
 

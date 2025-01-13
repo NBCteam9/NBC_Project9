@@ -52,7 +52,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
-void GameManager::Battle(Character* player)
+bool GameManager::Battle(Character* player)
 {
 	Monster* monster = GenerateMonster(player->getLevel());
 	vector<Item*> playerInventory = player->getInventory();
@@ -72,14 +72,14 @@ void GameManager::Battle(Character* player)
 			if (monster->getHealth() <= 0) {
 				OnBattleVictory(player, monster);
 				cout << "Victory!" << endl;
-				break;
+				return true;
 			}
 		}
 		else {
 			player->TakeDamage(monster->getAttack());
 			if (player->getHealth() <= 0) {
 				cout << "Defeat..." << endl;
-				break;
+				return false;
 			}
 		}
 
