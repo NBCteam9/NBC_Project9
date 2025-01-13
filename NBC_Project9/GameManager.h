@@ -8,6 +8,7 @@ class GameManager
 {
 private:
 	class Monster* GenerateMonster(int level);
+	class Monster* GenerateBossMonster(int level);
 	void OnBattleVictory(class Character* player, class Monster* monster);
 
 	class Shop* shop;

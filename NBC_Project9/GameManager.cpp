@@ -13,7 +13,7 @@ Monster* GameManager::GenerateMonster(int level)
 {
 	Monster* output = nullptr;
 
-	int randValue = rand() % 1;
+	int randValue = rand() % 4;
 
 	switch (randValue)
 	{
@@ -31,6 +31,34 @@ Monster* GameManager::GenerateMonster(int level)
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
+		break;
+	}
+
+	return output;
+}
+
+Monster* GameManager::GenerateBossMonster(int level)
+{
+	Monster* output = nullptr;
+
+	int randValue = rand() % 4;
+
+	switch (randValue)
+	{
+	case 0:
+		output = new Goblin(level * 1.5f);
+		break;
+	case 1:
+		output = new Orc(level * 1.5f);
+		break;
+	case 2:
+		output = new Troll(level * 1.5f);
+		break;
+	case 3:
+		output = new Slime(level * 1.5f);
+		break;
+	default:
+		cout << "ERROR : GameManager GenerateBossMonster randValue over" << endl;
 		break;
 	}
 
@@ -60,7 +88,7 @@ GameManager::GameManager()
 
 void GameManager::VisitShop(Character* player)
 {
-	cout << "Visited the shop" << endl;
+	cout << "Welcome to the shop!" << endl;
 
 	while (true)
 	{
@@ -95,7 +123,15 @@ void GameManager::VisitShop(Character* player)
 
 bool GameManager::Battle(Character* player)
 {
-	Monster* monster = GenerateMonster(player->getLevel());
+	Monster* monster = nullptr;
+
+	if (player->getLevel() >= 10) {
+		monster = GenerateBossMonster(player->getLevel());
+	}
+	else {
+		monster = GenerateMonster(player->getLevel());
+	}
+
 	vector<Item*> playerInventory = player->getInventory();
 
 	bool isPlayerTurn = true;
