@@ -22,13 +22,8 @@ int main()
 			string choice;
 			cin >> choice;
 			if (choice == "Y" || choice == "y") {
-				//상점 방문
+				gm.VisitShop(warrior);
 			}
-
-
-
-
-
 
 		}
 	}
