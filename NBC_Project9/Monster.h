@@ -13,6 +13,7 @@ protected:
 	int health;
 	int attack;
 	int getRandomNum(int n);
+	float dropRate;
 public:
 	Monster(int level);
 

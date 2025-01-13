@@ -14,7 +14,7 @@ void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {
 		Item* curItem = availableItems[index];
-		cout << index << ". " << curItem->getName() << " (Price : " << curItem->getPrice() << "G)" << endl;
+		cout << index + 1 << ". " << curItem->getName() << " (Price : " << curItem->getPrice() << "G)" << endl;
 	}
 }
 
