@@ -1,14 +1,20 @@
 #include "HealPotion.h"
 
+HealthPotion::HealthPotion()
+{
+	name = "Health Potion";
+	healthRestore = 50;
+}
 
-
-HealPotion::getName() {
+string HealthPotion::getName()
+{
 	return name;
 }
-HealPotion::use(Character* character) {
 
-	int currentHealth = character->getHealth();//현재 체력 받아오기
-	int maxHealth = character->getMaxHealth();//최대 체력 받아오기
+void HealthPotion::use(Character* character)
+{
+	int currentHealth = character->getHealth(); //현재 체력 받아오기
+	int maxHealth = character->getMaxHealth(); //최대 체력 받아오기
 
 	if (currentHealth == maxHealth) {// 풀피일때 물약 못먹게 설정
 		cout << "체력이 이미 가득 찼습니다." << endl;
