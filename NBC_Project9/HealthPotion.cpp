@@ -21,7 +21,7 @@ bool HealthPotion::isUsable(Character* character) const
 	}
 }
 
-string HealthPotion::getName()
+string HealthPotion::getName() const
 {
 	return name;
 }
@@ -32,4 +32,9 @@ void HealthPotion::use(Character* character)
 	currentHealth += 50;	//체력 50 증가
 	cout << "Use HealPotion, +50 HP , Your HP :  " << currentHealth << endl;
 	character->setHealth(currentHealth); // 체력 재설정
+}
+
+int HealthPotion::getPrice() const
+{
+	return price;
 }
