@@ -1,4 +1,6 @@
 #include "Monster.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
 
 Monster::Monster(int level) : name("default"), health(0), attack(0) {}
 
@@ -30,4 +32,18 @@ void Monster::TakeDamage(int damage)
 
 int Monster::getRandomNum(int n) {
 	return rand() % n;
+}
+
+Item* Monster::dropItem(int dropRate) {
+	int r1 = getRandomNum(100);
+
+	if (r1 < dropRate) {
+		if (r1 < 50) {
+			return new HealthPotion();
+		}
+		else
+		{
+			return new AttackBoost();
+		}
+	}
 }
