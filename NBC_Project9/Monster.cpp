@@ -1,6 +1,7 @@
 #include "Monster.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include <random>
 
 Monster::Monster(int level) : name("default"), health(0), attack(0), dropRate(0) {}
 
@@ -30,8 +31,22 @@ void Monster::TakeDamage(int damage)
 	cout << preHp << " -> " << health << endl;
 }
 
-int Monster::getRandomNum(int n) {
-	return rand() % n;
+int Monster::getRandomNum(int end) {
+	return rand() % end;
+}
+
+//int Monster::getRandomNum(int min, int max) {
+//	int randomNum = rand() % (max - min + 1); 
+//	randomNum += min;
+//	return randomNum;
+//}
+
+int Monster::getRandomNum(int min, int max)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dis(min, max);
+	return dis(gen);
 }
 
 Item* Monster::dropItem() {

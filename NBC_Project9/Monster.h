@@ -12,7 +12,9 @@ protected:
 	string name;
 	int health;
 	int attack;
-	int getRandomNum(int n);
+	int getRandomNum(int end);
+	// int getRandomNum(int n, int m);
+	int getRandomNum(int min, int max);
 	int dropRate;
 public:
 	Monster(int level);
