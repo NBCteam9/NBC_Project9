@@ -46,16 +46,16 @@ Monster* GameManager::GenerateBossMonster(int level)
 	switch (randValue)
 	{
 	case 0:
-		output = new Goblin(level * 1.5f);
+		output = new Goblin(15);
 		break;
 	case 1:
-		output = new Orc(level * 1.5f);
+		output = new Orc(15);
 		break;
 	case 2:
-		output = new Troll(level * 1.5f);
+		output = new Troll(15);
 		break;
 	case 3:
-		output = new Slime(level * 1.5f);
+		output = new Slime(15);
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateBossMonster randValue over" << endl;
