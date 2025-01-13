@@ -5,8 +5,5 @@ class Slime :
     public Monster
 {
 public:
-    Slime();
-    virtual string getName() override;
-    int getHealth();
-    int getAttack();
+    Slime(int level);
 };
