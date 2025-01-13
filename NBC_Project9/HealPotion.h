@@ -6,7 +6,7 @@ private:
 	int const healthRestore;
 	string name;
 public:
-	HealthPotion() : healthRestore(50) {};
+	HealPotion() : healthRestore(50) {};
 	string getName();
 	void use(Character* character);
 };
