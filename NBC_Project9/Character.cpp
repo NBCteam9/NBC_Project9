@@ -23,6 +23,11 @@ Character* Character::getInstance(string _name)
 	return instance;
 }
 
+string Character::getName()
+{
+	return name;
+}
+
 vector<Item*>& Character::getInventory()
 {
 	return inventory;
@@ -33,7 +38,7 @@ int Character::getLevel()
 	return level;
 }
 
-int Character::getHealth() 
+int Character::getHealth()
 {
 	return health;
 }
@@ -99,7 +104,8 @@ void Character::DisplayStatus()
 void Character::TakeDamage(int val)
 {
 	health -= val;
-	
+	cout << "Take Damage!! " << health + val << "->" << health << endl;
+	health -= val;
 }
 
 void Character::LevelUp()
@@ -114,8 +120,10 @@ void Character::LevelUp()
 	cout << "Health:" << health << "/" << maxHealth << endl;
 	cout << "Attack:" << attack << endl;
 }
+
 void Character::UseItem(int index)
 {
 	if (inventory.size() < index) return;
 	inventory[index]->use(instance);
+	inventory.erase(inventory.begin() + index);
 }
