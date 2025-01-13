@@ -8,5 +8,5 @@ Goblin::Goblin(int level) : Monster(level)
 	name = "Goblin";
 	health = 30 + level * (20 + healthRandomValue);
 	attack = 5 + level * (5 + attackRandomValue);
-	//dropRate = 0.2f;
+	dropRate = 0.2f;
 }
