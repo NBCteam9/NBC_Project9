@@ -147,22 +147,21 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
-			cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << "'s Health :" << monster->getHealth() << endl;
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
 			monster->TakeDamage(player->getAttack());
 
 			if (monster->getHealth() <= 0) {
-				cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << " defeat! : Victory!" << endl;
+				cout << monster->getName() << " defeat! : Victory!" << endl;
 				OnBattleVictory(player, monster);
 				return true;
 			}
 		}
 		else {
-			cout << player->getName() << " attacks the " << monster->getName() << "! " << monster->getName() << "'s Health :" << monster->getHealth() << endl;
+			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
 			player->TakeDamage(monster->getAttack());
 
 			if (player->getHealth() <= 0) {
-				cout << monster->getName() << " attacks the " << player->getName() << "! " << player->getName() << "' defeat..." << endl;
-				cout << "Defeat..." << endl;
+				cout << player->getName() << " Defeat..." << endl;
 				return false;
 			}
 		}
