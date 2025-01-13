@@ -7,6 +7,7 @@
 #include "Troll.h"
 #include "Item.h"
 #include "Slime.h"
+#include "Shop.h"
 
 Monster* GameManager::GenerateMonster(int level)
 {
@@ -52,8 +53,44 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
+GameManager::GameManager()
+{
+	shop = new Shop();
+}
+
 void GameManager::VisitShop(Character* player)
 {
+	cout << "Visited the shop" << endl;
+
+	while (true)
+	{
+		int shopOption = 0;
+		cout << "Buy : 1, Sell : 2, Exit : 0" << endl;
+		if (shopOption == 0) break;
+
+		switch (shopOption)
+		{
+		case 1:
+			shop->displayItem();
+			int buyIndex;
+			cout << "Choose the number of the item you wish to purchase." << endl;
+			cin >> buyIndex;
+			shop->buyItem(buyIndex, player);
+			break;
+		case 2:
+			DisplayInventory(player);
+			int sellIndex;
+			cout << "Choose the number of the item you wish to sell." << endl;
+			cin >> sellIndex;
+			shop->sellItem(sellIndex, player);
+			break;
+		default:
+			cout << "That option is not available." << endl;
+			break;
+		}
+	}
+
+	cout << "You exited the shop." << endl;
 }
 
 bool GameManager::Battle(Character* player)
