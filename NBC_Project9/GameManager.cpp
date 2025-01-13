@@ -8,11 +8,6 @@ Monster* GameManager::GenerateMonster(int level)
 	return nullptr;
 }
 
-void GameManager::AddMonsterType(Monster* monster)
-{
-
-}
-
 void GameManager::Battle(Character* player)
 {
 

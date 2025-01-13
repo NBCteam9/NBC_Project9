@@ -10,7 +10,7 @@ void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {
 		Item* curItem = availableItems[index];
-		cout << index << ". " << curItem->getName() << " (가격 : " << curItem->getPrice() << "G)" << endl;
+		cout << index << ". " << curItem->getName() << " (Price : " << curItem->getPrice() << "G)" << endl;
 	}
 }
 
@@ -18,7 +18,7 @@ void Shop::buyItem(int index, Character* player)
 {
 	//인덱스 체크
 	if (index >= availableItems.size()) {
-		cout << "상점에 " << index << "번째 상품이 존재하지 않습니다." << endl;
+		cout << "The  " << index << "번째 상품이 존재하지 않습니다." << endl;
 		return;
 	}
 
