@@ -7,32 +7,46 @@
 
 Monster* GameManager::GenerateMonster(int level)
 {
+	Monster* output = nullptr;
+
 	int randValue = rand() % 1;
 
 	switch (randValue)
 	{
 	case 0:
 		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
 	default:
+		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
 		break;
 	}
 
-	return nullptr;
+	return output;
 }
 
 Item* GameManager::GenerateItem()
 {
+	Item* output = nullptr;
+
 	int randValue = rand() % 1;
 
 	switch (randValue)
 	{
 	case 0:
 		break;
+	case 1:
+		break;
 	default:
+		cout << "ERROR : GameManager GenerateItem randValue over" << endl;
 		break;
 	}
 
-	return nullptr;
+	return output;
 }
 
 void GameManager::OnBattleVictory(Character* player)
