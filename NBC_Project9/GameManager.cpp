@@ -186,10 +186,12 @@ bool GameManager::Battle(Character* player)
 
 void GameManager::DisplayInventory(Character* player)
 {
-	vector<Item*> playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->getInventory();
 
-	for (int index = 0; index < player->getInventory().size(); index++){
+	for (int index = 0; index < playerInventory.size(); index++){
 		Item* item = playerInventory[index];
 		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
 	}
+
+	if (playerInventory.size() != 0) cout << endl;
 }
