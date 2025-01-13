@@ -1,12 +1,2 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-
-*.txt text eol=lf
-*.cs text eol=lf
-*.html text eol=lf
-*.js text eol=lf
-*.json text eol=lf
-
-# 특정 파일 확장자는 UTF-8로 지정
-*.cs -text working-tree-encoding=UTF-8
-*.txt -text working-tree-encoding=UTF-8
