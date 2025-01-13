@@ -60,7 +60,7 @@ void GameManager::Battle(Character* player)
 	{
 		if (isPlayerTurn) {
 			for (int index = playerInventory.size() - 1; index >= 0; index--) {
-				if (playerInventory[index]->isUsable()) {
+				if (playerInventory[index]->isUsable) {
 					player->UseItem(index);
 				}
 			}
