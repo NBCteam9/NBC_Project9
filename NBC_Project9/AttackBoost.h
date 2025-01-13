@@ -5,7 +5,7 @@ class AttackBoost : public Item
 {
 private:
 	string name;
-	int attackIncrease;
+	const int attackIncrease = 10;
 public:
 	AttackBoost();
 	bool isUsable(Character* character) const;

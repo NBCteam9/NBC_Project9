@@ -8,10 +8,10 @@ class GameManager
 {
 private:
 	class Monster* GenerateMonster(int level);
-	class Item* GenerateItem();
-	void OnBattleVictory(class Character* player);
+	void OnBattleVictory(class Character* player, class Monster* monster);
 
 public:
-	void Battle(class Character* player);
+	void VisitShop(class Character* player);
+	bool Battle(class Character* player);
 	void DisplayInventory(class Character* player);
 };

@@ -3,7 +3,6 @@
 AttackBoost::AttackBoost()
 {
 	name = "Attack Boost";
-	attackIncrease = 10;
 	price = 100;
 }
 
