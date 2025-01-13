@@ -6,8 +6,6 @@ Goblin::Goblin(int level) : Monster(level)
 	int attackRandomValue = getRandomNum(5);
 
 	name = "Goblin";
-	health = 60 + level * (20 + healthRandomValue);
-	attack = 11 + level * (5 + attackRandomValue);
-
-	cout << "Goblin Spawned!!" << endl;
+	health = 30 + level * (20 + healthRandomValue);
+	attack = 5 + level * (5 + attackRandomValue);
 }
