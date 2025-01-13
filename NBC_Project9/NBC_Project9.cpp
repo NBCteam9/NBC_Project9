@@ -14,6 +14,7 @@ int main()
 	cin >> name;
 	cout << endl;
 	Character* warrior = Character::getInstance(name);
+	
 
 	while (true)
 	{
@@ -33,7 +34,7 @@ int main()
 			}
 		}
 
-		cout << "You want to go shop?? (Y/N)";
+		cout << "Do you want to go shop?? (Y/N)";
 		string choice;
 		cin >> choice;
 		if (choice == "Y" || choice == "y") {
