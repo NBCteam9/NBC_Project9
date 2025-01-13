@@ -105,7 +105,6 @@ void Character::TakeDamage(int val)
 {
 	health -= val;
 	cout << "Take Damage!! " << health + val << "->" << health << endl;
-	health -= val;
 }
 
 void Character::LevelUp()
