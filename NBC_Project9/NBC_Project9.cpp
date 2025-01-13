@@ -15,17 +15,18 @@ int main()
 		Character* warrior = Character::getInstance(name);
 		while (1)
 		{
-			if (gm.Battle(warrior) == true) {
-				
-				gm.Battle(warrior);
-				cout << "You want to go shop?? (Y/N)";
-				string choice;
-				cin >> choice;
-				if (choice == "Y" || choice == "y") {
-					gm.VisitShop(warrior);
-				}
+			if (gm.Battle(warrior) == false) {
+				return;
+			}	
+			
+			gm.Battle(warrior);
+			cout << "You want to go shop?? (Y/N)";
+			string choice;
+			cin >> choice;
+			if (choice == "Y" || choice == "y") {
+				gm.VisitShop(warrior);
 			}
-			else return;
+			
 		}
 	}
 	return 0;
