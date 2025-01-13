@@ -11,6 +11,7 @@ private:
 	void OnBattleVictory(class Character* player, class Monster* monster);
 
 public:
+	void VisitShop(class Character* player);
 	bool Battle(class Character* player);
 	void DisplayInventory(class Character* player);
 };

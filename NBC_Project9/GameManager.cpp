@@ -52,6 +52,10 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
+void GameManager::VisitShop(Character* player)
+{
+}
+
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = GenerateMonster(player->getLevel());
