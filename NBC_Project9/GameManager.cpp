@@ -101,7 +101,7 @@ void GameManager::VisitShop(Character* player)
 	while (true)
 	{
 		int shopOption = 0;
-		cout << "Buy : 1, Sell : 2, Exit : 0" << endl;
+		cout << "Buy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ")" << endl;
 		cin >> shopOption;
 
 		if (shopOption == 0) break;
@@ -111,15 +111,17 @@ void GameManager::VisitShop(Character* player)
 		case 1:
 			shop->displayItem();
 			int buyIndex;
-			cout << "Choose the number of the item you wish to purchase." << endl;
+			cout << "Choose the number of the item you wish to purchase. (Cancel : 0)" << endl;
 			cin >> buyIndex;
+			if (buyIndex == 0) break;
 			shop->buyItem(buyIndex, player);
 			break;
 		case 2:
 			DisplayInventory(player);
 			int sellIndex;
-			cout << "Choose the number of the item you wish to sell." << endl;
+			cout << "Choose the number of the item you wish to sell. (Cancel : 0)" << endl;
 			cin >> sellIndex;
+			if (sellIndex == 0) break;
 			shop->sellItem(sellIndex, player);
 			break;
 		default:

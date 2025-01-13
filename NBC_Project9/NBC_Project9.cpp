@@ -14,12 +14,24 @@ int main()
 	cin >> name;
 	Character* warrior = Character::getInstance(name);
 
-	while (1)
+	while (true)
 	{
-		if (gm.Battle(warrior) == false) {
-			return;
+		if (warrior->getLevel() >= 10) {
+			if (gm.Battle(warrior) == false) {
+				return 0;
+			}
+			else {
+				cout << "Congratulations! Game cleared!" << endl;
+				return 0;
+			}
+
 		}
-		gm.Battle(warrior);
+		else {
+			if (gm.Battle(warrior) == false) {
+				return 0;
+			}
+		}
+
 		cout << "You want to go shop?? (Y/N)";
 		string choice;
 		cin >> choice;
