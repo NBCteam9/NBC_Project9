@@ -3,7 +3,7 @@
 HealthPotion::HealthPotion()
 {
 	name = "Health Potion";
-	price = 100;
+	price = 15;
 }
 
 bool HealthPotion::isUsable(Character* character) const
@@ -11,7 +11,7 @@ bool HealthPotion::isUsable(Character* character) const
 	int currentHealth = character->getHealth();
 	int maxHealth = character->getMaxHealth();
 
-	if (maxHealth - currentHealth <= healthRestore)
+	if (maxHealth - currentHealth >= healthRestore)
 	{
 		return true;
 	}

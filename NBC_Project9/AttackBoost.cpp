@@ -3,7 +3,7 @@
 AttackBoost::AttackBoost()
 {
 	name = "Attack Boost";
-	price = 100;
+	price = 30;
 }
 
 bool AttackBoost::isUsable(Character* character) const

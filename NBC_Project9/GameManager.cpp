@@ -1,4 +1,5 @@
 #include <random>
+#include <Windows.h>
 #include "GameManager.h"
 #include "Character.h"
 #include "Monster.h"
@@ -73,6 +74,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	player->setGold(curPlayerGold + 10 + getRandomInt() % 10);
 
 	Item* dropItem = monster->dropItem();
+
 	if (dropItem != nullptr) {
 		player->getInventory().push_back(dropItem);
 	}
@@ -133,7 +135,6 @@ void GameManager::VisitShop(Character* player)
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
-
 	if (player->getLevel() >= 10) {
 		monster = GenerateBossMonster(player->getLevel());
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
@@ -142,8 +143,9 @@ bool GameManager::Battle(Character* player)
 		monster = GenerateMonster(player->getLevel());
 		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
+	Sleep(500);
 
-	vector<Item*> playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->getInventory();
 
 	bool isPlayerTurn = true;
 
@@ -156,17 +158,19 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
-			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
+			cout << player->getName() << " attacks the " << monster->getName() << "! ";
 			monster->TakeDamage(player->getAttack());
 
 			if (monster->getHealth() <= 0) {
 				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
 				OnBattleVictory(player, monster);
+				player->DisplayStatus();
+				DisplayInventory(player);
 				return true;
 			}
 		}
 		else {
-			cout << player->getName() << " attacks the " << monster->getName() << "! " << endl;
+			cout << monster->getName() << " attacks the " << player->getName() << "! ";
 			player->TakeDamage(monster->getAttack());
 
 			if (player->getHealth() <= 0) {
@@ -176,15 +180,18 @@ bool GameManager::Battle(Character* player)
 		}
 
 		isPlayerTurn = !isPlayerTurn;
+		Sleep(500);
 	}
 }
 
 void GameManager::DisplayInventory(Character* player)
 {
-	vector<Item*> playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->getInventory();
 
-	for (int index = 0; index < player->getInventory().size(); index++){
+	for (int index = 0; index < playerInventory.size(); index++){
 		Item* item = playerInventory[index];
-		cout << index << ": " << item->getName() << "(Price : " << item->getPrice() << "G)";
+		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
 	}
+
+	if (playerInventory.size() != 0) cout << endl;
 }

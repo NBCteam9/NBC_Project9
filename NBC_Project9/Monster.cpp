@@ -46,4 +46,6 @@ Item* Monster::dropItem() {
 			return new AttackBoost();
 		}
 	}
+
+	return nullptr;
 }

@@ -95,11 +95,13 @@ void Character::AddExperience(int val)
 void Character::DisplayStatus()
 {
 	cout << "Name:" << name << endl;
+	cout << "Level:" << level << endl;
+	cout << "Experience:" << experience << endl;
 	cout << "Health:" << health << "/" << maxHealth << endl;
 	cout << "Attack:" << attack << endl;
-	cout << "Experience:" << experience << endl;
 	cout << "Gold:" << gold << endl;
-	cout << "Level:" << level;
+
+	cout << endl;
 }
 
 void Character::TakeDamage(int val)
@@ -116,8 +118,7 @@ void Character::LevelUp()
 	health = maxHealth;
 	attack += 5;
 	experience -= 100;
-	cout << "Level Up!" << level << endl;
-	DisplayStatus();
+	cout << "Level Up!  Lv." << level << endl;
 }
 
 void Character::UseItem(int index)

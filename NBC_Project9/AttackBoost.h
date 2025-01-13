@@ -10,6 +10,6 @@ public:
 	AttackBoost();
 	bool isUsable(Character* character) const override;
 	const string getName() const override;
-	void use(Character* Character) override;
+	void use(Character* character) override;
 	int getPrice() const override;
 };
