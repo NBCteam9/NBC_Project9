@@ -1,9 +1,7 @@
 #include "HealthPotion.h"
 
-HealthPotion::HealthPotion()
-{
+HealthPotion::HealthPotion(){
 	name = "Health Potion";
-	healthRestore = 50;
 	price = 100;
 }
 

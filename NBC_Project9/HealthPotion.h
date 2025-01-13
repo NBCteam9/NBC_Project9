@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Item.h"
-class HealthPotion {
+class HealthPotion :public Item{
 private:
-	int const healthRestore;
+	int const healthRestore = 50;
 	string name;
 public:
-	HealthPotion() : healthRestore(50) {};
+	HealthPotion();
 	string getName();
 	void use(Character* character);
 };
