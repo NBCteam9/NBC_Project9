@@ -118,8 +118,7 @@ void Character::LevelUp()
 	health = maxHealth;
 	attack += 5;
 	experience -= 100;
-	cout << "Level Up!" << endl;
-	DisplayStatus();
+	cout << "Level Up!  Lv." << level << endl;
 }
 
 void Character::UseItem(int index)
