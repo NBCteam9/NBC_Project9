@@ -21,6 +21,7 @@ private:
 public:
 	static Character* getInstance(string _name = "");
 	vector<Item*>& getInventory();
+	string getName();
 	int getLevel();
 	int getHealth();
 	void setHealth(int _health);
