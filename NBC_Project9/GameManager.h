@@ -13,6 +13,8 @@ private:
 	int getRandomInt();
 	class Shop* shop;
 
+	bool bIsBoss = false;
+
 public:
 	GameManager();
 

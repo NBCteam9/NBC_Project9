@@ -138,6 +138,7 @@ bool GameManager::Battle(Character* player)
 	if (player->getLevel() >= 10) {
 		monster = GenerateBossMonster(player->getLevel());
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
+		bIsBoss = true;
 	}
 	else {
 		monster = GenerateMonster(player->getLevel());
@@ -163,6 +164,8 @@ bool GameManager::Battle(Character* player)
 
 			if (monster->getHealth() <= 0) {
 				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
+				if (bIsBoss) return true;
+
 				OnBattleVictory(player, monster);
 				player->DisplayStatus();
 				DisplayInventory(player);
