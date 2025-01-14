@@ -8,7 +8,7 @@ Wolf::Wolf(int level) : Monster(level)
 
 	name = "Wolf";
 	health = 25 + level * (18 + healthRandomValue);
-	attack = 4 + level * (4 + attackRandomValue);
+	attack = 4 + level * (5 + attackRandomValue);
 	dropRate = 15;
 	dropGold = goldReward;
 }
