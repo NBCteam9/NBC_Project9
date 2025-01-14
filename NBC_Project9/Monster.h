@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib> // rand(), srand()
 #include "Item.h"
 
 using namespace std;
@@ -12,14 +11,15 @@ protected:
 	string name;
 	int health;
 	int attack;
-	int getRandomNum(int end);
 	// int getRandomNum(int n, int m);
 	int getRandomNum(int min, int max);
 	int dropRate;
 	int dropGold;
 public:
+	// constructor!!
 	Monster(int level);
 
+	// method!!
 	string getName();
 	int getHealth();
 	int getAttack();

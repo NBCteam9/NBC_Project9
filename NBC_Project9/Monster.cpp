@@ -3,7 +3,9 @@
 #include "AttackBoost.h"
 #include <random>
 
-Monster::Monster(int level) {
+// Monster Constructor
+Monster::Monster(int level) 
+{
 	name = "default";
 	health = 0;
 	attack = 0;
@@ -37,10 +39,7 @@ void Monster::TakeDamage(int damage)
 	cout << preHp << "->" << health << endl;
 }
 
-int Monster::getRandomNum(int end) {
-	return rand() % end;
-}
-
+// 
 //int Monster::getRandomNum(int min, int max) {
 //	int randomNum = rand() % (max - min + 1); 
 //	randomNum += min;
@@ -55,12 +54,15 @@ int Monster::getRandomNum(int min, int max)
 	return dis(gen);
 }
 
-Item* Monster::dropItem() {
-	int r1 = getRandomNum(100);
-	int r2 = getRandomNum(100);
+Item* Monster::dropItem() 
+{
+	int r1 = getRandomNum(1, 100);
+	int r2 = getRandomNum(1, 100);
 
-	if (r1 < dropRate) {
-		if (r2 < 50) {
+	if (r1 < dropRate) 
+	{
+		if (r2 < 50) 
+		{
 			return new HealthPotion();
 		}
 		else

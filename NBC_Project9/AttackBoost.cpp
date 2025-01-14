@@ -8,22 +8,12 @@ AttackBoost::AttackBoost()
 
 bool AttackBoost::isUsable(Character* character) const
 {
-	return true;
+	return true;	// Attack Boost is always usable
 }
 
-const string AttackBoost::getName() const
-{
-	return name;
-}
-
-void AttackBoost::use(Character* character)
+void AttackBoost::use(Character* character)	// Use Attack Boost, Increase Character Attack
 {
 	cout << "Attack increased " << attackIncrease << "!";
 	character->setAttack(character->getAttack() + attackIncrease);
 	cout << " Current attack : " << character->getAttack() << endl;
-}
-
-int AttackBoost::getPrice() const
-{
-	return price;
 }
