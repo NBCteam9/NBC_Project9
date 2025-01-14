@@ -17,5 +17,7 @@ public:
 	void buyItem(int index, class Character* player);
 
 	void sellItem(int index, class Character* player);
+
+	~Shop();
 };
 

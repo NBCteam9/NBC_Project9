@@ -21,7 +21,7 @@ void Shop::displayItem()
 void Shop::buyItem(int index, Character* player)
 {
 	if (index - 1 >= availableItems.size()) {
-		cout << "The " << index << "th item does not exist in the shop." << endl;
+		cout << "\nThe " << index << "th item does not exist in the shop." << endl;
 		return;
 	}
 
@@ -45,7 +45,7 @@ void Shop::sellItem(int index, Character* player)
 	vector<Item*>& playerInventory = player->getInventory();
 
 	if (index - 1 >= playerInventory.size()) {
-		cout << "the " << index << "th item does not exist in your inventory." << endl;
+		cout << "\nthe " << index << "th item does not exist in your inventory." << endl;
 		return;
 	}
 
@@ -56,4 +56,11 @@ void Shop::sellItem(int index, Character* player)
 	cout << "You have sold the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	playerInventory.erase(playerInventory.begin() + index - 1);
+}
+
+Shop::~Shop()
+{
+	for (Item* item : availableItems) {
+		delete item;
+	}
 }

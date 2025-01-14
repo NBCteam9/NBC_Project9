@@ -34,7 +34,8 @@ int main()
 			}
 		}
 
-		cout << "Do you want to go shop?? (Y/N)";
+		cout << "\n====================\n" << endl;
+		cout << "Do you want to go shop?? (Y/N) ";
 		string choice;
 		cin >> choice;
 		if (choice == "Y" || choice == "y") {

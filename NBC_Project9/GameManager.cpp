@@ -101,7 +101,7 @@ void GameManager::VisitShop(Character* player)
 	while (true)
 	{
 		int shopOption = 0;
-		cout << "Buy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ")" << endl;
+		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ") ";
 		cin >> shopOption;
 
 		if (shopOption == 0) break;
@@ -111,7 +111,7 @@ void GameManager::VisitShop(Character* player)
 		case 1:
 			shop->displayItem();
 			int buyIndex;
-			cout << "Choose the number of the item you wish to purchase. (Cancel : 0)" << endl;
+			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
 			cin >> buyIndex;
 			if (buyIndex == 0) break;
 			shop->buyItem(buyIndex, player);
@@ -119,18 +119,18 @@ void GameManager::VisitShop(Character* player)
 		case 2:
 			DisplayInventory(player);
 			int sellIndex;
-			cout << "Choose the number of the item you wish to sell. (Cancel : 0)" << endl;
+			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
 			cin >> sellIndex;
 			if (sellIndex == 0) break;
 			shop->sellItem(sellIndex, player);
 			break;
 		default:
-			cout << "That option is not available." << endl;
+			cout << "That option is not available.\n" << endl;
 			break;
 		}
 	}
 
-	cout << "You exited the shop." << endl << endl;
+	cout << "You exited the shop." << endl;
 }
 
 bool GameManager::Battle(Character* player)
@@ -164,7 +164,8 @@ bool GameManager::Battle(Character* player)
 			monster->TakeDamage(player->getAttack());
 
 			if (monster->getHealth() <= 0) {
-				cout << monster->getName() << " defeat! : Victory!" << endl << endl;
+				cout << monster->getName() << " defeat! : Victory!" << endl;
+				cout << "\n====================\n" << endl;
 				if (bIsBoss) return true;
 
 				OnBattleVictory(player, monster);
@@ -191,11 +192,15 @@ bool GameManager::Battle(Character* player)
 void GameManager::DisplayInventory(Character* player)
 {
 	vector<Item*>& playerInventory = player->getInventory();
+	if (playerInventory.size() != 0) cout << endl;
 
 	for (int index = 0; index < playerInventory.size(); index++){
 		Item* item = playerInventory[index];
 		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
 	}
+}
 
-	if (playerInventory.size() != 0) cout << endl;
+GameManager::~GameManager()
+{
+	delete shop;
 }

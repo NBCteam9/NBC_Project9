@@ -100,8 +100,6 @@ void Character::DisplayStatus()
 	cout << "Health:" << health << "/" << maxHealth << endl;
 	cout << "Attack:" << attack << endl;
 	cout << "Gold:" << gold << endl;
-
-	cout << endl;
 }
 
 void Character::TakeDamage(int val)
