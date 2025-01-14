@@ -4,10 +4,11 @@ Goblin::Goblin(int level) : Monster(level)
 {
 	int healthRandomValue = getRandomNum(10);
 	int attackRandomValue = getRandomNum(5);
+	int goldReward = getRandomNum(5, 10);
 
 	name = "Goblin";
 	health = 30 + level * (20 + healthRandomValue);
 	attack = 5 + level * (5 + attackRandomValue);
 	dropRate = 20;
-	dropGold = getRandomNum(5, 10);
+	dropGold = goldReward;
 }
