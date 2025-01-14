@@ -8,10 +8,10 @@ AttackBoost::AttackBoost()
 
 bool AttackBoost::isUsable(Character* character) const
 {
-	return true;
+	return true;	// Attack Boost is always usable
 }
 
-void AttackBoost::use(Character* character)
+void AttackBoost::use(Character* character)	// Use Attack Boost, Increase Character Attack
 {
 	cout << "Attack increased " << attackIncrease << "!";
 	character->setAttack(character->getAttack() + attackIncrease);
