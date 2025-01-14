@@ -8,10 +8,11 @@ using namespace std;
 class Item
 {
 protected:
+	string name;
 	int price;
 public:
+	const string getName() const;
+	int getPrice() const;
 	virtual bool isUsable(Character* character) const = 0;
-	virtual const string getName() const = 0;
 	virtual void use(Character* Character) = 0;
-	virtual int getPrice() const = 0;
 };

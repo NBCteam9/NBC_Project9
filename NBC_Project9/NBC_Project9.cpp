@@ -14,13 +14,16 @@ int main()
 	cout << "Create your character." << endl;
 	string name;
 	cin.clear();
-	while(1){
+	while(1)
+	{
 		getline(cin, name);
 
-		if (name.find(' ') != string::npos) {
+		if (name.find(' ') != string::npos) 
+		{
 			cout << "Your name contains space. Please try again" << endl;
 		}
-		else {
+		else 
+		{
 			cout << "Your name : " << name << endl;
 			cout << "\n====================\n" << endl;
 			break;
@@ -31,18 +34,23 @@ int main()
 
 	while (true)
 	{
-		if (warrior->getLevel() >= 10) {
-			if (gameManager.Battle(warrior) == false) {
+		if (warrior->getLevel() >= 10) 
+		{
+			if (gameManager.Battle(warrior) == false) 
+			{
 				break;
 			}
-			else {
+			else 
+			{
 				cout << "Congratulations! Game Clear!" << endl;
 				break;
 			}
 
 		}
-		else {
-			if (gameManager.Battle(warrior) == false) {
+		else 
+		{
+			if (gameManager.Battle(warrior) == false) 
+			{
 				break;
 			}
 		}
@@ -51,7 +59,8 @@ int main()
 		cout << "Do you want to go shop?? (Y/N) ";
 		string choice;
 		cin >> choice;
-		if (choice == "Y" || choice == "y") {
+		if (choice == "Y" || choice == "y") 
+		{
 			shop.visitShop(warrior);
 		}
 		cout << "\n====================\n" << endl;
