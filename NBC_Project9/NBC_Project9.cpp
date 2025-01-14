@@ -38,6 +38,7 @@ int main()
 		{
 			if (gameManager.Battle(warrior) == false) 
 			{
+				cout << "\nGame over..." << endl;
 				break;
 			}
 			else 
@@ -65,7 +66,7 @@ int main()
 		}
 		cout << "\n====================\n" << endl;
 	}
-	cout << "\nGame over..." << endl;
+	
 
 	delete warrior;
 
