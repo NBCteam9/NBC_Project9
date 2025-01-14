@@ -8,4 +8,5 @@ class MonsterFactory
 {
 public:
 	class Monster* GenerateMonster(int level);
+	class Monster* GenerateBossMonster();
 };

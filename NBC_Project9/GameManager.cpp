@@ -10,7 +10,11 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
 	int curPlayerGold = player->getGold() + monster->getDropGold();
 	int interest = curPlayerGold / goldPerInterest;
-	cout << "Get Interest : " << interest << " (CurrentGold : " << curPlayerGold << ")\n" << endl;
+	if (interest > maxInterest)
+	{
+		interest = maxInterest;
+	}
+	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ", Current Gold : " << curPlayerGold << ")\n" << endl;
 
 	player->AddExperience(50);
 
@@ -35,7 +39,7 @@ bool GameManager::Battle(Character* player)
 
 	if (player->getLevel() >= 10) 
 	{
-		monster = monsterFactory->GenerateMonster(15);
+		monster = monsterFactory->GenerateBossMonster();
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
 	}
 	else 
