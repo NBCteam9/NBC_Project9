@@ -71,7 +71,8 @@ Item* Shop::GenerateItem(int index)
 
 void Shop::displayItem()
 {
-	for (int index = 0; index < availableItems.size(); index++) {
+	for (int index = 0; index < availableItems.size(); index++) 
+	{
 		Item* curItem = availableItems[index];
 		cout << index + 1 << ". " << curItem->getName() << " (Price : " << curItem->getPrice() << "G)" << endl;
 	}
@@ -79,13 +80,15 @@ void Shop::displayItem()
 
 void Shop::buyItem(int index, Character* player)
 {
-	if (index - 1 >= availableItems.size()) {
+	if (index - 1 >= availableItems.size()) 
+	{
 		cout << "\nThe " << index << "th item does not exist in the shop." << endl;
 		return;
 	}
 
 	int playerGold = player->getGold();
-	if (playerGold < availableItems[index - 1]->getPrice()) {
+	if (playerGold < availableItems[index - 1]->getPrice()) 
+	{
 		cout << "You do not have enough gold." << endl;
 		return;
 	}
@@ -103,7 +106,8 @@ void Shop::sellItem(int index, Character* player)
 {
 	vector<Item*>& playerInventory = player->getInventory();
 
-	if (index - 1 >= playerInventory.size()) {
+	if (index - 1 >= playerInventory.size()) 
+	{
 		cout << "\nthe " << index << "th item does not exist in your inventory." << endl;
 		return;
 	}
@@ -118,7 +122,8 @@ void Shop::sellItem(int index, Character* player)
 
 Shop::~Shop()
 {
-	for (Item* item : availableItems) {
+	for (Item* item : availableItems) 
+	{
 		delete item;
 	}
 }
