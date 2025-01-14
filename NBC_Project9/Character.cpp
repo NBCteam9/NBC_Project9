@@ -116,7 +116,9 @@ void Character::TakeDamage(int val)
 void Character::LevelUp()
 {
 	if (level >= 10) return;
-	cout << "Level Up!  Lv." <<level << " -> Lv." << level++ << endl;
+	int currentLv = level;
+	level++;
+	cout << "Level Up!  Lv." << currentLv << " -> Lv." << level << endl;
 	maxHealth += 20;
 	health = maxHealth;
 	attack += 5;
