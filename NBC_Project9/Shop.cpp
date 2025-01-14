@@ -82,7 +82,7 @@ void Shop::buyItem(int index, Character* player)
 {
 	if (index - 1 >= availableItems.size()) 
 	{
-		cout << "\nThe " << index << "th item does not exist in the shop." << endl;
+		cout << "\nThat item does not exist in the shop." << endl;
 		return;
 	}
 
@@ -108,7 +108,7 @@ void Shop::sellItem(int index, Character* player)
 
 	if (index - 1 >= playerInventory.size()) 
 	{
-		cout << "\nthe " << index << "th item does not exist in your inventory." << endl;
+		cout << "\nThat item does not exist in your inventory." << endl;
 		return;
 	}
 

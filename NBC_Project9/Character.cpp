@@ -138,6 +138,6 @@ void Character::DisplayInventory()
 	if (inventory.size() != 0) cout << endl;
 	for (int index = 0; index < inventory.size(); index++) {
 		Item* item = inventory[index];
-		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
+		cout << index + 1 << ": " << item->getName() << " (Price : " << item->getPrice() << "G)" << endl;
 	}
 }
