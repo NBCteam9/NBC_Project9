@@ -43,6 +43,6 @@ int main()
 		}
 		cout << "\n====================\n" << endl;
 	}
-
+	cout << "Game over..." << endl;
 	return 0;
 }
