@@ -18,9 +18,7 @@ private:
 public:
 	GameManager();
 
-	void VisitShop(class Character* player);
 	bool Battle(class Character* player);
-	void DisplayInventory(class Character* player);
 
 	~GameManager();
 };

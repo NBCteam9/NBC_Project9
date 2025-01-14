@@ -131,7 +131,7 @@ bool GameManager::Battle(Character* player)
 
 				OnBattleVictory(player, monster);
 				player->DisplayStatus();
-				DisplayInventory(player);
+				player->DisplayInventory();
 				return true;
 			}
 		}
@@ -150,17 +150,6 @@ bool GameManager::Battle(Character* player)
 	}
 
 	delete monster;
-}
-
-void GameManager::DisplayInventory(Character* player)
-{
-	vector<Item*>& playerInventory = player->getInventory();
-	if (playerInventory.size() != 0) cout << endl;
-
-	for (int index = 0; index < playerInventory.size(); index++){
-		Item* item = playerInventory[index];
-		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
-	}
 }
 
 GameManager::~GameManager()

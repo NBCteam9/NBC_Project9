@@ -33,7 +33,7 @@ void Shop::visitShop(Character* player)
 			buyItem(buyIndex, player);
 			break;
 		case 2:
-			//DisplayInventory(player);
+			player->DisplayInventory();
 			int sellIndex;
 			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
 			cin >> sellIndex;
