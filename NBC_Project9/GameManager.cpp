@@ -80,6 +80,7 @@ bool GameManager::Battle(Character* player)
 			if (player->getHealth() <= 0) 
 			{
 				cout << player->getName() << " Defeat..." << endl;
+				cout << "\nGame over..." << endl;
 				return false;
 			}
 		}
