@@ -8,7 +8,7 @@ Skeleton::Skeleton(int level) : Monster(level)
 
 	name = "Skeleton";
 	health = 37 + level * (23 + healthRandomValue);
-	attack = 6 + level * (6 + attackRandomValue);
+	attack = 6 + level * (7 + attackRandomValue);
 	dropRate = 25;
 	dropGold = goldReward;
 }

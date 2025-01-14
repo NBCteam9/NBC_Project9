@@ -8,7 +8,7 @@ Zombie::Zombie(int level) : Monster(level)
 
 	name = "Zombie";
 	health = 52 + level * (28 + healthRandomValue);
-	attack = 8 + level * (8 + attackRandomValue);
+	attack = 8 + level * (9 + attackRandomValue);
 	dropRate = 35;
 	dropGold = goldReward;
 }
