@@ -4,7 +4,7 @@
 class MaxHPBoost : public Item
 {
 private:
-	const int maxHPIncrease = 20;
+	const int maxHPIncrease = 50;
 public:
 	MaxHPBoost();
 	bool isUsable(Character* character) const override;
