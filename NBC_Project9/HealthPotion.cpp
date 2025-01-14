@@ -21,20 +21,10 @@ bool HealthPotion::isUsable(Character* character) const //체력이 포션만큼 닳았는
 	}
 }
 
-const string HealthPotion::getName() const
-{
-	return name;
-}
-
 void HealthPotion::use(Character* character)//체력 회복하여 캐릭터 체력에 적용
 {
 	int currentHealth = character->getHealth();
 	currentHealth += 50;
 	cout << "Use HealPotion, +50 HP , Your HP :  " << currentHealth << endl;
 	character->setHealth(currentHealth);
-}
-
-int HealthPotion::getPrice() const
-{
-	return price;
 }
