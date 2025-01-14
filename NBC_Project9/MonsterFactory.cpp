@@ -8,6 +8,7 @@
 #include "Skeleton.h"
 #include "Zombie.h"
 #include "Wolf.h"
+#include "GoldenGoblin.h"
 #include "Dragon.h"
 
 Monster* MonsterFactory::GenerateMonster(int level)
@@ -42,6 +43,9 @@ Monster* MonsterFactory::GenerateMonster(int level)
 		break;
 	case 6:
 		output = new Wolf(level);
+		break;
+	case 7:
+		output = new GoldenGoblin(level);
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
