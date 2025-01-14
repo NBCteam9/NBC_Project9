@@ -20,17 +20,17 @@ int main()
 	{
 		if (warrior->getLevel() >= 10) {
 			if (gm.Battle(warrior) == false) {
-				return 0;
+				break;
 			}
 			else {
 				cout << "Congratulations! Game Clear!" << endl;
-				return 0;
+				break;
 			}
 
 		}
 		else {
 			if (gm.Battle(warrior) == false) {
-				return 0;
+				break;
 			}
 		}
 
