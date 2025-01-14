@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <string>
 #include "GameManager.h"
 #include "Shop.h"
 #include "Character.h"
@@ -13,8 +14,18 @@ int main()
 	cout << "Create your character." << endl;
 	string name;
 	cin.clear();
-	cin >> name;
-	cout << endl;
+	while(1){
+		getline(cin, name);
+
+		if (name.find(' ') != string::npos) {
+			cout << "Your name contains space. Please try again" << endl;
+		}
+		else {
+			cout << "Your name : " << name << endl;
+			cout << "\n====================\n" << endl;
+			break;
+		}
+	}
 	Character* warrior = Character::getInstance(name);
 	
 
