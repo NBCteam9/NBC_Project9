@@ -94,45 +94,6 @@ GameManager::GameManager()
 	shop = new Shop();
 }
 
-void GameManager::VisitShop(Character* player)
-{
-	cout << "Welcome to the shop!" << endl;
-
-	while (true)
-	{
-		int shopOption = 0;
-		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ") ";
-		cin >> shopOption;
-
-		if (shopOption == 0) break;
-
-		switch (shopOption)
-		{
-		case 1:
-			shop->displayItem();
-			int buyIndex;
-			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
-			cin >> buyIndex;
-			if (buyIndex == 0) break;
-			shop->buyItem(buyIndex, player);
-			break;
-		case 2:
-			DisplayInventory(player);
-			int sellIndex;
-			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
-			cin >> sellIndex;
-			if (sellIndex == 0) break;
-			shop->sellItem(sellIndex, player);
-			break;
-		default:
-			cout << "That option is not available.\n" << endl;
-			break;
-		}
-	}
-
-	cout << "You exited the shop." << endl;
-}
-
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
@@ -187,6 +148,8 @@ bool GameManager::Battle(Character* player)
 		isPlayerTurn = !isPlayerTurn;
 		Sleep(500);
 	}
+
+	delete monster;
 }
 
 void GameManager::DisplayInventory(Character* player)
