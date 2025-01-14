@@ -16,33 +16,45 @@ void Shop::visitShop(Character* player)
 
 	while (true)
 	{
-		int shopOption = 0;
+		string shopOption = "";
 		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ") ";
 		cin >> shopOption;
 
-		if (shopOption == 0) break;
+		if (shopOption == "0") break;
 
-		switch (shopOption)
-		{
-		case 1:
+		if (shopOption.size() != 1 || shopOption[0] - '2' > 0 || shopOption[0] - '1' < 0) {
+			cout << "\nPlease input it again" << endl;
+			continue;
+		}
+
+		if (shopOption[0] == '1') {
 			displayItem();
-			int buyIndex;
+			string buyInput;
 			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
-			cin >> buyIndex;
-			if (buyIndex == 0) break;
+			cin >> buyInput;
+
+			if (buyInput.size() != 1 || buyInput[0] - '9' > 0 || buyInput[0] - '1' < 0) {
+				continue;
+			}
+
+			int buyIndex = buyInput[0] - '0';
 			buyItem(buyIndex, player);
-			break;
-		case 2:
+		}
+		else if (shopOption[0] == '2') {
 			player->DisplayInventory();
-			int sellIndex;
+			string sellInput;
 			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
-			cin >> sellIndex;
-			if (sellIndex == 0) break;
+			cin >> sellInput;
+
+			if (sellInput.size() != 1 || sellInput[0] - '9' > 0 || sellInput[0] - '1' < 0) {
+				continue;
+			}
+
+			int sellIndex = sellInput[0] - '0';
 			sellItem(sellIndex, player);
-			break;
-		default:
+		}
+		else {
 			cout << "That option is not available.\n" << endl;
-			break;
 		}
 	}
 
