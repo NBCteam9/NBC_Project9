@@ -84,7 +84,7 @@ void Shop::buyItem(int index, Character* player)
 		return;
 	}
 
-	Item* item = availableItems[index - 1];
+	Item* item = GenerateItem(index);
 
 	int playerGold = player->getGold();
 	if (playerGold < item->getPrice()) {
@@ -96,7 +96,7 @@ void Shop::buyItem(int index, Character* player)
 	cout << "You have purchased the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->getInventory();
-	playerInventory.push_back(GenerateItem(index));
+	playerInventory.push_back(item);
 }
 
 void Shop::sellItem(int index, Character* player)
