@@ -15,7 +15,8 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 
 	Item* dropItem = monster->dropItem();
 
-	if (dropItem != nullptr) {
+	if (dropItem != nullptr) 
+	{
 		player->getInventory().push_back(dropItem);
 	}
 }
@@ -28,14 +29,14 @@ GameManager::GameManager()
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
-	bool bIsBoss = false;
 
-	if (player->getLevel() >= 10) {
+	if (player->getLevel() >= 10) 
+	{
 		monster = monsterFactory->GenerateMonster(15);
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
-		bIsBoss = true;
 	}
-	else {
+	else 
+	{
 		monster = monsterFactory->GenerateMonster(player->getLevel());
 		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
@@ -47,9 +48,12 @@ bool GameManager::Battle(Character* player)
 
 	while (true)
 	{
-		if (isPlayerTurn) {
-			for (int index = playerInventory.size() - 1; index >= 0; index--) {
-				if (playerInventory[index]->isUsable(player)) {
+		if (isPlayerTurn) 
+		{
+			for (int index = playerInventory.size() - 1; index >= 0; index--) 
+			{
+				if (playerInventory[index]->isUsable(player)) 
+				{
 					player->UseItem(index);
 				}
 			}
@@ -57,10 +61,10 @@ bool GameManager::Battle(Character* player)
 			cout << player->getName() << " attacks the " << monster->getName() << "! ";
 			monster->TakeDamage(player->getAttack());
 
-			if (monster->getHealth() <= 0) {
+			if (monster->getHealth() <= 0) 
+			{
 				cout << monster->getName() << " defeat! : Victory!" << endl;
 				cout << "\n====================\n" << endl;
-				if (bIsBoss) return true;
 
 				OnBattleVictory(player, monster);
 				player->DisplayStatus();
@@ -68,11 +72,13 @@ bool GameManager::Battle(Character* player)
 				return true;
 			}
 		}
-		else {
+		else 
+		{
 			cout << monster->getName() << " attacks the " << player->getName() << "! ";
 			player->TakeDamage(monster->getAttack());
 
-			if (player->getHealth() <= 0) {
+			if (player->getHealth() <= 0) 
+			{
 				cout << player->getName() << " Defeat..." << endl;
 				return false;
 			}
