@@ -10,5 +10,5 @@ Troll::Troll(int level) : Monster(level)
 	health = 60 + level * (35 + healthRandomValue);
 	attack = 10 + level * (9 + attackRandomValue);
 	dropRate = 40;
-	dropGold = getRandomNum(20, 25);
+	dropGold = goldReward
 }

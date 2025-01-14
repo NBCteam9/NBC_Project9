@@ -10,5 +10,5 @@ Orc::Orc(int level) : Monster(level)
 	health = 45 + level * (25 + healthRandomValue);
 	attack = 7 + level * (6 + attackRandomValue);
 	dropRate = 30;
-	dropGold = getRandomNum(15, 20);
+	dropGold = goldReward
 }
