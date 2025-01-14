@@ -51,9 +51,10 @@ int Monster::getRandomNum(int min, int max)
 
 Item* Monster::dropItem() {
 	int r1 = getRandomNum(100);
+	int r2 = getRandomNum(100);
 
 	if (r1 < dropRate) {
-		if (r1 < 50) {
+		if (r2 < 50) {
 			return new HealthPotion();
 		}
 		else
