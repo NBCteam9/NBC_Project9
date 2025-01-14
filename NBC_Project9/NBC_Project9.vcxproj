@@ -134,6 +134,7 @@
     <ClCompile Include="GoldenGoblin.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="MaxHPBoost.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterFactory.cpp" />
     <ClCompile Include="NBC_Project9.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="GoldenGoblin.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="MaxHPBoost.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterFactory.h" />
     <ClInclude Include="Orc.h" />
