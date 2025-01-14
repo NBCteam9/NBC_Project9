@@ -19,6 +19,9 @@ private:
 	vector<Item*> inventory;
 	Character(string _name);
 public:
+	Character(const Character&) = delete;
+	Character& operator=(const Character&) = delete;
+
 	static Character* getInstance(string _name = "");
 	vector<Item*>& getInventory();
 	string getName();
