@@ -105,6 +105,10 @@ void Character::DisplayStatus()
 void Character::TakeDamage(int val)
 {
 	health -= val;
+	if (health < 0)
+	{
+		health = 0;
+	}
 	cout << "Take Damage!! " << health + val << "->" << health << endl;
 }
 
@@ -124,4 +128,13 @@ void Character::UseItem(int index)
 	if (inventory.size() < index) return;
 	inventory[index]->use(instance);
 	inventory.erase(inventory.begin() + index);
+}
+
+void Character::DisplayInventory()
+{
+	if (inventory.size() != 0) cout << endl;
+	for (int index = 0; index < inventory.size(); index++) {
+		Item* item = inventory[index];
+		cout << index + 1 << ": " << item->getName() << "(Price : " << item->getPrice() << "G)" << endl;
+	}
 }
