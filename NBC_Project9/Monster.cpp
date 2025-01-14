@@ -90,7 +90,6 @@ Item* Monster::dropItem()
 			}
 		}
 	}
-
 	return nullptr;
 }
 
