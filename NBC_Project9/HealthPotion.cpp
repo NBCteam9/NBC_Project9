@@ -6,7 +6,7 @@ HealthPotion::HealthPotion()
 	price = 15;
 }
 
-bool HealthPotion::isUsable(Character* character) const //체력이 포션만큼 닳았는지 확인
+bool HealthPotion::isUsable(Character* character) const //max health-current health > 50(health potion) check
 {
 	int currentHealth = character->getHealth();
 	int maxHealth = character->getMaxHealth();
@@ -21,7 +21,7 @@ bool HealthPotion::isUsable(Character* character) const //체력이 포션만큼 닳았는
 	}
 }
 
-void HealthPotion::use(Character* character)//체력 회복하여 캐릭터 체력에 적용
+void HealthPotion::use(Character* character)//set health
 {
 	int currentHealth = character->getHealth();
 	currentHealth += 50;
