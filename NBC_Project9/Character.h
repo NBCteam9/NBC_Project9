@@ -36,4 +36,5 @@ public:
 	void TakeDamage(int val);
 	void LevelUp();
 	void UseItem(int index);
+	void DisplayInventory();
 };
