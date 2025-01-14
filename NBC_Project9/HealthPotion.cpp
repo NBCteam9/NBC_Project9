@@ -24,7 +24,7 @@ bool HealthPotion::isUsable(Character* character) const //max health-current hea
 void HealthPotion::use(Character* character)//set health
 {
 	int currentHealth = character->getHealth();
-	currentHealth += 50;
+	currentHealth += healthRestore;
 	cout << "Use HealPotion, +50 HP , Your HP :  " << currentHealth << endl;
 	character->setHealth(currentHealth);
 }
