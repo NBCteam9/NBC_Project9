@@ -61,7 +61,7 @@ Item* Monster::dropItem()
 	int r2 = getRandomNum(1, 100);
 	int itemCount = 3;
 
-	// È®·ü
+	// probability = hwak ryul
 	int probability = 100 / itemCount;
 
 	if (r1 < dropRate) 
