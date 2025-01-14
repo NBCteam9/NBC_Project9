@@ -16,5 +16,5 @@ void MaxHPBoost::use(Character* character)  // set max health
 	int curMaxHealth = character->getMaxHealth();
 	curMaxHealth += maxHPIncrease;
 	cout << "Use Max Health Boost, +20 Max Health , Your HP :  " << character->getHealth() << " / " << curMaxHealth << endl;
-	character->setHealth(curMaxHealth);
+	character->setMaxHealth(curMaxHealth);
 }
