@@ -105,6 +105,10 @@ void Character::DisplayStatus()
 void Character::TakeDamage(int val)
 {
 	health -= val;
+	if (health < 0)
+	{
+		health = 0;
+	}
 	cout << "Take Damage!! " << health + val << "->" << health << endl;
 }
 
