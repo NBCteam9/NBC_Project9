@@ -1,6 +1,7 @@
 #include "Monster.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include "MaxHPBoost.h"
 #include <random>
 
 // Monster Constructor
@@ -58,16 +59,24 @@ Item* Monster::dropItem()
 {
 	int r1 = getRandomNum(1, 100);
 	int r2 = getRandomNum(1, 100);
+	int itemCount = 3;
+
+	// È®·ü
+	int probability = 100 / itemCount;
 
 	if (r1 < dropRate) 
 	{
-		if (r2 < 50) 
+		if (r2 < probability)
 		{
 			return new HealthPotion();
 		}
-		else
+		else if (r2 < probability * 2)
 		{
 			return new AttackBoost();
+		} 
+		else if (r2 < probability * 3)
+		{
+			return new MaxHPBoost();
 		}
 	}
 
