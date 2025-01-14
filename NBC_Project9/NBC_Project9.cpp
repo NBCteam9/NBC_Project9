@@ -38,7 +38,6 @@ int main()
 		{
 			if (gameManager.Battle(warrior) == false) 
 			{
-				cout << "\nGame over..." << endl;
 				break;
 			}
 			else 
