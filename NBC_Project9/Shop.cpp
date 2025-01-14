@@ -3,11 +3,13 @@
 #include "Item.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include "MaxHPBoost.h"
 
 Shop::Shop()
 {
 	availableItems.push_back(new HealthPotion());
 	availableItems.push_back(new AttackBoost());
+	availableItems.push_back(new MaxHPBoost());
 }
 
 void Shop::visitShop(Character* player)
@@ -72,6 +74,9 @@ Item* Shop::GenerateItem(int index)
 		break;
 	case 2:
 		output = new AttackBoost();
+		break;
+	case 3:
+		output = new MaxHPBoost();
 		break;
 	default:
 		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
