@@ -10,6 +10,45 @@ Shop::Shop()
 	availableItems.push_back(new AttackBoost());
 }
 
+void Shop::visitShop(Character* player)
+{
+	cout << "Welcome to the shop!" << endl;
+
+	while (true)
+	{
+		int shopOption = 0;
+		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ") ";
+		cin >> shopOption;
+
+		if (shopOption == 0) break;
+
+		switch (shopOption)
+		{
+		case 1:
+			displayItem();
+			int buyIndex;
+			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
+			cin >> buyIndex;
+			if (buyIndex == 0) break;
+			buyItem(buyIndex, player);
+			break;
+		case 2:
+			player->DisplayInventory();
+			int sellIndex;
+			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
+			cin >> sellIndex;
+			if (sellIndex == 0) break;
+			sellItem(sellIndex, player);
+			break;
+		default:
+			cout << "That option is not available.\n" << endl;
+			break;
+		}
+	}
+
+	cout << "You exited the shop." << endl;
+}
+
 void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {

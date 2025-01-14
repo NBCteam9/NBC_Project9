@@ -1,12 +1,14 @@
 ﻿#include <iostream>
 #include "GameManager.h"
+#include "Shop.h"
 #include "Character.h"
 
 using namespace std;
 
 int main()
 {
-    GameManager gm;
+    GameManager gameManager;
+	Shop shop;
 	cout << "Welcome to Game!" << endl;
 	cout << "Create your character." << endl;
 	string name;
@@ -19,7 +21,7 @@ int main()
 	while (true)
 	{
 		if (warrior->getLevel() >= 10) {
-			if (gm.Battle(warrior) == false) {
+			if (gameManager.Battle(warrior) == false) {
 				break;
 			}
 			else {
@@ -29,7 +31,7 @@ int main()
 
 		}
 		else {
-			if (gm.Battle(warrior) == false) {
+			if (gameManager.Battle(warrior) == false) {
 				break;
 			}
 		}
@@ -39,10 +41,13 @@ int main()
 		string choice;
 		cin >> choice;
 		if (choice == "Y" || choice == "y") {
-			gm.VisitShop(warrior);
+			shop.visitShop(warrior);
 		}
 		cout << "\n====================\n" << endl;
 	}
 	cout << "Game over..." << endl;
+
+	delete warrior;
+
 	return 0;
 }
