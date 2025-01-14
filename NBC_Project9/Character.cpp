@@ -43,9 +43,9 @@ int Character::getHealth()
 	return health;
 }
 
-void Character::setHealth(int _health)
+void Character::setHealth(int val)
 {
-	health = _health;
+	health = val;
 }
 
 int Character::getMaxHealth()
@@ -63,9 +63,9 @@ int Character::getAttack()
 	return attack;
 }
 
-void Character::setAttack(int _attack)
+void Character::setAttack(int val)
 {
-	attack = _attack;
+	attack = val;
 }
 
 int Character::getGold()
