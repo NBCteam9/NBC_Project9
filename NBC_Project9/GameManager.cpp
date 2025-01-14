@@ -8,10 +8,13 @@
 
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
+	int curPlayerGold = player->getGold() + monster->getDropGold();
+	int interest = curPlayerGold / goldPerInterest;
+	cout << "Get Interest : " << interest << " (CurrentGold : " << curPlayerGold << ")\n" << endl;
+
 	player->AddExperience(50);
 
-	int curPlayerGold = player->getGold();
-	player->setGold(curPlayerGold + monster->getDropGold());
+	player->setGold(curPlayerGold + interest);
 
 	Item* dropItem = monster->dropItem();
 
