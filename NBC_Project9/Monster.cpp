@@ -84,7 +84,7 @@ Item* Monster::dropItem()
 		{
 			probability += item.first;
 
-			if (r2 < probability)
+			if (r2 <= probability)
 			{
 				return item.second;
 			}
