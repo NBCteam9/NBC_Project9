@@ -27,11 +27,11 @@ public:
 	string getName();
 	int getLevel();
 	int getHealth();
-	void setHealth(int _health);
+	void setHealth(int val);
 	int getMaxHealth();
-	void setMaxHealth(int _health);
+	void setMaxHealth(int val);
 	int getAttack();
-	void setAttack(int _attack);
+	void setAttack(int val);
 	void AddExperience(int val);
 	int getGold();
 	void setGold(int val);
