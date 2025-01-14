@@ -104,12 +104,13 @@ void Character::DisplayStatus()
 
 void Character::TakeDamage(int val)
 {
+	int currentHp = health;
 	health -= val;
 	if (health < 0)
 	{
 		health = 0;
 	}
-	cout << "Take Damage!! " << health + val << "->" << health << endl;
+	cout << "Take Damage!! " << currentHp << "->" << health << endl;
 }
 
 void Character::LevelUp()
