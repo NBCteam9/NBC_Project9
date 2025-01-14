@@ -46,5 +46,8 @@ int main()
 		cout << "\n====================\n" << endl;
 	}
 	cout << "Game over..." << endl;
+
+	delete warrior;
+
 	return 0;
 }
