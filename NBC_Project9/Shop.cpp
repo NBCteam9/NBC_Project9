@@ -93,7 +93,7 @@ void Shop::buyItem(int index, Character* player)
 	Item* item = GenerateItem(index);
 
 	player->setGold(playerGold - item->getPrice());
-	cout << "You have purchased the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	cout << "You have purchased the " << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->getInventory();
 	playerInventory.push_back(item);
@@ -110,7 +110,7 @@ void Shop::sellItem(int index, Character* player)
 
 	int playerGold = player->getGold();
 	player->setGold(playerGold + availableItems[index - 1]->getPrice() * 0.6f);
-	cout << "You have sold the" << availableItems[index - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	cout << "You have sold the " << availableItems[index - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	delete playerInventory[index - 1];
 	playerInventory.erase(playerInventory.begin() + index - 1);
