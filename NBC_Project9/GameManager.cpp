@@ -39,7 +39,7 @@ bool GameManager::Battle(Character* player)
 
 	if (player->getLevel() >= 10) 
 	{
-		monster = monsterFactory->GenerateMonster(15);
+		monster = monsterFactory->GenerateBossMonster();
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
 	}
 	else 
