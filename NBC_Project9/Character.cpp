@@ -126,8 +126,10 @@ void Character::LevelUp()
 void Character::UseItem(int index)
 {
 	if (inventory.size() < index) return;
-	inventory[index]->use(instance);
+	Item* useItem = inventory[index];
+	useItem->use(instance);
 	inventory.erase(inventory.begin() + index);
+	delete(useItem);
 }
 
 void Character::DisplayInventory()

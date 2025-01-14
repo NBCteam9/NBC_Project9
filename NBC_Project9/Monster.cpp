@@ -3,7 +3,8 @@
 #include "AttackBoost.h"
 #include <random>
 
-Monster::Monster(int level) : name("default"), health(0), attack(0), dropRate(0) {}
+Monster::Monster(int level) : name("default"), health(0), attack(0), dropRate(0)
+, dropGold(0){}
 
 string Monster::getName()
 {
