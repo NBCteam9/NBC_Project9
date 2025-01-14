@@ -14,6 +14,8 @@ public:
 
 	void visitShop(class Character* player);
 
+	class Item* GenerateItem(int index);
+
 	void displayItem();
 
 	void buyItem(int index, class Character* player);

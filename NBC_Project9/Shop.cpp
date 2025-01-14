@@ -49,6 +49,26 @@ void Shop::visitShop(Character* player)
 	cout << "You exited the shop." << endl;
 }
 
+Item* Shop::GenerateItem(int index)
+{
+	Item* output = nullptr;
+
+	switch (index)
+	{
+	case 1:
+		output = new HealthPotion();
+		break;
+	case 2:
+		output = new AttackBoost();
+		break;
+	default:
+		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
+		break;
+	}
+
+	return output;
+}
+
 void Shop::displayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) {
@@ -76,7 +96,7 @@ void Shop::buyItem(int index, Character* player)
 	cout << "You have purchased the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->getInventory();
-	playerInventory.push_back(availableItems[index - 1]);
+	playerInventory.push_back(GenerateItem(index));
 }
 
 void Shop::sellItem(int index, Character* player)
@@ -94,6 +114,7 @@ void Shop::sellItem(int index, Character* player)
 	player->setGold(playerGold + item->getPrice() * 0.6f);
 	cout << "You have sold the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
+	delete playerInventory[index - 1];
 	playerInventory.erase(playerInventory.begin() + index - 1);
 }
 
