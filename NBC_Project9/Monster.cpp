@@ -28,7 +28,7 @@ void Monster::TakeDamage(int damage)
 	{
 		health = 0;
 	}
-	cout << preHp << " -> " << health << endl;
+	cout << preHp << "->" << health << endl;
 }
 
 int Monster::getRandomNum(int end) {
