@@ -84,13 +84,13 @@ void Shop::buyItem(int index, Character* player)
 		return;
 	}
 
-	Item* item = GenerateItem(index);
-
 	int playerGold = player->getGold();
-	if (playerGold < item->getPrice()) {
+	if (playerGold < availableItems[index - 1]->getPrice()) {
 		cout << "You do not have enough gold." << endl;
 		return;
 	}
+
+	Item* item = GenerateItem(index);
 
 	player->setGold(playerGold - item->getPrice());
 	cout << "You have purchased the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
@@ -108,11 +108,9 @@ void Shop::sellItem(int index, Character* player)
 		return;
 	}
 
-	Item* item = availableItems[index - 1];
-
 	int playerGold = player->getGold();
-	player->setGold(playerGold + item->getPrice() * 0.6f);
-	cout << "You have sold the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	player->setGold(playerGold + availableItems[index - 1]->getPrice() * 0.6f);
+	cout << "You have sold the" << availableItems[index - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	delete playerInventory[index - 1];
 	playerInventory.erase(playerInventory.begin() + index - 1);

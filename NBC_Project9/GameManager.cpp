@@ -28,6 +28,8 @@ GameManager::GameManager()
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
+	bool bIsBoss = false;
+
 	if (player->getLevel() >= 10) {
 		monster = monsterFactory->GenerateMonster(15);
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;

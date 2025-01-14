@@ -10,8 +10,6 @@ private:
 	void OnBattleVictory(class Character* player, class Monster* monster);
 	class MonsterFactory* monsterFactory;
 
-	bool bIsBoss = false;
-
 public:
 	GameManager();
 
