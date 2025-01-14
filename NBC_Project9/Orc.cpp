@@ -2,8 +2,8 @@
 
 Orc::Orc(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(10);
-	int attackRandomValue = getRandomNum(5);
+	int healthRandomValue = getRandomNum(1, 10);
+	int attackRandomValue = getRandomNum(1, 5);
 	int goldReward = getRandomNum(15, 20);
 
 	name = "Orc";
