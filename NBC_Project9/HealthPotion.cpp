@@ -25,6 +25,6 @@ void HealthPotion::use(Character* character)//set health
 {
 	int currentHealth = character->getHealth();
 	currentHealth += healthRestore;
-	cout << "Use HealPotion, +50 HP , Your HP :  " << currentHealth << endl;
+	cout << "Use HealPotion, +" << healthRestore << " HP , Your HP :  " << currentHealth << endl;
 	character->setHealth(currentHealth);
 }

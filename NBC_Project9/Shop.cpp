@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Shop.h"
 #include "Character.h"
 #include "Item.h"
@@ -31,29 +32,47 @@ void Shop::visitShop(Character* player)
 
 		if (shopOption[0] == '1') {
 			displayItem();
-			string buyInput;
 			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
-			cin >> buyInput;
 
-			if (buyInput.size() != 1 || buyInput[0] - '9' > 0 || buyInput[0] - '1' < 0) {
+			string buyInput;
+			stringstream ss;
+			int buyIndex;
+
+			cin >> buyInput;
+			ss << buyInput;
+			ss >> buyIndex;
+
+			if (ss.fail()) 
+			{
+				cout << "\nPlease input it again" << endl;
 				continue;
 			}
-
-			int buyIndex = buyInput[0] - '0';
-			buyItem(buyIndex, player);
+			else 
+			{
+				buyItem(buyIndex, player);
+			}
 		}
 		else if (shopOption[0] == '2') {
 			player->DisplayInventory();
-			string sellInput;
 			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
-			cin >> sellInput;
 
-			if (sellInput.size() != 1 || sellInput[0] - '9' > 0 || sellInput[0] - '1' < 0) {
+			string sellInput;
+			stringstream ss;
+			int sellIndex;
+
+			cin >> sellInput;
+			ss << sellInput;
+			ss >> sellIndex;
+
+			if (ss.fail()) 
+			{
+				cout << "\nPlease input it again" << endl;
 				continue;
 			}
-
-			int sellIndex = sellInput[0] - '0';
-			sellItem(sellIndex, player);
+			else 
+			{
+				sellItem(sellIndex, player);
+			}
 		}
 		else {
 			cout << "That option is not available.\n" << endl;
