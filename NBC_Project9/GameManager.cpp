@@ -3,69 +3,8 @@
 #include "GameManager.h"
 #include "Character.h"
 #include "Monster.h"
-#include "Goblin.h"
-#include "Orc.h"
-#include "Troll.h"
 #include "Item.h"
-#include "Slime.h"
-#include "Shop.h"
-
-Monster* GameManager::GenerateMonster(int level)
-{
-	Monster* output = nullptr;
-
-	int randValue = getRandomInt() % 4;
-
-	switch (randValue)
-	{
-	case 0:
-		output = new Goblin(level);
-
-		break;
-	case 1:
-		output = new Orc(level);
-		break;
-	case 2:
-		output = new Troll(level);
-		break;
-	case 3:
-		output = new Slime(level);
-		break;
-	default:
-		cout << "ERROR : GameManager GenerateMonster randValue over" << endl;
-		break;
-	}
-
-	return output;
-}
-
-Monster* GameManager::GenerateBossMonster(int level)
-{
-	Monster* output = nullptr;
-
-	int randValue = getRandomInt() % 4;
-
-	switch (randValue)
-	{
-	case 0:
-		output = new Goblin(15);
-		break;
-	case 1:
-		output = new Orc(15);
-		break;
-	case 2:
-		output = new Troll(15);
-		break;
-	case 3:
-		output = new Slime(15);
-		break;
-	default:
-		cout << "ERROR : GameManager GenerateBossMonster randValue over" << endl;
-		break;
-	}
-
-	return output;
-}
+#include "MonsterFactory.h"
 
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
@@ -81,29 +20,21 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
-int GameManager::getRandomInt()
-{
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<int> dis(0, 99);
-	return dis(gen);
-}
-
 GameManager::GameManager()
 {
-	shop = new Shop();
+	monsterFactory = new MonsterFactory();
 }
 
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
 	if (player->getLevel() >= 10) {
-		monster = GenerateBossMonster(player->getLevel());
+		monster = monsterFactory->GenerateMonster(15);
 		cout << "BossMonster " << monster->getName() << " appears!" << endl;
 		bIsBoss = true;
 	}
 	else {
-		monster = GenerateMonster(player->getLevel());
+		monster = monsterFactory->GenerateMonster(player->getLevel());
 		cout << "Monster " << monster->getName() << " appears!" << endl;
 	}
 	Sleep(500);
@@ -154,5 +85,5 @@ bool GameManager::Battle(Character* player)
 
 GameManager::~GameManager()
 {
-	delete shop;
+	delete monsterFactory;
 }

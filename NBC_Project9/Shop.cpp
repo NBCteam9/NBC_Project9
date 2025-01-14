@@ -91,7 +91,7 @@ void Shop::sellItem(int index, Character* player)
 	Item* item = availableItems[index - 1];
 
 	int playerGold = player->getGold();
-	player->setGold(playerGold + item->getPrice() * 0.3f);
+	player->setGold(playerGold + item->getPrice() * 0.6f);
 	cout << "You have sold the" << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
 	playerInventory.erase(playerInventory.begin() + index - 1);
