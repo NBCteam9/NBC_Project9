@@ -117,7 +117,7 @@ Item* Shop::GenerateItem(int index)
 	return output;
 }
 
-void Shop::DisplayItem()
+void Shop::DisplayItem() const
 {
 	for (int index = 0; index < availableItems.size(); index++) 
 	{
