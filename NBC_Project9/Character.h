@@ -9,8 +9,8 @@ class Character
 {
 public:
 	Character(const Character&) = delete;
+	~Character();
 	Character& operator=(const Character&) = delete;
-
 	static Character* GetInstance(string _name = "");
 	vector<Item*>& GetInventory();
 	string GetName() const;

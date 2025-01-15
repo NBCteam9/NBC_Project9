@@ -14,6 +14,15 @@ Character::Character(string _name)
 	gold = 0;
 }
 
+Character::~Character()
+{
+	for (Item* a : inventory)
+	{
+		delete(a);
+	}
+	inventory.clear();
+}
+
 Character* Character::GetInstance(string _name)
 {
 	if (instance == nullptr)
