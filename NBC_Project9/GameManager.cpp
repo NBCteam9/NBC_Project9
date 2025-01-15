@@ -91,6 +91,4 @@ bool GameManager::Battle(Character* player)
 		isPlayerTurn = !isPlayerTurn;
 		Sleep(500);
 	}
-
-	delete monster;
 }
