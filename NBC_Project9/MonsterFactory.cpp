@@ -1,6 +1,14 @@
 #include "MonsterFactory.h"
 #include <random>
-#include "MonsterList.h"
+#include "Slime.h"
+#include "Wolf.h"
+#include "Goblin.h"
+#include "GoldenGoblin.h"
+#include "Skeleton.h"
+#include "Orc.h"
+#include "Zombie.h"
+#include "Troll.h"
+#include "Dragon.h"
 
 Monster* MonsterFactory::GenerateMonster(int level)
 {
