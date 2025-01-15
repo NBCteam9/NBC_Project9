@@ -8,6 +8,7 @@ using namespace std;
 class Item
 {
 public:
+	Item();
 	const string GetName() const;
 	int GetPrice() const;
 	virtual bool IsUsable(Character* character) const = 0;

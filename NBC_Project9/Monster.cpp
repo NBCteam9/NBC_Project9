@@ -78,7 +78,7 @@ Item* Monster::DropItem()
 			itemMax += item.first;
 		}
 
-		r2 = getRandomNum(1, itemMax);
+		r2 = GetRandomNum(1, itemMax);
 
 		for (pair<int, Item*> item : items)
 		{
