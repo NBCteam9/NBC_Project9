@@ -101,17 +101,25 @@ void MonsterFactory::AddBossMonster(Monster* bossMonster)
 	availableBossMonsters.push_back(bossMonster);
 }
 
+void MonsterFactory::DestoryInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
 MonsterFactory::~MonsterFactory()
 {
-	for (Monster* monster : availableMonsters) 
+	for (Monster* monster : availableMonsters)
 	{
+		cout << monster->GetName() << "//";
 		delete monster;
 	}
+	availableMonsters.clear();
 
-	for (Monster* monster : availableBossMonsters) 
+	for (Monster* monster : availableBossMonsters)
 	{
+		cout << monster->GetName() << "//";
 		delete monster;
 	}
-
-	delete instance;
+	availableBossMonsters.clear();
 }

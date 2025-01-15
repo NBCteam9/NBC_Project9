@@ -12,8 +12,12 @@ public:
 	class Monster* GenerateRandomBossMonster();
 	void AddMonster(Monster* monster);
 	void AddBossMonster(Monster* bossMonster);
+	static void DestoryInstance();
 	~MonsterFactory();
 private:
+	MonsterFactory() {};
+	MonsterFactory(const MonsterFactory&) = delete;
+	MonsterFactory& operator=(const MonsterFactory&) = delete;
 	int BossLevel = 15;
 	static MonsterFactory* instance;
 	vector <class Monster*> availableMonsters;

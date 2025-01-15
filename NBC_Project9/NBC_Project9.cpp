@@ -102,6 +102,7 @@ int main()
 	}
 	
 	delete warrior;
+	MonsterFactory::DestoryInstance();
 
 	return 0;
 }
