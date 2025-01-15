@@ -62,6 +62,8 @@ int Monster::GetRandomNum(int min, int max)
 
 Item* Monster::DropItem() 
 {
+	Item* output = nullptr;
+
 	int r1 = GetRandomNum(1, 100);
 	int r2;
 	int itemMax = 0;
@@ -84,7 +86,7 @@ Item* Monster::DropItem()
 
 		r2 = GetRandomNum(1, itemMax);
 
-		for (pair<int, Item*> item : items)
+		/*for (pair<int, Item*> item : items)
 		{
 			probability += item.first;
 
@@ -92,9 +94,34 @@ Item* Monster::DropItem()
 			{
 				return item.second;
 			}
+		}*/
+
+		int selectIndex = 0;
+		for (int i = 0; i < items.size(); i++) 
+		{
+			probability += items[i].first;
+
+			if (r2 <= probability)
+			{
+				selectIndex = i;
+				break;
+			}
+		}
+
+		for (int i = 0; i < items.size(); i++) 
+		{
+			if (selectIndex == i) 
+			{
+				output = items[i].second;
+			} 
+			else 
+			{
+				delete items[i].second;
+			} 
 		}
 	}
-	return nullptr;
+
+	return output;
 }
 
 int Monster::GetDropGold() const

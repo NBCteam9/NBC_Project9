@@ -103,11 +103,13 @@ void MonsterFactory::AddBossMonster(Monster* bossMonster)
 
 MonsterFactory::~MonsterFactory()
 {
-	for (Monster* monster : availableMonsters) {
+	for (Monster* monster : availableMonsters) 
+	{
 		delete monster;
 	}
 
-	for (Monster* monster : availableBossMonsters) {
+	for (Monster* monster : availableBossMonsters) 
+	{
 		delete monster;
 	}
 
