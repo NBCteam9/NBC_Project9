@@ -62,7 +62,7 @@ int main()
 			cin >> choice;
 			if (choice == "Y" || choice == "y") 
 			{
-				shop.visitShop(warrior);
+				shop.VisitShop(warrior);
 			}
 			else if (choice == "N" || choice == "n") 
 			{
