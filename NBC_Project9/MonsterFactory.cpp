@@ -10,7 +10,7 @@ Monster* MonsterFactory::GenerateMonster(int level)
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dis(0, 99);
 
-	int randValue = dis(gen) % 7;
+	int randValue = dis(gen) % 8;
 
 	switch (randValue)
 	{

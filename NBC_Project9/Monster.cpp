@@ -3,6 +3,7 @@
 #include "AttackBoost.h"
 #include "MaxHPBoost.h"
 #include <random>
+#include <vector>
 
 // Monster Constructor
 Monster::Monster(int level) 
@@ -58,28 +59,37 @@ int Monster::getRandomNum(int min, int max)
 Item* Monster::dropItem() 
 {
 	int r1 = getRandomNum(1, 100);
-	int r2 = getRandomNum(1, 100);
-	int itemCount = 3;
-
+	int r2;
+	int itemMax = 0;
 	// probability = hwak ryul
-	int probability = 100 / itemCount;
+	int probability = 0;
 
 	if (r1 < dropRate) 
 	{
-		if (r2 < probability)
+		vector<pair<int, Item*>> items = 
 		{
-			return new HealthPotion();
+			{50, new HealthPotion()},
+			{50, new AttackBoost()},
+			{50, new MaxHPBoost()}
+		};
+
+		for (pair<int, Item*> item : items) 
+		{
+			itemMax += item.first;
 		}
-		else if (r2 < probability * 2)
+
+		r2 = getRandomNum(1, itemMax);
+
+		for (pair<int, Item*> item : items)
 		{
-			return new AttackBoost();
-		} 
-		else if (r2 < probability * 3)
-		{
-			return new MaxHPBoost();
+			probability += item.first;
+
+			if (r2 <= probability)
+			{
+				return item.second;
+			}
 		}
 	}
-
 	return nullptr;
 }
 

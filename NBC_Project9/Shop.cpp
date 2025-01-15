@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Shop.h"
 #include "Character.h"
 #include "Item.h"
@@ -31,29 +32,53 @@ void Shop::visitShop(Character* player)
 
 		if (shopOption[0] == '1') {
 			displayItem();
-			string buyInput;
 			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
-			cin >> buyInput;
 
-			if (buyInput.size() != 1 || buyInput[0] - '9' > 0 || buyInput[0] - '1' < 0) {
+			string buyInput;
+			stringstream ss;
+			int buyIndex;
+
+			cin >> buyInput;
+			ss << buyInput;
+			ss >> buyIndex;
+
+			if (ss.fail()) 
+			{
+				cout << "\nPlease input it again" << endl;
 				continue;
 			}
-
-			int buyIndex = buyInput[0] - '0';
-			buyItem(buyIndex, player);
+			else 
+			{
+				if (buyIndex != 0)
+				{
+					buyItem(buyIndex, player);
+				}
+			}
 		}
 		else if (shopOption[0] == '2') {
 			player->DisplayInventory();
-			string sellInput;
 			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
-			cin >> sellInput;
 
-			if (sellInput.size() != 1 || sellInput[0] - '9' > 0 || sellInput[0] - '1' < 0) {
+			string sellInput;
+			stringstream ss;
+			int sellIndex;
+
+			cin >> sellInput;
+			ss << sellInput;
+			ss >> sellIndex;
+
+			if (ss.fail()) 
+			{
+				cout << "\nPlease input it again" << endl;
 				continue;
 			}
-
-			int sellIndex = sellInput[0] - '0';
-			sellItem(sellIndex, player);
+			else 
+			{
+				if (sellIndex != 0) 
+				{
+					sellItem(sellIndex, player);
+				}
+			}
 		}
 		else {
 			cout << "That option is not available.\n" << endl;
@@ -95,22 +120,22 @@ void Shop::displayItem()
 	}
 }
 
-void Shop::buyItem(int index, Character* player)
+void Shop::buyItem(int selectNum, Character* player)
 {
-	if (index - 1 >= availableItems.size()) 
+	if ((selectNum - 1) >= availableItems.size())
 	{
 		cout << "\nThat item does not exist in the shop." << endl;
 		return;
 	}
 
 	int playerGold = player->getGold();
-	if (playerGold < availableItems[index - 1]->getPrice()) 
+	if (playerGold < availableItems[selectNum - 1]->getPrice())
 	{
 		cout << "You do not have enough gold." << endl;
 		return;
 	}
 
-	Item* item = GenerateItem(index);
+	Item* item = GenerateItem(selectNum);
 
 	player->setGold(playerGold - item->getPrice());
 	cout << "You have purchased the " << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
@@ -119,22 +144,22 @@ void Shop::buyItem(int index, Character* player)
 	playerInventory.push_back(item);
 }
 
-void Shop::sellItem(int index, Character* player)
+void Shop::sellItem(int selectNum, Character* player)
 {
 	vector<Item*>& playerInventory = player->getInventory();
 
-	if (index - 1 >= playerInventory.size()) 
+	if ((selectNum - 1) >= playerInventory.size())
 	{
 		cout << "\nThat item does not exist in your inventory." << endl;
 		return;
 	}
 
 	int playerGold = player->getGold();
-	player->setGold(playerGold + availableItems[index - 1]->getPrice() * 0.6f);
-	cout << "You have sold the " << availableItems[index - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	player->setGold(playerGold + availableItems[selectNum - 1]->getPrice() * 0.6f);
+	cout << "You have sold the " << availableItems[selectNum - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
 
-	delete playerInventory[index - 1];
-	playerInventory.erase(playerInventory.begin() + index - 1);
+	delete playerInventory[selectNum - 1];
+	playerInventory.erase(playerInventory.begin() + selectNum - 1);
 }
 
 Shop::~Shop()

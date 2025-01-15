@@ -18,9 +18,9 @@ public:
 
 	void displayItem();
 
-	void buyItem(int index, class Character* player);
+	void buyItem(int selectNum, class Character* player);
 
-	void sellItem(int index, class Character* player);
+	void sellItem(int selectNum, class Character* player);
 
 	~Shop();
 };
