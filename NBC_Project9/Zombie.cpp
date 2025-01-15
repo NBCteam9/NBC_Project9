@@ -2,9 +2,9 @@
 
 Zombie::Zombie(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(20, 25);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(20, 25);
 
 	name = "Zombie";
 	health = 52 + level * (28 + healthRandomValue);

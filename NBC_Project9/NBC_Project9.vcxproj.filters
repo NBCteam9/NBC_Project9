@@ -27,22 +27,10 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Orc.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Goblin.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="AttackBoost.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Shop.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Slime.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Troll.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="HealthPotion.cpp">
@@ -54,13 +42,28 @@
     <ClCompile Include="Item.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MaxHPBoost.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Goblin.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="GoldenGoblin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Dragon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Orc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="Skeleton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Troll.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Wolf.cpp">
@@ -83,22 +86,10 @@
     <ClInclude Include="GameManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Orc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Goblin.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="AttackBoost.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Shop.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Slime.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Troll.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="HealthPotion.h">
@@ -107,13 +98,28 @@
     <ClInclude Include="MonsterFactory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="MaxHPBoost.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="GoldenGoblin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Dragon.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Orc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="Skeleton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Troll.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Wolf.h">

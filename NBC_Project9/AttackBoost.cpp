@@ -6,14 +6,14 @@ AttackBoost::AttackBoost()
 	price = 30;
 }
 
-bool AttackBoost::isUsable(Character* character) const
+bool AttackBoost::IsUsable(const Character* character) const
 {
 	return true;	// Attack Boost is always usable
 }
 
-void AttackBoost::use(Character* character)	// Use Attack Boost, Increase Character Attack
+void AttackBoost::Use(Character* character)	// Use Attack Boost, Increase Character Attack
 {
 	cout << "Attack increased " << attackIncrease << "!";
-	character->setAttack(character->getAttack() + attackIncrease);
-	cout << " Current attack : " << character->getAttack() << endl;
+	character->SetAttack(character->GetAttack() + attackIncrease);
+	cout << " Current attack : " << character->GetAttack() << endl;
 }
