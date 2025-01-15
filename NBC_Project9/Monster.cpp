@@ -15,17 +15,17 @@ Monster::Monster(int level)
 	dropGold = 0;
 }
 
-string Monster::getName()
+string Monster::GetName()
 {
 	return name;
 }
 
-int Monster::getHealth()
+int Monster::GetHealth()
 {
 	return health;
 }
 
-int Monster::getAttack()
+int Monster::GetAttack()
 {
 	return attack;
 }
@@ -48,7 +48,7 @@ void Monster::TakeDamage(int damage)
 //	return randomNum;
 //}
 
-int Monster::getRandomNum(int min, int max)
+int Monster::GetRandomNum(int min, int max)
 {
 	random_device rd;
 	mt19937 gen(rd());
@@ -56,9 +56,9 @@ int Monster::getRandomNum(int min, int max)
 	return dis(gen);
 }
 
-Item* Monster::dropItem() 
+Item* Monster::DropItem() 
 {
-	int r1 = getRandomNum(1, 100);
+	int r1 = GetRandomNum(1, 100);
 	int r2;
 	int itemMax = 0;
 	// probability = hwak ryul
@@ -93,6 +93,7 @@ Item* Monster::dropItem()
 	return nullptr;
 }
 
-int Monster::getDropGold() {
+int Monster::GetDropGold()
+{
 	return dropGold;
 }

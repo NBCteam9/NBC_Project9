@@ -14,7 +14,7 @@ Character::Character(string _name)
 	gold = 0;
 }
 
-Character* Character::getInstance(string _name)
+Character* Character::GetInstance(string _name)
 {
 	if (instance == nullptr)
 	{
@@ -23,57 +23,57 @@ Character* Character::getInstance(string _name)
 	return instance;
 }
 
-string Character::getName()
+string Character::GetName()
 {
 	return name;
 }
 
-vector<Item*>& Character::getInventory()
+vector<Item*>& Character::GetInventory()
 {
 	return inventory;
 }
 
-int Character::getLevel()
+int Character::GetLevel()
 {
 	return level;
 }
 
-int Character::getHealth()
+int Character::GetHealth()
 {
 	return health;
 }
 
-void Character::setHealth(int val)
+void Character::SetHealth(int val)
 {
 	health = val;
 }
 
-int Character::getMaxHealth()
+int Character::GetMaxHealth()
 {
 	return maxHealth;
 }
 
-void Character::setMaxHealth(int val)
+void Character::SetMaxHealth(int val)
 {
 	maxHealth = val;
 }
 
-int Character::getAttack()
+int Character::GetAttack()
 {
 	return attack;
 }
 
-void Character::setAttack(int val)
+void Character::SetAttack(int val)
 {
 	attack = val;
 }
 
-int Character::getGold()
+int Character::GetGold()
 {
 	return gold;
 }
 
-void Character::setGold(int val)
+void Character::SetGold(int val)
 {
 	if (val < 0)
 	{
@@ -129,7 +129,7 @@ void Character::UseItem(int index)
 {
 	if (inventory.size() < index) return;
 	Item* useItem = inventory[index];
-	useItem->use(instance);
+	useItem->Use(instance);
 	inventory.erase(inventory.begin() + index);
 	delete(useItem);
 }
@@ -139,6 +139,6 @@ void Character::DisplayInventory()
 	if (inventory.size() != 0) cout << endl;
 	for (int index = 0; index < inventory.size(); index++) {
 		Item* item = inventory[index];
-		cout << index + 1 << ": " << item->getName() << " (Price : " << item->getPrice() << "G)" << endl;
+		cout << index + 1 << ": " << item->GetName() << " (Price : " << item->GetPrice() << "G)" << endl;
 	}
 }

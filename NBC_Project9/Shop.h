@@ -5,23 +5,15 @@
 using namespace std;
 
 class Shop
-{ 
-private:
-	vector<class Item*> availableItems;
-
+{
 public:
 	Shop();
-
-	void visitShop(class Character* player);
-
-	class Item* GenerateItem(int index);
-
-	void displayItem();
-
-	void buyItem(int selectNum, class Character* player);
-
-	void sellItem(int selectNum, class Character* player);
-
 	~Shop();
+	void VisitShop(class Character* player);
+	class Item* GenerateItem(int index);
+	void DisplayItem();
+	void BuyItem(int selectNum, class Character* player);
+	void SellItem(int selectNum, class Character* player);
+private:
+	vector<class Item*> availableItems;
 };
-

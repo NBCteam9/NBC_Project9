@@ -6,15 +6,15 @@ MaxHPBoost::MaxHPBoost()
 	price = 25;
 }
 
-bool MaxHPBoost::isUsable(Character* character) const  // always return true
+bool MaxHPBoost::IsUsable(Character* character) const  // always return true
 {
 	return true;
 }
 
-void MaxHPBoost::use(Character* character)  // set max health
+void MaxHPBoost::Use(Character* character)  // set max health
 {
-	int curMaxHealth = character->getMaxHealth();
+	int curMaxHealth = character->GetMaxHealth();
 	curMaxHealth += maxHPIncrease;
-	cout << "Use Max Health Boost, +" << maxHPIncrease <<" Max Health, Your HP : " << character->getHealth() << " / " << curMaxHealth << endl;
-	character->setMaxHealth(curMaxHealth);
+	cout << "Use Max Health Boost, +" << maxHPIncrease <<" Max Health, Your HP : " << character->GetHealth() << " / " << curMaxHealth << endl;
+	character->SetMaxHealth(curMaxHealth);
 }

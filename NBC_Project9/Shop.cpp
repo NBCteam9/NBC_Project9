@@ -13,25 +13,29 @@ Shop::Shop()
 	availableItems.push_back(new MaxHPBoost());
 }
 
-void Shop::visitShop(Character* player)
+void Shop::VisitShop(Character* player)
 {
 	cout << "Welcome to the shop!" << endl;
 
 	while (true)
 	{
 		string shopOption = "";
-		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->getGold() << ") ";
+		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->GetGold() << ") ";
 		cin >> shopOption;
 
-		if (shopOption == "0") break;
-
-		if (shopOption.size() != 1 || shopOption[0] - '2' > 0 || shopOption[0] - '1' < 0) {
+		if (shopOption == "0")
+		{
+			break;
+		}
+		if (shopOption.size() != 1 || shopOption[0] - '2' > 0 || shopOption[0] - '1' < 0)
+		{
 			cout << "\nPlease input it again" << endl;
 			continue;
 		}
 
-		if (shopOption[0] == '1') {
-			displayItem();
+		if (shopOption[0] == '1')
+		{
+			DisplayItem();
 			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
 
 			string buyInput;
@@ -51,11 +55,12 @@ void Shop::visitShop(Character* player)
 			{
 				if (buyIndex != 0)
 				{
-					buyItem(buyIndex, player);
+					BuyItem(buyIndex, player);
 				}
 			}
 		}
-		else if (shopOption[0] == '2') {
+		else if (shopOption[0] == '2')
+		{
 			player->DisplayInventory();
 			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
 
@@ -76,11 +81,12 @@ void Shop::visitShop(Character* player)
 			{
 				if (sellIndex != 0) 
 				{
-					sellItem(sellIndex, player);
+					SellItem(sellIndex, player);
 				}
 			}
 		}
-		else {
+		else
+		{
 			cout << "That option is not available.\n" << endl;
 		}
 	}
@@ -111,16 +117,16 @@ Item* Shop::GenerateItem(int index)
 	return output;
 }
 
-void Shop::displayItem()
+void Shop::DisplayItem()
 {
 	for (int index = 0; index < availableItems.size(); index++) 
 	{
 		Item* curItem = availableItems[index];
-		cout << index + 1 << ". " << curItem->getName() << " (Price : " << curItem->getPrice() << "G)" << endl;
+		cout << index + 1 << ". " << curItem->GetName() << " (Price : " << curItem->GetPrice() << "G)" << endl;
 	}
 }
 
-void Shop::buyItem(int selectNum, Character* player)
+void Shop::BuyItem(int selectNum, Character* player)
 {
 	if ((selectNum - 1) >= availableItems.size())
 	{
@@ -128,8 +134,8 @@ void Shop::buyItem(int selectNum, Character* player)
 		return;
 	}
 
-	int playerGold = player->getGold();
-	if (playerGold < availableItems[selectNum - 1]->getPrice())
+	int playerGold = player->GetGold();
+	if (playerGold < availableItems[selectNum - 1]->GetPrice())
 	{
 		cout << "You do not have enough gold." << endl;
 		return;
@@ -137,16 +143,16 @@ void Shop::buyItem(int selectNum, Character* player)
 
 	Item* item = GenerateItem(selectNum);
 
-	player->setGold(playerGold - item->getPrice());
-	cout << "You have purchased the " << item->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	player->SetGold(playerGold - item->GetPrice());
+	cout << "You have purchased the " << item->GetName() << ". (Current Gold : " << player->GetGold() << "G)" << endl;
 
-	vector<Item*>& playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->GetInventory();
 	playerInventory.push_back(item);
 }
 
-void Shop::sellItem(int selectNum, Character* player)
+void Shop::SellItem(int selectNum, Character* player)
 {
-	vector<Item*>& playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->GetInventory();
 
 	if ((selectNum - 1) >= playerInventory.size())
 	{
@@ -154,9 +160,9 @@ void Shop::sellItem(int selectNum, Character* player)
 		return;
 	}
 
-	int playerGold = player->getGold();
-	player->setGold(playerGold + availableItems[selectNum - 1]->getPrice() * 0.6f);
-	cout << "You have sold the " << availableItems[selectNum - 1]->getName() << ". (Current Gold : " << player->getGold() << "G)" << endl;
+	int playerGold = player->GetGold();
+	player->SetGold(playerGold + availableItems[selectNum - 1]->GetPrice() * 0.6f);
+	cout << "You have sold the " << availableItems[selectNum - 1]->GetName() << ". (Current Gold : " << player->GetGold() << "G)" << endl;
 
 	delete playerInventory[selectNum - 1];
 	playerInventory.erase(playerInventory.begin() + selectNum - 1);

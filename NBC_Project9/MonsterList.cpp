@@ -2,9 +2,9 @@
 
 Slime::Slime(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(4, 6);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(4, 6);
 
 	name = "Slime";
 	health = 20 + level * (15 + healthRandomValue);
@@ -15,9 +15,9 @@ Slime::Slime(int level) : Monster(level)
 
 Wolf::Wolf(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(4, 8);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(4, 8);
 
 	name = "Wolf";
 	health = 25 + level * (18 + healthRandomValue);
@@ -28,9 +28,9 @@ Wolf::Wolf(int level) : Monster(level)
 
 Goblin::Goblin(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(5, 10);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(5, 10);
 
 	name = "Goblin";
 	health = 30 + level * (20 + healthRandomValue);
@@ -41,9 +41,9 @@ Goblin::Goblin(int level) : Monster(level)
 
 GoldenGoblin::GoldenGoblin(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(1, 110);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(1, 110);
 
 	name = "GoldenGoblin";
 	health = 22 + level * (13 + healthRandomValue);
@@ -54,9 +54,9 @@ GoldenGoblin::GoldenGoblin(int level) : Monster(level)
 
 Skeleton::Skeleton(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(10, 15);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(10, 15);
 
 	name = "Skeleton";
 	health = 37 + level * (23 + healthRandomValue);
@@ -67,9 +67,9 @@ Skeleton::Skeleton(int level) : Monster(level)
 
 Orc::Orc(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(15, 20);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(15, 20);
 
 	name = "Orc";
 	health = 45 + level * (25 + healthRandomValue);
@@ -80,9 +80,9 @@ Orc::Orc(int level) : Monster(level)
 
 Zombie::Zombie(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(20, 25);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(20, 25);
 
 	name = "Zombie";
 	health = 52 + level * (28 + healthRandomValue);
@@ -93,9 +93,9 @@ Zombie::Zombie(int level) : Monster(level)
 
 Troll::Troll(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(25, 30);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(25, 30);
 
 	name = "Troll";
 	health = 60 + level * (30 + healthRandomValue);
@@ -106,9 +106,9 @@ Troll::Troll(int level) : Monster(level)
 
 Dragon::Dragon(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(100, 300);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(100, 300);
 
 	name = "Dragon";
 	health = 80 + level * (42 + healthRandomValue);

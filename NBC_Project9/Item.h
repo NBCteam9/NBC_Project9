@@ -7,12 +7,12 @@ using namespace std;
 
 class Item
 {
+public:
+	const string GetName() const;
+	int GetPrice() const;
+	virtual bool IsUsable(Character* character) const = 0;
+	virtual void Use(Character* Character) = 0;
 protected:
 	string name;
 	int price;
-public:
-	const string getName() const;
-	int getPrice() const;
-	virtual bool isUsable(Character* character) const = 0;
-	virtual void use(Character* Character) = 0;
 };

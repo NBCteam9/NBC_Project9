@@ -29,12 +29,11 @@ int main()
 			break;
 		}
 	}
-	Character* warrior = Character::getInstance(name);
+	Character* warrior = Character::GetInstance(name);
 	
-
 	while (true)
 	{
-		if (warrior->getLevel() >= 10) 
+		if (warrior->GetLevel() >= 10) 
 		{
 			if (gameManager.Battle(warrior) == false) 
 			{
@@ -61,12 +60,11 @@ int main()
 		cin >> choice;
 		if (choice == "Y" || choice == "y") 
 		{
-			shop.visitShop(warrior);
+			shop.VisitShop(warrior);
 		}
 		cout << "\n====================\n" << endl;
 	}
 	
-
 	delete warrior;
 
 	return 0;

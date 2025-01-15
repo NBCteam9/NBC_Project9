@@ -1,11 +1,11 @@
 #include "Item.h"
 
-const string Item::getName() const
+const string Item::GetName() const
 {
     return name;
 }
 
-int Item::getPrice() const
+int Item::GetPrice() const
 {
     return price;
 }
