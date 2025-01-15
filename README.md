@@ -52,13 +52,34 @@ C++을 활용해 만든 텍스트 기반 RPG게임입니다!
 - [골든 고블린 처치 시 엄청난 골드](#골든-고블린-처치-시-엄청난-골드)
 
 ## 🧾프로젝트 구조
+```
 NBC_Project9
- ┣ src
- ┃ ┣ main.cpp // 메인 함수 진입점
- ┃ ┗ game // 게임 디렉토리 (필요한 헤더 파일, 구현부 파일 위치)
- ┃ ┃ ┣ character.h // 캐릭터 시스템 헤더
- ┃ ┃ ┣ character.cpp // 캐릭터 시스템 구현
- ┣ tests // 테스트 코드
+ ┃ ┣ AttackBoost.cpp          // 공격력 증가 물약 아이템
+ ┃ ┣ AttackBoost.h
+ ┃ ┣ Character.cpp            // 주인공 캐릭터
+ ┃ ┣ Character.h
+ ┃ ┣ GameManager.cpp          // 게임 진행 시스템
+ ┃ ┣ GameManager.h
+ ┃ ┣ HealthPotion.cpp         // 체력 회복 물약 아이템
+ ┃ ┣ HealthPotion.h
+ ┃ ┣ Item.cpp                 // 아이템 클래스 선언
+ ┃ ┣ Item.h
+ ┃ ┣ MaxHPBoost.cpp           // 최대 체력 증가 물약 아이템
+ ┃ ┣ MaxHPBoost.h
+ ┃ ┣ Monster.cpp              // 몬스터 클래스 선언
+ ┃ ┣ Monster.h
+ ┃ ┣ MonsterFactory.cpp       // 몬스터 생성 시스템
+ ┃ ┣ MonsterFactory.h
+ ┃ ┣ MonsterList.cpp          // 여러 종류의 몬스터 집합
+ ┃ ┣ MonsterList.h
+ ┃ ┣ NBC_Project9.cpp         // 프로그램 진입 파일
+ ┃ ┣ NBC_Project9.vcxproj
+ ┃ ┣ NBC_Project9.vcxproj.filters
+ ┃ ┣ NBC_Project9.vcxproj.user
+ ┃ ┣ Shop.cpp                 // 상점 시스템
+ ┃ ┗ Shop.h
+ ┗ 
+```
 
 ## ⚙개발 환경
 - **프로그래밍 언어** - ISO C++14 표준(/std:c++14)
