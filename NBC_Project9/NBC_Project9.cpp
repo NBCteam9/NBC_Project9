@@ -57,11 +57,22 @@ int main()
 
 		cout << "\n====================\n" << endl;
 		cout << "Do you want to go shop?? (Y/N) ";
-		string choice;
-		cin >> choice;
-		if (choice == "Y" || choice == "y") 
+		while (1) 
 		{
-			shop.visitShop(warrior);
+			string choice;
+			cin >> choice;
+			if (choice == "Y" || choice == "y") 
+			{
+				shop.visitShop(warrior);
+			}
+			else if (choice == "N" || choice == "n") 
+			{
+				break;
+			}
+			else
+			{
+				cout << "Please re-enter (Y/N) " ;
+			}
 		}
 		cout << "\n====================\n" << endl;
 	}
