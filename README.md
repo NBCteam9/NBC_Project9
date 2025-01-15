@@ -106,6 +106,9 @@ NBC_Project9
  ┗ 
 ```
 
+## C++ 클래스 다이어그램
+![C++ 클래스 다이어그램 이미지](https://github.com/user-attachments/assets/14fc36bb-19b4-47b5-ae37-2291e8bc6a7d)
+
 ## ⚙개발 환경
 - **프로그래밍 언어** - ISO C++14 표준(/std:c++14)
 - **개발 환경(IDE)** - Visual Studio 2022 (v143)
