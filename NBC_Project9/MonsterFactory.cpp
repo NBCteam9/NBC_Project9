@@ -111,14 +111,12 @@ MonsterFactory::~MonsterFactory()
 {
 	for (Monster* monster : availableMonsters)
 	{
-		cout << monster->GetName() << "//";
 		delete monster;
 	}
 	availableMonsters.clear();
 
 	for (Monster* monster : availableBossMonsters)
 	{
-		cout << monster->GetName() << "//";
 		delete monster;
 	}
 	availableBossMonsters.clear();
