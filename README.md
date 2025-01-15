@@ -52,9 +52,11 @@ C++을 활용해 만든 텍스트 기반 RPG게임입니다!
 - 아이템 자동 사용
 
 ## ⚙ 개발 환경
-- 프로그래밍 언어 - C++
-- 협업 도구 - GitHub, Notion
-- 개발 환경(IDE) - Visual Studio 2022
+- **프로그래밍 언어** - ISO C++14 표준(/std:c++14)
+- **개발 환경(IDE)** - Visual Studio 2022 (v143)
+- **컴파일러(compilor)** - Microsoft Visual C++ (MSVC) 19.38.33143
+- **아키텍처(Architecture)** - x86 (32-bit)
+- **협업 도구** - GitHub, Notion
 
 ## 📢 아직 수정되지 않은 버그/문제점
 -
