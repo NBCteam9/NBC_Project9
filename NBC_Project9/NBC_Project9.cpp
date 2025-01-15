@@ -87,6 +87,7 @@ int main()
 			if (choice == "Y" || choice == "y") 
 			{
 				shop.VisitShop(warrior);
+				break;
 			}
 			else if (choice == "N" || choice == "n") 
 			{
