@@ -13,8 +13,8 @@ public:
 	void AddMonster(Monster* monster);
 	void AddBossMonster(Monster* bossMonster);
 	static void DestoryInstance();
-	~MonsterFactory();
 private:
+	~MonsterFactory();
 	MonsterFactory() {};
 	MonsterFactory(const MonsterFactory&) = delete;
 	MonsterFactory& operator=(const MonsterFactory&) = delete;
