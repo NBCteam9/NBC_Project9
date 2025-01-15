@@ -14,6 +14,7 @@ public:
 	void AddBossMonster(Monster* bossMonster);
 	~MonsterFactory();
 private:
+	int BossLevel = 15;
 	static MonsterFactory* instance;
 	vector <class Monster*> availableMonsters;
 	vector <class Monster*> availableBossMonsters;

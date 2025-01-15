@@ -75,7 +75,7 @@ Monster* MonsterFactory::GenerateRandomBossMonster()
 	}
 
 	int randValue = dis(gen) % availableBossMonsters.size();
-	availableBossMonsters[randValue]->Initialize(15);
+	availableBossMonsters[randValue]->Initialize(BossLevel);
 	return availableBossMonsters[randValue];
 
 	/*switch (randValue)
