@@ -2,9 +2,9 @@
 
 Wolf::Wolf(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(4, 8);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(4, 8);
 
 	name = "Wolf";
 	health = 25 + level * (18 + healthRandomValue);

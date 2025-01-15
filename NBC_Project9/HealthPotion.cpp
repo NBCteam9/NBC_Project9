@@ -6,10 +6,10 @@ HealthPotion::HealthPotion()
 	price = 15;
 }
 
-bool HealthPotion::isUsable(Character* character) const //max health-current health > 50(health potion) check
+bool HealthPotion::IsUsable(const Character* character) const //max health-current health > 50(health potion) check
 {
-	int currentHealth = character->getHealth();
-	int maxHealth = character->getMaxHealth();
+	int currentHealth = character->GetHealth();
+	int maxHealth = character->GetMaxHealth();
 
 	if (maxHealth - currentHealth >= healthRestore)
 	{
@@ -21,10 +21,10 @@ bool HealthPotion::isUsable(Character* character) const //max health-current hea
 	}
 }
 
-void HealthPotion::use(Character* character)//set health
+void HealthPotion::Use(Character* character)//set health
 {
-	int currentHealth = character->getHealth();
+	int currentHealth = character->GetHealth();
 	currentHealth += healthRestore;
 	cout << "Use HealPotion, +" << healthRestore << " HP , Your HP :  " << currentHealth << endl;
-	character->setHealth(currentHealth);
+	character->SetHealth(currentHealth);
 }

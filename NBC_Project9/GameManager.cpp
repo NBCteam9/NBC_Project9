@@ -8,23 +8,24 @@
 
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
-	int curPlayerGold = player->getGold() + monster->getDropGold();
+	int curPlayerGold = player->GetGold() + monster->GetDropGold();
 	int interest = curPlayerGold / goldPerInterest;
 	if (interest > maxInterest)
 	{
 		interest = maxInterest;
 	}
-	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ", Current Gold : " << curPlayerGold << ")\n" << endl;
+	cout <<  "Current Gold : " << curPlayerGold << endl;
+	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")\n" << endl;
 
 	player->AddExperience(50);
 
-	player->setGold(curPlayerGold + interest);
+	player->SetGold(curPlayerGold + interest);
 
-	Item* dropItem = monster->dropItem();
+	Item* dropItem = monster->DropItem();
 
 	if (dropItem != nullptr) 
 	{
-		player->getInventory().push_back(dropItem);
+		player->GetInventory().push_back(dropItem);
 	}
 }
 
@@ -37,19 +38,19 @@ bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
 
-	if (player->getLevel() >= 10) 
+	if (player->GetLevel() >= 10) 
 	{
 		monster = monsterFactory->GenerateBossMonster();
-		cout << "BossMonster " << monster->getName() << " appears!" << endl;
+		cout << "BossMonster " << monster->GetName() << " appears!" << endl;
 	}
 	else 
 	{
-		monster = monsterFactory->GenerateMonster(player->getLevel());
-		cout << "Monster " << monster->getName() << " appears!" << endl;
+		monster = monsterFactory->GenerateMonster(player->GetLevel());
+		cout << "Monster " << monster->GetName() << " appears!" << endl;
 	}
 	Sleep(500);
 
-	vector<Item*>& playerInventory = player->getInventory();
+	vector<Item*>& playerInventory = player->GetInventory();
 
 	bool isPlayerTurn = true;
 
@@ -59,18 +60,18 @@ bool GameManager::Battle(Character* player)
 		{
 			for (int index = playerInventory.size() - 1; index >= 0; index--) 
 			{
-				if (playerInventory[index]->isUsable(player)) 
+				if (playerInventory[index]->IsUsable(player)) 
 				{
 					player->UseItem(index);
 				}
 			}
 
-			cout << player->getName() << " attacks the " << monster->getName() << "! ";
-			monster->TakeDamage(player->getAttack());
+			cout << player->GetName() << " attacks the " << monster->GetName() << "! ";
+			monster->TakeDamage(player->GetAttack());
 
-			if (monster->getHealth() <= 0) 
+			if (monster->GetHealth() <= 0) 
 			{
-				cout << monster->getName() << " defeat! : Victory!" << endl;
+				cout << monster->GetName() << " defeat! : Victory!" << endl;
 				cout << "\n====================\n" << endl;
 
 				OnBattleVictory(player, monster);
@@ -81,12 +82,12 @@ bool GameManager::Battle(Character* player)
 		}
 		else 
 		{
-			cout << monster->getName() << " attacks the " << player->getName() << "! ";
-			player->TakeDamage(monster->getAttack());
+			cout << monster->GetName() << " attacks the " << player->GetName() << "! ";
+			player->TakeDamage(monster->GetAttack());
 
-			if (player->getHealth() <= 0) 
+			if (player->GetHealth() <= 0) 
 			{
-				cout << player->getName() << " Defeat..." << endl;
+				cout << player->GetName() << " Defeat..." << endl;
 				cout << "\nGame over..." << endl;
 				return false;
 			}

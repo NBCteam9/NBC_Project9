@@ -2,9 +2,9 @@
 
 Troll::Troll(int level) : Monster(level)
 {
-	int healthRandomValue = getRandomNum(1, 10);
-	int attackRandomValue = getRandomNum(1, 5);
-	int goldReward = getRandomNum(25, 30);
+	int healthRandomValue = GetRandomNum(1, 10);
+	int attackRandomValue = GetRandomNum(1, 5);
+	int goldReward = GetRandomNum(25, 30);
 
 	name = "Troll";
 	health = 60 + level * (30 + healthRandomValue);
