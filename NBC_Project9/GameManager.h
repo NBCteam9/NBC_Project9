@@ -7,12 +7,10 @@ using namespace std;
 class GameManager
 {
 public:
-	GameManager();
-	~GameManager();
 	bool Battle(class Character* player);
+
 private:
 	void OnBattleVictory(class Character* player, class Monster* monster);
-	class MonsterFactory* monsterFactory;
 	int goldPerInterest = 10;
 	int maxInterest = 10;
 };

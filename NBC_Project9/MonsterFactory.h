@@ -6,7 +6,20 @@ using namespace std;
 
 class MonsterFactory
 {
+private:
+	static MonsterFactory* instance;
+
+	vector <class Monster*> availableMonsters;
+	vector <class Monster*> availableBossMonsters;
+
 public:
-	class Monster* GenerateMonster(int level);
-	class Monster* GenerateBossMonster();
+	static MonsterFactory* GetInstance();
+
+	class Monster* GenerateRandomMonster(int level);
+	class Monster* GenerateRandomBossMonster();
+
+	void AddMonster(Monster* monster);
+	void AddBossMonster(Monster* bossMonster);
+
+	~MonsterFactory();
 };

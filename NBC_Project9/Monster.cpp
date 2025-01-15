@@ -15,6 +15,10 @@ Monster::Monster(int level)
 	dropGold = 0;
 }
 
+void Monster::Initialize(int level)
+{
+}
+
 string Monster::GetName() const
 {
 	return name;

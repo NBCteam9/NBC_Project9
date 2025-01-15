@@ -1,26 +1,35 @@
 #include "MonsterFactory.h"
 #include <random>
-#include "Slime.h"
-#include "Wolf.h"
-#include "Goblin.h"
-#include "GoldenGoblin.h"
-#include "Skeleton.h"
-#include "Orc.h"
-#include "Zombie.h"
-#include "Troll.h"
-#include "Dragon.h"
+#include "Monster.h"
 
-Monster* MonsterFactory::GenerateMonster(int level)
+MonsterFactory* MonsterFactory::instance = nullptr;
+
+MonsterFactory* MonsterFactory::GetInstance()
 {
-	Monster* output = nullptr;
+	if (instance == nullptr)
+	{
+		instance = new MonsterFactory();
+	}
+	return instance;
+}
 
+Monster* MonsterFactory::GenerateRandomMonster(int level)
+{
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dis(0, 99);
 
-	int randValue = dis(gen) % 8;
+	if (availableMonsters.size() == 0) 
+	{
+		cout << "ERROR // MonsterFactory's GenerateMonster -> Please Push Monster in availableMonsters" << endl;
+		return nullptr;
+	}
 
-	switch (randValue)
+	int randValue = dis(gen) % availableMonsters.size();
+	availableMonsters[randValue]->Initialize(level);
+	return availableMonsters[randValue];
+
+	/*switch (randValue)
 	{
 	case 0:
 		output = new Goblin(level);
@@ -51,20 +60,25 @@ Monster* MonsterFactory::GenerateMonster(int level)
 		break;
 	}
 
-	return output;
+	return output;*/
 }
 
-Monster* MonsterFactory::GenerateBossMonster()
+Monster* MonsterFactory::GenerateRandomBossMonster()
 {
-	Monster* output = nullptr;
-
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dis(0, 99);
 
-	int randValue = dis(gen) % 1;
+	if (availableBossMonsters.size() == 0)
+	{
+		cout << "ERROR // MonsterFactory's GenerateMonster -> Please Push Monster in availableBossMonsters" << endl;
+	}
 
-	switch (randValue)
+	int randValue = dis(gen) % availableBossMonsters.size();
+	availableBossMonsters[randValue]->Initialize(15);
+	return availableBossMonsters[randValue];
+
+	/*switch (randValue)
 	{
 	case 0:
 		output = new Dragon(15);
@@ -74,5 +88,28 @@ Monster* MonsterFactory::GenerateBossMonster()
 		break;
 	}
 
-	return output;
+	return output;*/
+}
+
+void MonsterFactory::AddMonster(Monster* monster)
+{
+	availableMonsters.push_back(monster);
+}
+
+void MonsterFactory::AddBossMonster(Monster* bossMonster)
+{
+	availableBossMonsters.push_back(bossMonster);
+}
+
+MonsterFactory::~MonsterFactory()
+{
+	for (Monster* monster : availableMonsters) {
+		delete monster;
+	}
+
+	for (Monster* monster : availableBossMonsters) {
+		delete monster;
+	}
+
+	delete instance;
 }

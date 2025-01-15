@@ -1,15 +1,39 @@
 ﻿#include <iostream>
 #include <string>
 #include "GameManager.h"
+#include "MonsterFactory.h"
 #include "Shop.h"
 #include "Character.h"
+#include "Slime.h"
+#include "Wolf.h"
+#include "Goblin.h"
+#include "GoldenGoblin.h"
+#include "Skeleton.h"
+#include "Orc.h"
+#include "Zombie.h"
+#include "Troll.h"
+#include "Dragon.h"
+#include "Monster.h"
 
 using namespace std;
 
 int main()
 {
     GameManager gameManager;
+
+	MonsterFactory::GetInstance()->AddMonster(new Goblin(1));
+	MonsterFactory::GetInstance()->AddMonster(new Orc(1));
+	MonsterFactory::GetInstance()->AddMonster(new Skeleton(1));
+	MonsterFactory::GetInstance()->AddMonster(new Slime(1));
+	MonsterFactory::GetInstance()->AddMonster(new Troll(1));
+	MonsterFactory::GetInstance()->AddMonster(new Wolf(1));
+	MonsterFactory::GetInstance()->AddMonster(new Zombie(1));
+	MonsterFactory::GetInstance()->AddMonster(new GoldenGoblin(1));
+
+	MonsterFactory::GetInstance()->AddBossMonster(new Dragon(1));
+
 	Shop shop;
+
 	cout << "Welcome to Game!" << endl;
 	cout << "Create your character." << endl;
 	string name;

@@ -29,23 +29,18 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
-GameManager::GameManager()
-{
-	monsterFactory = new MonsterFactory();
-}
-
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
 
 	if (player->GetLevel() >= 10) 
 	{
-		monster = monsterFactory->GenerateBossMonster();
+		monster = MonsterFactory::GetInstance()->GenerateRandomBossMonster();
 		cout << "BossMonster " << monster->GetName() << " appears!" << endl;
 	}
 	else 
 	{
-		monster = monsterFactory->GenerateMonster(player->GetLevel());
+		monster = MonsterFactory::GetInstance()->GenerateRandomMonster(player->GetLevel());
 		cout << "Monster " << monster->GetName() << " appears!" << endl;
 	}
 	Sleep(500);
@@ -98,9 +93,4 @@ bool GameManager::Battle(Character* player)
 	}
 
 	delete monster;
-}
-
-GameManager::~GameManager()
-{
-	delete monsterFactory;
 }
