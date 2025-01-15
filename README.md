@@ -74,8 +74,24 @@ NBC_Project9
  ┃ ┣ Monster.h
  ┃ ┣ MonsterFactory.cpp       // 몬스터 생성 시스템
  ┃ ┣ MonsterFactory.h
- ┃ ┣ MonsterList.cpp          // 여러 종류의 몬스터 집합
- ┃ ┣ MonsterList.h
+ ┃ ┣ Slime.cpp                // 몬스터 : 슬라임
+ ┃ ┣ Slime.h
+ ┃ ┣ Wolf.cpp                 // 몬스터 : 늑대
+ ┃ ┣ Wolf.h
+ ┃ ┣ Goblin.cpp               // 몬스터 : 고블린
+ ┃ ┣ Goblin.h
+ ┃ ┣ GoldenGoblin.cpp         // 몬스터 : 황금 고블린
+ ┃ ┣ GoldenGoblin.h
+ ┃ ┣ Skeleton.cpp             // 몬스터 : 스켈레톤
+ ┃ ┣ Skeleton.h
+ ┃ ┣ Orc.cpp                  // 몬스터 : 오크
+ ┃ ┣ Orc.h
+ ┃ ┣ Zombie.cpp               // 몬스터 : 좀비
+ ┃ ┣ Zombie.h
+ ┃ ┣ Troll.cpp                // 몬스터 : 트롤
+ ┃ ┣ Troll.h
+ ┃ ┣ Dragon.cpp               // 몬스터 : 드래곤
+ ┃ ┣ Dragon.h
  ┃ ┣ NBC_Project9.cpp         // 프로그램 진입 파일
  ┃ ┣ NBC_Project9.vcxproj
  ┃ ┣ NBC_Project9.vcxproj.filters
