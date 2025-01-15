@@ -6,7 +6,7 @@ HealthPotion::HealthPotion()
 	price = 15;
 }
 
-bool HealthPotion::IsUsable(Character* character) const //max health-current health > 50(health potion) check
+bool HealthPotion::IsUsable(const Character* character) const //max health-current health > 50(health potion) check
 {
 	int currentHealth = character->GetHealth();
 	int maxHealth = character->GetMaxHealth();

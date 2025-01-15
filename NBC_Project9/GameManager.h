@@ -8,8 +8,8 @@ class GameManager
 {
 public:
 	GameManager();
-	bool Battle(class Character* player);
 	~GameManager();
+	bool Battle(class Character* player);
 private:
 	void OnBattleVictory(class Character* player, class Monster* monster);
 	class MonsterFactory* monsterFactory;

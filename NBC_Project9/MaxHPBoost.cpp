@@ -6,7 +6,7 @@ MaxHPBoost::MaxHPBoost()
 	price = 25;
 }
 
-bool MaxHPBoost::IsUsable(Character* character) const  // always return true
+bool MaxHPBoost::IsUsable(const Character* character) const  // always return true
 {
 	return true;
 }

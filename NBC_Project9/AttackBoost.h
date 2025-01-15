@@ -5,7 +5,7 @@ class AttackBoost : public Item
 {
 public:
 	AttackBoost();
-	bool IsUsable(Character* character) const override;
+	bool IsUsable(const Character* character) const override;
 	void Use(Character* character) override;
 private:
 	const int attackIncrease = 10;

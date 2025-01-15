@@ -11,12 +11,12 @@ public:
 	// constructor!!
 	Monster(int level);
 	// method!!
-	string GetName();
-	int GetHealth();
-	int GetAttack();
+	string GetName() const;
+	int GetHealth() const;
+	int GetAttack() const;
 	void TakeDamage(int damage);
 	Item* DropItem();
-	int GetDropGold();
+	int GetDropGold() const;
 protected:
 	string name;
 	int health;

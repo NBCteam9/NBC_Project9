@@ -5,7 +5,7 @@ class HealthPotion :public Item
 {
 public:
 	HealthPotion();
-	bool IsUsable(Character* character) const override;
+	bool IsUsable(const Character* character) const override;
 	void Use(Character* character) override;
 private:
 	const int healthRestore = 50;

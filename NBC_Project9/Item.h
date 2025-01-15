@@ -9,9 +9,9 @@ class Item
 {
 public:
 	Item();
-	const string GetName() const;
+	string GetName() const;
 	int GetPrice() const;
-	virtual bool IsUsable(Character* character) const = 0;
+	virtual bool IsUsable(const Character* character) const = 0;
 	virtual void Use(Character* Character) = 0;
 protected:
 	string name;

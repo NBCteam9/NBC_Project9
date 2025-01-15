@@ -15,17 +15,17 @@ Monster::Monster(int level)
 	dropGold = 0;
 }
 
-string Monster::GetName()
+string Monster::GetName() const
 {
 	return name;
 }
 
-int Monster::GetHealth()
+int Monster::GetHealth() const
 {
 	return health;
 }
 
-int Monster::GetAttack()
+int Monster::GetAttack() const
 {
 	return attack;
 }
@@ -93,7 +93,7 @@ Item* Monster::DropItem()
 	return nullptr;
 }
 
-int Monster::GetDropGold()
+int Monster::GetDropGold() const
 {
 	return dropGold;
 }

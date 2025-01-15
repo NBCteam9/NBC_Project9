@@ -6,7 +6,7 @@ AttackBoost::AttackBoost()
 	price = 30;
 }
 
-bool AttackBoost::IsUsable(Character* character) const
+bool AttackBoost::IsUsable(const Character* character) const
 {
 	return true;	// Attack Boost is always usable
 }

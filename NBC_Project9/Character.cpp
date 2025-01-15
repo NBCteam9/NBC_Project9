@@ -23,7 +23,7 @@ Character* Character::GetInstance(string _name)
 	return instance;
 }
 
-string Character::GetName()
+string Character::GetName() const
 {
 	return name;
 }
@@ -33,12 +33,12 @@ vector<Item*>& Character::GetInventory()
 	return inventory;
 }
 
-int Character::GetLevel()
+int Character::GetLevel() const
 {
 	return level;
 }
 
-int Character::GetHealth()
+int Character::GetHealth() const
 {
 	return health;
 }
@@ -48,7 +48,7 @@ void Character::SetHealth(int val)
 	health = val;
 }
 
-int Character::GetMaxHealth()
+int Character::GetMaxHealth() const
 {
 	return maxHealth;
 }
@@ -58,7 +58,7 @@ void Character::SetMaxHealth(int val)
 	maxHealth = val;
 }
 
-int Character::GetAttack()
+int Character::GetAttack() const
 {
 	return attack;
 }
@@ -68,7 +68,7 @@ void Character::SetAttack(int val)
 	attack = val;
 }
 
-int Character::GetGold()
+int Character::GetGold() const
 {
 	return gold;
 }
@@ -92,7 +92,7 @@ void Character::AddExperience(int val)
 		LevelUp();
 }
 
-void Character::DisplayStatus()
+void Character::DisplayStatus() const
 {
 	cout << "Name:" << name << endl;
 	cout << "Level:" << level << endl;
@@ -134,7 +134,7 @@ void Character::UseItem(int index)
 	delete(useItem);
 }
 
-void Character::DisplayInventory()
+void Character::DisplayInventory() const
 {
 	if (inventory.size() != 0) cout << endl;
 	for (int index = 0; index < inventory.size(); index++) {

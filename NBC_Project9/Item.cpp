@@ -6,7 +6,7 @@ Item::Item()
     price = 0;
 }
 
-const string Item::GetName() const
+string Item::GetName() const
 {
     return name;
 }
