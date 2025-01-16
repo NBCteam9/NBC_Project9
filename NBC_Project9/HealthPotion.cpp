@@ -28,3 +28,8 @@ void HealthPotion::Use(Character* character)	// 체력 회복 설정
 	cout << name << " 사용했습니다, 체력 +" << healthRestore << " 회복, 현재 체력 :  " << currentHealth << endl;
 	character->SetHealth(currentHealth);
 }
+
+void HealthPotion::PrintExplanation()
+{
+	cout << "체력이 " << healthRestore << "만큼 회복, 체력이 " << healthRestore << "이상 줄었을 때 사용됨";
+}

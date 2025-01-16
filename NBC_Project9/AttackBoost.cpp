@@ -17,3 +17,8 @@ void AttackBoost::Use(Character* character)	// 공격력 물약을 사용하여 캐릭터의 �
 	character->SetAttack(character->GetAttack() + attackIncrease);
 	cout << character->GetAttack() << endl;
 }
+
+void AttackBoost::PrintExplanation()
+{
+	cout << "공격력이 " << attackIncrease << "만큼 영구히 증가, 전투가 시작되면 사용됨";
+}

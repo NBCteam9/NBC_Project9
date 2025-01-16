@@ -15,6 +15,8 @@ Shop::Shop()
 
 void Shop::VisitShop(Character* player)
 {
+	vector<Item*>& playerInventory = player->GetInventory();
+
 	cout << "\n====================\n" << endl;
 	cout << "상점에 오신걸 환영합니다!" << endl;
 
@@ -37,8 +39,7 @@ void Shop::VisitShop(Character* player)
 		if (shopOption[0] == '1')
 		{
 			DisplayItem();
-			cout << endl;
-			cout << "구매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
+			cout << "\n구매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
 
 			string buyInput;
 			stringstream ss;
@@ -63,8 +64,11 @@ void Shop::VisitShop(Character* player)
 		}
 		else if (shopOption[0] == '2')
 		{
-			player->DisplayInventory();
-			cout << "판매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
+			for (int i = 0; i < playerInventory.size(); i++) {
+				cout << i + 1 << ": " << playerInventory[i]->GetName() << " (가격 : " << (int)(playerInventory[i]->GetPrice() * sellPriceRate) << "G)" << endl;
+			}
+
+			cout << "\n판매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
 
 			string sellInput;
 			stringstream ss;
@@ -124,7 +128,10 @@ void Shop::DisplayItem() const
 	for (int index = 0; index < availableItems.size(); index++) 
 	{
 		Item* curItem = availableItems[index];
-		cout << index + 1 << ". " << curItem->GetName() << " (가격 : " << curItem->GetPrice() << "G)" << endl;
+		cout << index + 1 << ". " << curItem->GetName() << " (가격 : " << curItem->GetPrice() << "G)";
+		cout << " : ";
+		curItem->PrintExplanation();
+		cout << endl;
 	}
 }
 
@@ -139,14 +146,14 @@ void Shop::BuyItem(int selectNum, Character* player)
 	int playerGold = player->GetGold();
 	if (playerGold < availableItems[selectNum - 1]->GetPrice())
 	{
-		cout << "골드가 부족합니다." << endl;
+		cout << "\n골드가 부족합니다." << endl;
 		return;
 	}
 
 	Item* item = GenerateItem(selectNum);
 
 	player->SetGold(playerGold - item->GetPrice());
-	cout << item->GetName() << " 구매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
+	cout << "\n" << item->GetName() << " 구매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->GetInventory();
 	playerInventory.push_back(item);
@@ -164,9 +171,9 @@ void Shop::SellItem(int selectNum, Character* player)
 
 	int playerGold = player->GetGold();
 
-	player->SetGold(playerGold + playerInventory[selectNum - 1]->GetPrice() * 0.6f);
+	player->SetGold(playerGold + playerInventory[selectNum - 1]->GetPrice() * sellPriceRate);
 
-	cout << playerInventory[selectNum - 1]->GetName() << " 판매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
+	cout << "\n" << playerInventory[selectNum - 1]->GetName() << " 판매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
 
 	delete playerInventory[selectNum - 1];
 

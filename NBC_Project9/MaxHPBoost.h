@@ -7,6 +7,7 @@ public:
 	MaxHPBoost();
 	bool IsUsable(const Character* character) const override;
 	void Use(Character* character) override;
+	void PrintExplanation() override;
 private:
 	const int maxHPIncrease = 50;
 };

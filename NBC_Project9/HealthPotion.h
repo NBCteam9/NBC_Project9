@@ -7,6 +7,7 @@ public:
 	HealthPotion();
 	bool IsUsable(const Character* character) const override;
 	void Use(Character* character) override;
+	void PrintExplanation() override;
 private:
 	const int healthRestore = 50;
 };
