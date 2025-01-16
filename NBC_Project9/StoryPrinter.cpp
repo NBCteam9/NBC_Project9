@@ -10,6 +10,7 @@ void StoryPrinter::PrintIntro(Character* character) const
 	cout << "드래곤을 쓰러트리고 공주를 구해달라고?? 아니아니 절대 무리인게 당연하잖아?!\n" << endl;
 	Sleep(1000);
 	cout << "애처로운 절규 따위 무시당한 채, 등 떠밀린 모험을 시작하게 되는데..." << endl;
+	Sleep(1000);
 	cout << "\n====================\n" << endl;
 }
 
@@ -25,6 +26,7 @@ void StoryPrinter::PrintVictory(Character* character) const
 	cout << "이세계 생활... 썩 나쁘지 않을지도!? (코 쓱)\n" << endl;
 	Sleep(1000);
 	cout << "그렇게 " << character->GetName() << ", 공주는 결혼해서 이세계에서 오래오래 행복하게 살았답니다~ -끝- " << endl;
+	Sleep(1000);
 	cout << "\n====================\n" << endl;
 }
 
