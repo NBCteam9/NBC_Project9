@@ -43,6 +43,21 @@ string Character::GetName() const
 	return name;
 }
 
+void Character::InitCharacter()
+{
+	level = 1;
+	health = 200;
+	maxHealth = 200;
+	attack = 30;
+	experience = 0;
+	gold = 0;
+	for (Item* a : inventory)
+	{
+		delete(a);
+	}
+	inventory.clear();
+}
+
 vector<Item*>& Character::GetInventory()
 {
 	return inventory;
