@@ -323,7 +323,8 @@ Monster
 ## 게임 화면
 전투 화면과 주인공 사망 시 게임 종료 화면의 예시입니다!
 ### 전투 화면
-(이미지 추가 할 곳)
+![전투 화면](https://github.com/user-attachments/assets/12b8912b-e76f-4e16-aeb6-317d64abbf51)
+
 ### 게임 오버..
 ![게임 오버 화면](https://github.com/user-attachments/assets/eaa5f44a-0d75-49fe-9ca7-983c25a04ef4)
 
