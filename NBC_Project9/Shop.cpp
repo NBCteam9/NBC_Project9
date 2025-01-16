@@ -15,12 +15,12 @@ Shop::Shop()
 
 void Shop::VisitShop(Character* player)
 {
-	cout << "Welcome to the shop!" << endl;
+	cout << "상점에 오신걸 환영합니다!" << endl;
 
 	while (true)
 	{
 		string shopOption = "";
-		cout << "\nBuy : 1, Sell : 2, Exit : 0 (Current Gold : " << player->GetGold() << ") ";
+		cout << "\n구매 : 1, 판매 : 2, 나가기 : 0 (현재 골드 : " << player->GetGold() << ") ";
 		cin >> shopOption;
 
 		if (shopOption == "0")
@@ -29,14 +29,14 @@ void Shop::VisitShop(Character* player)
 		}
 		if (shopOption.size() != 1 || shopOption[0] - '2' > 0 || shopOption[0] - '1' < 0)
 		{
-			cout << "\nPlease input it again" << endl;
+			cout << "\n다시 입력해주세요." << endl;
 			continue;
 		}
 
 		if (shopOption[0] == '1')
 		{
 			DisplayItem();
-			cout << "Choose the number of the item you wish to purchase. (Cancel : 0) ";
+			cout << "구매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
 
 			string buyInput;
 			stringstream ss;
@@ -48,7 +48,7 @@ void Shop::VisitShop(Character* player)
 
 			if (ss.fail()) 
 			{
-				cout << "\nPlease input it again" << endl;
+				cout << "\n다시 입력해주세요." << endl;
 				continue;
 			}
 			else 
@@ -62,7 +62,7 @@ void Shop::VisitShop(Character* player)
 		else if (shopOption[0] == '2')
 		{
 			player->DisplayInventory();
-			cout << "Choose the number of the item you wish to sell. (Cancel : 0) ";
+			cout << "판매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
 
 			string sellInput;
 			stringstream ss;
@@ -74,7 +74,7 @@ void Shop::VisitShop(Character* player)
 
 			if (ss.fail()) 
 			{
-				cout << "\nPlease input it again" << endl;
+				cout << "\n다시 입력해주세요." << endl;
 				continue;
 			}
 			else 
@@ -91,7 +91,7 @@ void Shop::VisitShop(Character* player)
 		}
 	}
 
-	cout << "You exited the shop." << endl;
+	cout << "상점에서 나왔습니다." << endl;
 }
 
 Item* Shop::GenerateItem(int index)
@@ -122,7 +122,7 @@ void Shop::DisplayItem() const
 	for (int index = 0; index < availableItems.size(); index++) 
 	{
 		Item* curItem = availableItems[index];
-		cout << index + 1 << ". " << curItem->GetName() << " (Price : " << curItem->GetPrice() << "G)" << endl;
+		cout << index + 1 << ". " << curItem->GetName() << " (가격 : " << curItem->GetPrice() << "G)" << endl;
 	}
 }
 
@@ -130,21 +130,21 @@ void Shop::BuyItem(int selectNum, Character* player)
 {
 	if ((selectNum - 1) >= availableItems.size())
 	{
-		cout << "\nThat item does not exist in the shop." << endl;
+		cout << "\n상점에 그런 아이템은 없습니다." << endl;
 		return;
 	}
 
 	int playerGold = player->GetGold();
 	if (playerGold < availableItems[selectNum - 1]->GetPrice())
 	{
-		cout << "You do not have enough gold." << endl;
+		cout << "골드가 부족합니다." << endl;
 		return;
 	}
 
 	Item* item = GenerateItem(selectNum);
 
 	player->SetGold(playerGold - item->GetPrice());
-	cout << "You have purchased the " << item->GetName() << ". (Current Gold : " << player->GetGold() << "G)" << endl;
+	cout << item->GetName() << " 구매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
 
 	vector<Item*>& playerInventory = player->GetInventory();
 	playerInventory.push_back(item);
@@ -156,13 +156,13 @@ void Shop::SellItem(int selectNum, Character* player)
 
 	if ((selectNum - 1) >= playerInventory.size())
 	{
-		cout << "\nThat item does not exist in your inventory." << endl;
+		cout << "\n인벤토리에 그런 아이템은 없습니다." << endl;
 		return;
 	}
 
 	int playerGold = player->GetGold();
 	player->SetGold(playerGold + availableItems[selectNum - 1]->GetPrice() * 0.6f);
-	cout << "You have sold the " << availableItems[selectNum - 1]->GetName() << ". (Current Gold : " << player->GetGold() << "G)" << endl;
+	cout << availableItems[selectNum - 1]->GetName() << " 판매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
 
 	delete playerInventory[selectNum - 1];
 	playerInventory.erase(playerInventory.begin() + selectNum - 1);

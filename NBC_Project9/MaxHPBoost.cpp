@@ -6,12 +6,12 @@ MaxHPBoost::MaxHPBoost()
 	price = 25;
 }
 
-bool MaxHPBoost::IsUsable(const Character* character) const  // always return true
+bool MaxHPBoost::IsUsable(const Character* character) const  // 최대 체력 물약은 항상 사용 가능
 {
 	return true;
 }
 
-void MaxHPBoost::Use(Character* character)  // set max health
+void MaxHPBoost::Use(Character* character)  // 최대 체력 설정
 {
 	int curMaxHealth = character->GetMaxHealth();
 	curMaxHealth += maxHPIncrease;
