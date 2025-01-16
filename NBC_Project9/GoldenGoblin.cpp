@@ -8,7 +8,7 @@ GoldenGoblin::GoldenGoblin(int level) : Monster(level)
 
 	name = "GoldenGoblin";
 	health = 22 + level * (13 + healthRandomValue);
-	attack = 22 + level * (16 + attackRandomValue);
+	attack = 33 + level * (20 + attackRandomValue);
 	dropRate = 50;
 	dropGold = goldReward;
 }
