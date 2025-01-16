@@ -35,7 +35,7 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 		interest = maxInterest;
 	}
 	cout <<  "Current Gold : " << curPlayerGold << endl;
-	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")\n" << endl;
+	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")" << endl;
 
 	player->SetGold(curPlayerGold + interest);
 
