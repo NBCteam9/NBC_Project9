@@ -14,6 +14,12 @@ Character::Character(string _name)
 	gold = 0;
 }
 
+void Character::DestroyInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
 Character::~Character()
 {
 	for (Item* a : inventory)
@@ -35,6 +41,21 @@ Character* Character::GetInstance(string _name)
 string Character::GetName() const
 {
 	return name;
+}
+
+void Character::InitCharacter()
+{
+	level = 1;
+	health = 200;
+	maxHealth = 200;
+	attack = 30;
+	experience = 0;
+	gold = 0;
+	for (Item* a : inventory)
+	{
+		delete(a);
+	}
+	inventory.clear();
 }
 
 vector<Item*>& Character::GetInventory()

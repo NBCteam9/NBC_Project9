@@ -36,12 +36,14 @@ bool GameManager::Battle(Character* player)
 	if (player->GetLevel() >= 10) 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomBossMonster();
-		cout << "BossMonster " << monster->GetName() << " appears!" << endl;
+		cout << "BossMonster " << monster->GetName() << " appears! health: ";
+		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	else 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomMonster(player->GetLevel());
-		cout << "Monster " << monster->GetName() << " appears!" << endl;
+		cout << "Monster " << monster->GetName() << " appears! health: ";
+		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	Sleep(500);
 

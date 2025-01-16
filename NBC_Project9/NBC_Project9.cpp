@@ -87,6 +87,7 @@ int main()
 			if (choice == "Y" || choice == "y") 
 			{
 				shop.VisitShop(warrior);
+				break;
 			}
 			else if (choice == "N" || choice == "n") 
 			{
@@ -100,7 +101,8 @@ int main()
 		cout << "\n====================\n" << endl;
 	}
 	
-	delete warrior;
+	Character::DestroyInstance();
+	MonsterFactory::DestoryInstance();
 
 	return 0;
 }

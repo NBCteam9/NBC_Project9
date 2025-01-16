@@ -75,7 +75,7 @@ Monster* MonsterFactory::GenerateRandomBossMonster()
 	}
 
 	int randValue = dis(gen) % availableBossMonsters.size();
-	availableBossMonsters[randValue]->Initialize(15);
+	availableBossMonsters[randValue]->Initialize(BossLevel);
 	return availableBossMonsters[randValue];
 
 	/*switch (randValue)
@@ -101,17 +101,23 @@ void MonsterFactory::AddBossMonster(Monster* bossMonster)
 	availableBossMonsters.push_back(bossMonster);
 }
 
+void MonsterFactory::DestoryInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
 MonsterFactory::~MonsterFactory()
 {
-	for (Monster* monster : availableMonsters) 
+	for (Monster* monster : availableMonsters)
 	{
 		delete monster;
 	}
+	availableMonsters.clear();
 
-	for (Monster* monster : availableBossMonsters) 
+	for (Monster* monster : availableBossMonsters)
 	{
 		delete monster;
 	}
-
-	delete instance;
+	availableBossMonsters.clear();
 }
