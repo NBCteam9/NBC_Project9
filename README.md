@@ -148,9 +148,11 @@ MonsterFactory :
    또, 반환할 때는 새로운 인스턴스를 생성하는 것이 아니라 기존에 있던 인스턴스를 초기화해서 반환해서 미미하지만 메모리적으로도 이점이 있다. (개방폐쇄원칙)
 
 초기코드 :
+
 ![badCode](https://github.com/user-attachments/assets/a043b1fa-b8a9-48f8-a808-8969fd83a001)
 
 수정한 코드 :
+
 ![goodCode](https://github.com/user-attachments/assets/82feccd1-89ab-4bb4-9c46-bf0e57d39d8e) 
 
  - 게임에 하나만 존재하고 몬스터를 생성하고 추가하는 등 여러 클래스에서 접근할 필요가 있기에 싱글톤 적용했다. (싱글톤 패턴)
