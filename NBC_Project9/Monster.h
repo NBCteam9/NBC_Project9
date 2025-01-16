@@ -10,6 +10,7 @@ class Monster
 public:
 	// constructor!!
 	Monster(int level);
+
 	// method!!
 	string GetName() const;
 	int GetHealth() const;
@@ -17,6 +18,8 @@ public:
 	void TakeDamage(int damage);
 	Item* DropItem();
 	int GetDropGold() const;
+	virtual void Initialize(int level);
+
 protected:
 	string name;
 	int health;

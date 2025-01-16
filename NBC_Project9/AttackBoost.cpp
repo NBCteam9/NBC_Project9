@@ -2,18 +2,18 @@
 
 AttackBoost::AttackBoost()
 {
-	name = "Attack Boost";
+	name = "공격력 증가 물약";
 	price = 30;
 }
 
 bool AttackBoost::IsUsable(const Character* character) const
 {
-	return true;	// Attack Boost is always usable
+	return true;	// 공격력 물약은 항상 사용 가능
 }
 
-void AttackBoost::Use(Character* character)	// Use Attack Boost, Increase Character Attack
+void AttackBoost::Use(Character* character)	// 공격력 물약을 사용하여 캐릭터의 공격력 상승시킴
 {
-	cout << "Attack increased " << attackIncrease << "!";
+	cout << name << "사용, 공격력 +" << attackIncrease << " 증가, 현재 공격력 : ";
 	character->SetAttack(character->GetAttack() + attackIncrease);
-	cout << " Current attack : " << character->GetAttack() << endl;
+	cout << character->GetAttack() << endl;
 }

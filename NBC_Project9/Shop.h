@@ -11,7 +11,7 @@ public:
 	~Shop();
 	void VisitShop(class Character* player);
 	class Item* GenerateItem(int index);
-	void DisplayItem();
+	void DisplayItem() const;
 	void BuyItem(int selectNum, class Character* player);
 	void SellItem(int selectNum, class Character* player);
 private:

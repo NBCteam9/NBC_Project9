@@ -14,6 +14,21 @@ Character::Character(string _name)
 	gold = 0;
 }
 
+void Character::DestroyInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
+Character::~Character()
+{
+	for (Item* a : inventory)
+	{
+		delete(a);
+	}
+	inventory.clear();
+}
+
 Character* Character::GetInstance(string _name)
 {
 	if (instance == nullptr)
@@ -26,6 +41,21 @@ Character* Character::GetInstance(string _name)
 string Character::GetName() const
 {
 	return name;
+}
+
+void Character::InitCharacter()
+{
+	level = 1;
+	health = 200;
+	maxHealth = 200;
+	attack = 30;
+	experience = 0;
+	gold = 0;
+	for (Item* a : inventory)
+	{
+		delete(a);
+	}
+	inventory.clear();
 }
 
 vector<Item*>& Character::GetInventory()
@@ -94,12 +124,12 @@ void Character::AddExperience(int val)
 
 void Character::DisplayStatus() const
 {
-	cout << "Name:" << name << endl;
-	cout << "Level:" << level << endl;
-	cout << "Experience:" << experience << endl;
-	cout << "Health:" << health << "/" << maxHealth << endl;
-	cout << "Attack:" << attack << endl;
-	cout << "Gold:" << gold << endl;
+	cout << "이름 : " << name << endl;
+	cout << "레벨 : " << level << endl;
+	cout << "경험치 : " << experience << endl;
+	cout << "체력 : " << health << "/" << maxHealth << endl;
+	cout << "공격력 : " << attack << endl;
+	cout << "골드 : " << gold << endl;
 }
 
 void Character::TakeDamage(int val)
@@ -110,7 +140,7 @@ void Character::TakeDamage(int val)
 	{
 		health = 0;
 	}
-	cout << "Take Damage!! " << currentHp << "->" << health << endl;
+	cout << "피해를 입었습니다!! " << currentHp << "->" << health << endl;
 }
 
 void Character::LevelUp()
@@ -118,7 +148,7 @@ void Character::LevelUp()
 	if (level >= 10) return;
 	int currentLv = level;
 	level++;
-	cout << "Level Up!  Lv." << currentLv << " -> Lv." << level << endl;
+	cout << "레벨 업!  Lv." << currentLv << " -> Lv." << level << endl;
 	maxHealth += 20;
 	health = maxHealth;
 	attack += 5;
@@ -139,6 +169,6 @@ void Character::DisplayInventory() const
 	if (inventory.size() != 0) cout << endl;
 	for (int index = 0; index < inventory.size(); index++) {
 		Item* item = inventory[index];
-		cout << index + 1 << ": " << item->GetName() << " (Price : " << item->GetPrice() << "G)" << endl;
+		cout << index + 1 << ": " << item->GetName() << " (가격 : " << item->GetPrice() << "G)" << endl;
 	}
 }

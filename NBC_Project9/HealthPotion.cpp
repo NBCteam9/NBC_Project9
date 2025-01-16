@@ -2,11 +2,11 @@
 
 HealthPotion::HealthPotion()
 {
-	name = "Health Potion";
+	name = "체력 회복 물약";
 	price = 15;
 }
 
-bool HealthPotion::IsUsable(const Character* character) const //max health-current health > 50(health potion) check
+bool HealthPotion::IsUsable(const Character* character) const // 현재 체력이 체력 물약 회복량보다 작은지 판별
 {
 	int currentHealth = character->GetHealth();
 	int maxHealth = character->GetMaxHealth();
@@ -21,10 +21,10 @@ bool HealthPotion::IsUsable(const Character* character) const //max health-curre
 	}
 }
 
-void HealthPotion::Use(Character* character)//set health
+void HealthPotion::Use(Character* character)	// 체력 회복 설정
 {
 	int currentHealth = character->GetHealth();
 	currentHealth += healthRestore;
-	cout << "Use HealPotion, +" << healthRestore << " HP , Your HP :  " << currentHealth << endl;
+	cout << name << " 사용했습니다, 체력 +" << healthRestore << " 회복, 현재 체력 :  " << currentHealth << endl;
 	character->SetHealth(currentHealth);
 }

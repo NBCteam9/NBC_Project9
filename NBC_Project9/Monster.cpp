@@ -15,6 +15,10 @@ Monster::Monster(int level)
 	dropGold = 0;
 }
 
+void Monster::Initialize(int level)
+{
+}
+
 string Monster::GetName() const
 {
 	return name;
@@ -58,14 +62,18 @@ int Monster::GetRandomNum(int min, int max)
 
 Item* Monster::DropItem() 
 {
-	int r1 = GetRandomNum(1, 100);
-	int r2;
+	Item* output = nullptr;
+
+	int firstRandomNum = GetRandomNum(1, 100);
+	int secondRandomNum;
 	int itemMax = 0;
-	// probability = hwak ryul
+	// 확률
 	int probability = 0;
 
-	if (r1 < dropRate) 
+	// 1번째 랜덤 숫자가 몬스터가 가진 드랍률보다 낮게 나오면 아이템이 드랍되는 것이다.
+	if (firstRandomNum < dropRate)
 	{
+		// pair의 1번째 int에는 그 아이템이 나올 확률, 2번째 Item*에는 아이템의 메모리 주소
 		vector<pair<int, Item*>> items = 
 		{
 			{50, new HealthPotion()},
@@ -73,24 +81,53 @@ Item* Monster::DropItem()
 			{50, new MaxHPBoost()}
 		};
 
+		// itemMax에 확률 관련 숫자를 다 더해준다.
 		for (pair<int, Item*> item : items) 
 		{
 			itemMax += item.first;
 		}
 
-		r2 = GetRandomNum(1, itemMax);
+		// 2번째 랜덤 숫자는 현재 1~150까지 나오게 된다.
+		secondRandomNum = GetRandomNum(1, itemMax);
 
-		for (pair<int, Item*> item : items)
+		/*for (pair<int, Item*> item : items)
 		{
 			probability += item.first;
 
-			if (r2 <= probability)
+			if (secondRandomNum <= probability)
 			{
 				return item.second;
 			}
+		}*/
+
+		int selectIndex = 0;
+		for (int i = 0; i < items.size(); i++) 
+		{
+			probability += items[i].first;
+
+			// probability의 값이 for문을 돌 때 1: 50, 2: 100, 3: 150
+			// 그래서 만약 2번째 랜덤 숫자가 99면 for문의 2번째 순회에서 걸리게 된다!
+			if (secondRandomNum <= probability)
+			{
+				selectIndex = i;
+				break;
+			}
+		}
+
+		for (int i = 0; i < items.size(); i++) 
+		{
+			if (selectIndex == i) 
+			{
+				output = items[i].second;
+			} 
+			else 
+			{
+				delete items[i].second;
+			} 
 		}
 	}
-	return nullptr;
+
+	return output;
 }
 
 int Monster::GetDropGold() const

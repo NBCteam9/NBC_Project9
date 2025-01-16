@@ -6,18 +6,36 @@
 #include "Item.h"
 #include "MonsterFactory.h"
 
+void GameManager::AddKilledMonsters(Monster* monster)
+{
+	string monsterName = monster->GetName();
+	auto it = KilledMonstersMap.find(monsterName);
+
+	//Not Found!
+	if (it == KilledMonstersMap.end()) {
+		KilledMonstersMap[monsterName] = 1;
+	}
+	//Found!
+	else {
+		KilledMonstersMap[monsterName]++;
+	}
+}
+
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
-	int curPlayerGold = player->GetGold() + monster->GetDropGold();
+	int dropGold = monster->GetDropGold();
+	int curPlayerGold = player->GetGold() + dropGold;
+	player->AddExperience(50);
+
+	cout << "\n50 경험치와 " << dropGold << " 골드를 얻었습니다.\n" << endl;
+
 	int interest = curPlayerGold / goldPerInterest;
 	if (interest > maxInterest)
 	{
 		interest = maxInterest;
 	}
-	cout <<  "Current Gold : " << curPlayerGold << endl;
-	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")\n" << endl;
-
-	player->AddExperience(50);
+	cout <<  "현재 골드 : " << curPlayerGold << endl;
+	cout << "얻은 이자 : " << interest << " (최대 이자 : " << maxInterest << ")" << endl;
 
 	player->SetGold(curPlayerGold + interest);
 
@@ -29,24 +47,21 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 }
 
-GameManager::GameManager()
-{
-	monsterFactory = new MonsterFactory();
-}
-
 bool GameManager::Battle(Character* player)
 {
 	Monster* monster = nullptr;
 
 	if (player->GetLevel() >= 10) 
 	{
-		monster = monsterFactory->GenerateBossMonster();
-		cout << "BossMonster " << monster->GetName() << " appears!" << endl;
+		monster = MonsterFactory::GetInstance()->GenerateRandomBossMonster();
+		cout << "보스 몬스터 " << monster->GetName() << "(이)가 나타났습니다! 체력: ";
+		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	else 
 	{
-		monster = monsterFactory->GenerateMonster(player->GetLevel());
-		cout << "Monster " << monster->GetName() << " appears!" << endl;
+		monster = MonsterFactory::GetInstance()->GenerateRandomMonster(player->GetLevel());
+		cout << "몬스터 " << monster->GetName() << "(이)가 나타났습니다! 체력: ";
+		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	Sleep(500);
 
@@ -66,15 +81,16 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
-			cout << player->GetName() << " attacks the " << monster->GetName() << "! ";
+			cout << player->GetName() << "(이)가 " << monster->GetName() << "(을)를 공격했습니다! ";
 			monster->TakeDamage(player->GetAttack());
 
 			if (monster->GetHealth() <= 0) 
 			{
-				cout << monster->GetName() << " defeat! : Victory!" << endl;
+				cout << monster->GetName() << "의 패배! : 승리했습니다!" << endl;
+				AddKilledMonsters(monster);
+				OnBattleVictory(player, monster);
 				cout << "\n====================\n" << endl;
 
-				OnBattleVictory(player, monster);
 				player->DisplayStatus();
 				player->DisplayInventory();
 				return true;
@@ -82,12 +98,12 @@ bool GameManager::Battle(Character* player)
 		}
 		else 
 		{
-			cout << monster->GetName() << " attacks the " << player->GetName() << "! ";
+			cout << monster->GetName() << "(이)가 " << player->GetName() << "(을)를 공격했습니다! ";
 			player->TakeDamage(monster->GetAttack());
 
 			if (player->GetHealth() <= 0) 
 			{
-				cout << player->GetName() << " Defeat..." << endl;
+				cout << player->GetName() << " 패배했습니다..." << endl;
 				cout << "\nGame over..." << endl;
 				return false;
 			}
@@ -96,11 +112,17 @@ bool GameManager::Battle(Character* player)
 		isPlayerTurn = !isPlayerTurn;
 		Sleep(500);
 	}
-
-	delete monster;
 }
 
-GameManager::~GameManager()
+void GameManager::Initialize()
 {
-	delete monsterFactory;
+	KilledMonstersMap.clear();
+}
+
+void GameManager::DisplayKilledMonsters()
+{
+	cout << "쓰러트린 몬스터\n" << endl;
+	for (const auto& pair : KilledMonstersMap) {
+		cout << pair.first << " : " << pair.second << endl;
+	}
 }
