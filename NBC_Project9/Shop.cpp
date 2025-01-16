@@ -163,10 +163,13 @@ void Shop::SellItem(int selectNum, Character* player)
 	}
 
 	int playerGold = player->GetGold();
-	player->SetGold(playerGold + availableItems[selectNum - 1]->GetPrice() * 0.6f);
-	cout << availableItems[selectNum - 1]->GetName() << " 판매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
+
+	player->SetGold(playerGold + playerInventory[selectNum - 1]->GetPrice() * 0.6f);
+
+	cout << playerInventory[selectNum - 1]->GetName() << " 판매했습니다. (현재 골드 : " << player->GetGold() << "G)" << endl;
 
 	delete playerInventory[selectNum - 1];
+
 	playerInventory.erase(playerInventory.begin() + selectNum - 1);
 }
 

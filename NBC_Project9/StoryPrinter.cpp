@@ -5,7 +5,7 @@ void StoryPrinter::PrintIntro(Character* character) const
 	cout << "\n====================\n" << endl;
 	cout << "어느날 눈을 떠보니, 이세계에 스파르타 용사로 환생했다!?\n" << endl;
 	Sleep(1000);
-	cout << "오, 스파르타 용사 " << character->GetName() << ", 내 딸 공주를 구해주게...\n" << endl;
+	cout << "\"오, 스파르타 용사 " << character->GetName() << ", 내 딸 공주를 구해주게...\"\n" << endl;
 	Sleep(1000);
 	cout << "드래곤을 쓰러트리고 공주를 구해달라고?? 아니아니 절대 무리인게 당연하잖아?!\n" << endl;
 	Sleep(1000);
@@ -37,7 +37,7 @@ void StoryPrinter::PrintLose() const
 	Sleep(1000);
 	cout << "당신을 부르는 목소리에 눈을 뜨자, 눈 앞에 나타난건... 여신님?!\n" << endl;
 	Sleep(1000);
-	cout << "용사님! 포기하지 말아요! 중요한건 꺾이지 않는 마음이라구요!\n" << endl;
+	cout << "\"용사님! 포기하지 말아요! 중요한건 꺾이지 않는 마음이라구요!\"\n" << endl;
 	Sleep(1000);
 	cout << "우오오옷! 젠장!!! 온몸에 믿을 수 없는 힘이 솟구친다!\n" << endl;
 	Sleep(1000);
