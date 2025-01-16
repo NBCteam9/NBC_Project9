@@ -6,9 +6,29 @@
 #include "Item.h"
 #include "MonsterFactory.h"
 
+void GameManager::AddKilledMonsters(Monster* monster)
+{
+	string monsterName = monster->GetName();
+	auto it = KilledMonstersMap.find(monsterName);
+
+	//Not Found!
+	if (it == KilledMonstersMap.end()) {
+		KilledMonstersMap[monsterName] = 1;
+	}
+	//Found!
+	else {
+		KilledMonstersMap[monsterName]++;
+	}
+}
+
 void GameManager::OnBattleVictory(Character* player, Monster* monster)
 {
-	int curPlayerGold = player->GetGold() + monster->GetDropGold();
+	int dropGold = monster->GetDropGold();
+	int curPlayerGold = player->GetGold() + dropGold;
+	player->AddExperience(50);
+
+	cout << "\nYou got 50 experience and " << dropGold << "G\n" << endl;
+
 	int interest = curPlayerGold / goldPerInterest;
 	if (interest > maxInterest)
 	{
@@ -16,8 +36,6 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	}
 	cout <<  "Current Gold : " << curPlayerGold << endl;
 	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")\n" << endl;
-
-	player->AddExperience(50);
 
 	player->SetGold(curPlayerGold + interest);
 
@@ -69,9 +87,10 @@ bool GameManager::Battle(Character* player)
 			if (monster->GetHealth() <= 0) 
 			{
 				cout << monster->GetName() << " defeat! : Victory!" << endl;
+				AddKilledMonsters(monster);
+				OnBattleVictory(player, monster);
 				cout << "\n====================\n" << endl;
 
-				OnBattleVictory(player, monster);
 				player->DisplayStatus();
 				player->DisplayInventory();
 				return true;
@@ -92,5 +111,17 @@ bool GameManager::Battle(Character* player)
 
 		isPlayerTurn = !isPlayerTurn;
 		Sleep(500);
+	}
+}
+
+void GameManager::Initialize()
+{
+	KilledMonstersMap.clear();
+}
+
+void GameManager::DisplayKilledMonsters()
+{
+	for (const auto& pair : KilledMonstersMap) {
+		cout << pair.first << " : " << pair.second << endl;
 	}
 }

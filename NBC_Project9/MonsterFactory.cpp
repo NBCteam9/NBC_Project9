@@ -29,7 +29,10 @@ Monster* MonsterFactory::GenerateRandomMonster(int level)
 	availableMonsters[randValue]->Initialize(level);
 	return availableMonsters[randValue];
 
-	/*switch (randValue)
+	/*
+	int randValue = dis(gen) % 8;
+	
+	switch (randValue)
 	{
 	case 0:
 		output = new Goblin(level);
@@ -60,7 +63,8 @@ Monster* MonsterFactory::GenerateRandomMonster(int level)
 		break;
 	}
 
-	return output;*/
+	return output;
+	*/
 }
 
 Monster* MonsterFactory::GenerateRandomBossMonster()
