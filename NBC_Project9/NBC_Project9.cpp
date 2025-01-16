@@ -35,7 +35,7 @@ int main()
 
     Shop shop;
 
-    cout << "Welcome to Game!" << endl;
+    cout << "스파르타 용사로 환생했으니 공주를 구해조!! 아니아니 절대 무리인게 당연하잖아!? (※무리가 아니였다?!)" << endl;
     cout << "캐릭터의 이름을 입력해주세요." << endl;
     string name;
     cin.clear();
