@@ -121,6 +121,7 @@ void GameManager::Initialize()
 
 void GameManager::DisplayKilledMonsters()
 {
+	cout << "쓰러트린 몬스터\n" << endl;
 	for (const auto& pair : KilledMonstersMap) {
 		cout << pair.first << " : " << pair.second << endl;
 	}
