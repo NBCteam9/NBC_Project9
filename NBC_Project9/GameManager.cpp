@@ -27,15 +27,15 @@ void GameManager::OnBattleVictory(Character* player, Monster* monster)
 	int curPlayerGold = player->GetGold() + dropGold;
 	player->AddExperience(50);
 
-	cout << "\nYou got 50 experience and " << dropGold << "G\n" << endl;
+	cout << "\n50 경험치와 " << dropGold << " 골드를 얻었습니다.\n" << endl;
 
 	int interest = curPlayerGold / goldPerInterest;
 	if (interest > maxInterest)
 	{
 		interest = maxInterest;
 	}
-	cout <<  "Current Gold : " << curPlayerGold << endl;
-	cout << "Get Interest : " << interest << " (Max Interest : " << maxInterest << ")" << endl;
+	cout <<  "현재 골드 : " << curPlayerGold << endl;
+	cout << "얻은 이자 : " << interest << " (최대 이자 : " << maxInterest << ")" << endl;
 
 	player->SetGold(curPlayerGold + interest);
 
@@ -54,13 +54,13 @@ bool GameManager::Battle(Character* player)
 	if (player->GetLevel() >= 10) 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomBossMonster();
-		cout << "BossMonster " << monster->GetName() << " appears! health: ";
+		cout << "보스 몬스터 " << monster->GetName() << " 나타났습니다! 체력: ";
 		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	else 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomMonster(player->GetLevel());
-		cout << "Monster " << monster->GetName() << " appears! health: ";
+		cout << "몬스터 " << monster->GetName() << " 나타났습니다! 체력: ";
 		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	Sleep(500);
@@ -81,12 +81,12 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
-			cout << player->GetName() << " attacks the " << monster->GetName() << "! ";
+			cout << player->GetName() << ", " << monster->GetName() << " 공격했습니다! ";
 			monster->TakeDamage(player->GetAttack());
 
 			if (monster->GetHealth() <= 0) 
 			{
-				cout << monster->GetName() << " defeat! : Victory!" << endl;
+				cout << monster->GetName() << ", 패배! : 승리했습니다!" << endl;
 				AddKilledMonsters(monster);
 				OnBattleVictory(player, monster);
 				cout << "\n====================\n" << endl;
@@ -98,12 +98,12 @@ bool GameManager::Battle(Character* player)
 		}
 		else 
 		{
-			cout << monster->GetName() << " attacks the " << player->GetName() << "! ";
+			cout << monster->GetName() << ", " << player->GetName() << " 공격했습니다! ";
 			player->TakeDamage(monster->GetAttack());
 
 			if (player->GetHealth() <= 0) 
 			{
-				cout << player->GetName() << " Defeat..." << endl;
+				cout << player->GetName() << " 패배했습니다..." << endl;
 				cout << "\nGame over..." << endl;
 				return false;
 			}
