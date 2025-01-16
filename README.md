@@ -146,8 +146,12 @@ MonsterFactory :
  - 처음에는 첫번째 이미지처럼 스위치를 이용해 인스턴스를 생성해 리턴하는 방식이였는데, 이 경우 몬스터가 새로 추가될 때마다 클래스를 수정해야하기 때문에 개방폐쇄원칙을 위반한다. 실제로 몬스터를 스위치문에 추가하고 % 뒤의 숫자를 수정하지 않아 새로 추가한 몬스터가 생성되지 않는 문제가 있었다.
    이 문제를 해결하기 위해 두번째 이미지 처럼 수정했다. AddMonster()를 이용해 main함수에서 몬스터를 추가하면 MonsterFactory 클래스를 수정하지 않고 몬스터가 추가할 수 있다.
    또, 반환할 때는 새로운 인스턴스를 생성하는 것이 아니라 기존에 있던 인스턴스를 초기화해서 반환해서 미미하지만 메모리적으로도 이점이 있다. (개방폐쇄원칙)
-   
-   ![badCode](https://github.com/user-attachments/assets/a043b1fa-b8a9-48f8-a808-8969fd83a001)    ![goodCode](https://github.com/user-attachments/assets/82feccd1-89ab-4bb4-9c46-bf0e57d39d8e) 
+
+초기코드 :
+![badCode](https://github.com/user-attachments/assets/a043b1fa-b8a9-48f8-a808-8969fd83a001)
+
+수정한 코드 :
+![goodCode](https://github.com/user-attachments/assets/82feccd1-89ab-4bb4-9c46-bf0e57d39d8e) 
 
  - 게임에 하나만 존재하고 몬스터를 생성하고 추가하는 등 여러 클래스에서 접근할 필요가 있기에 싱글톤 적용했다. (싱글톤 패턴)
 
