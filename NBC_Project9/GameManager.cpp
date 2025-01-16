@@ -54,13 +54,13 @@ bool GameManager::Battle(Character* player)
 	if (player->GetLevel() >= 10) 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomBossMonster();
-		cout << "보스 몬스터 " << monster->GetName() << " 나타났습니다! 체력: ";
+		cout << "보스 몬스터 " << monster->GetName() << "(이)가 나타났습니다! 체력: ";
 		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	else 
 	{
 		monster = MonsterFactory::GetInstance()->GenerateRandomMonster(player->GetLevel());
-		cout << "몬스터 " << monster->GetName() << " 나타났습니다! 체력: ";
+		cout << "몬스터 " << monster->GetName() << "(이)가 나타났습니다! 체력: ";
 		cout << monster->GetHealth() << " attack: " << monster->GetAttack() << endl;
 	}
 	Sleep(500);
@@ -81,12 +81,12 @@ bool GameManager::Battle(Character* player)
 				}
 			}
 
-			cout << player->GetName() << ", " << monster->GetName() << " 공격했습니다! ";
+			cout << player->GetName() << "(이)가 " << monster->GetName() << "(을)를 공격했습니다! ";
 			monster->TakeDamage(player->GetAttack());
 
 			if (monster->GetHealth() <= 0) 
 			{
-				cout << monster->GetName() << ", 패배! : 승리했습니다!" << endl;
+				cout << monster->GetName() << "의 패배! : 승리했습니다!" << endl;
 				AddKilledMonsters(monster);
 				OnBattleVictory(player, monster);
 				cout << "\n====================\n" << endl;
@@ -98,7 +98,7 @@ bool GameManager::Battle(Character* player)
 		}
 		else 
 		{
-			cout << monster->GetName() << ", " << player->GetName() << " 공격했습니다! ";
+			cout << monster->GetName() << "(이)가 " << player->GetName() << "(을)를 공격했습니다! ";
 			player->TakeDamage(monster->GetAttack());
 
 			if (player->GetHealth() <= 0) 

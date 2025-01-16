@@ -15,6 +15,7 @@ Shop::Shop()
 
 void Shop::VisitShop(Character* player)
 {
+	cout << "\n====================\n" << endl;
 	cout << "상점에 오신걸 환영합니다!" << endl;
 
 	while (true)
@@ -22,20 +23,21 @@ void Shop::VisitShop(Character* player)
 		string shopOption = "";
 		cout << "\n구매 : 1, 판매 : 2, 나가기 : 0 (현재 골드 : " << player->GetGold() << ") ";
 		cin >> shopOption;
-
+		cout << "\n====================\n" << endl;
 		if (shopOption == "0")
 		{
 			break;
 		}
 		if (shopOption.size() != 1 || shopOption[0] - '2' > 0 || shopOption[0] - '1' < 0)
 		{
-			cout << "\n다시 입력해주세요." << endl;
+			cout << "다시 입력해주세요." << endl;
 			continue;
 		}
 
 		if (shopOption[0] == '1')
 		{
 			DisplayItem();
+			cout << endl;
 			cout << "구매를 원하는 아이템 번호를 입력해주세요. (취소 : 0) ";
 
 			string buyInput;

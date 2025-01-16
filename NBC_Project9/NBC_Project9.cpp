@@ -34,9 +34,10 @@ int main()
     MonsterFactory::GetInstance()->AddBossMonster(new Dragon(1));
 
     Shop shop;
-
+    cout << "====================\n" << endl;
     cout << "스파르타 용사로 환생했으니 공주를 구해조!! 아니아니 절대 무리인게 당연하잖아!? (※무리가 아니였다?!)" << endl;
-    cout << "캐릭터의 이름을 입력해주세요." << endl;
+    cout << "\n====================\n" << endl;
+    cout << "당신의 이름을 입력해주세요. : ";
     string name;
     cin.clear();
     StoryPrinter storyPrinter;
@@ -49,10 +50,11 @@ int main()
         if (name.find(' ') != string::npos)
         {
             cout << "이름에 공백이 있습니다. 다시 입력해주세요." << endl;
+            cout << "당신의 이름을 입력해주세요. : ";
         }
         else
         {
-            cout << "당신의 이름 : " << name << endl;
+            //cout << "당신의 이름 : " << name << endl;
             break;
         }
     }

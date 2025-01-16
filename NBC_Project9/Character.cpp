@@ -124,12 +124,12 @@ void Character::AddExperience(int val)
 
 void Character::DisplayStatus() const
 {
-	cout << "이름 :" << name << endl;
-	cout << "레벨 :" << level << endl;
-	cout << "경험치 :" << experience << endl;
-	cout << "체력 :" << health << "/" << maxHealth << endl;
-	cout << "공격력 :" << attack << endl;
-	cout << "골드 :" << gold << endl;
+	cout << "이름 : " << name << endl;
+	cout << "레벨 : " << level << endl;
+	cout << "경험치 : " << experience << endl;
+	cout << "체력 : " << health << "/" << maxHealth << endl;
+	cout << "공격력 : " << attack << endl;
+	cout << "골드 : " << gold << endl;
 }
 
 void Character::TakeDamage(int val)
