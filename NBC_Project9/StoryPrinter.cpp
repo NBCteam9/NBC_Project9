@@ -23,7 +23,7 @@ void StoryPrinter::PrintVictory(Character* character) const
 	Sleep(1000);
 	cout << "\"어이어이! 절-대로 잘 어울리는 커플이잖아? 젠장!\"\n" << endl;
 	Sleep(1000);
-	cout << "이세계 생활... 썩 나쁘지 않을지도!? (코 쓱)\n" << endl;
+	cout << "\"이세계 생활... 썩 나쁘지 않을지도!? (코 쓱)\"\n" << endl;
 	Sleep(1000);
 	cout << "그렇게 " << character->GetName() << ", 공주는 결혼해서 이세계에서 오래오래 행복하게 살았답니다~ -끝- " << endl;
 	Sleep(1000);
@@ -39,8 +39,8 @@ void StoryPrinter::PrintLose() const
 	Sleep(1000);
 	cout << "\"용사님! 포기하지 말아요! 중요한건 꺾이지 않는 마음이라구요!\"\n" << endl;
 	Sleep(1000);
-	cout << "우오오옷! 젠장!!! 온몸에 믿을 수 없는 힘이 솟구친다!\n" << endl;
+	cout << "\"우오오옷! 젠장!!!\" 온몸에 믿을 수 없는 힘이 솟구친다!\n" << endl;
 	Sleep(1000);
-	cout << "여신님의 힘으로 다시 한번 환생하시겠습니까? [Y / N]  ";
+	cout << "여신님의 힘으로 다시 한번 환생하시겠습니까? [Y / N] ";
 
 }
