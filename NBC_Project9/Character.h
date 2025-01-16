@@ -12,6 +12,7 @@ public:
 	~Character();
 	Character& operator=(const Character&) = delete;
 	static Character* GetInstance(string _name = "");
+	static void DestroyInstance();
 	vector<Item*>& GetInventory();
 	string GetName() const;
 	int GetLevel() const;

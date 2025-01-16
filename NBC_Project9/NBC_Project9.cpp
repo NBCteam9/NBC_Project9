@@ -101,7 +101,7 @@ int main()
 		cout << "\n====================\n" << endl;
 	}
 	
-	delete warrior;
+	Character::DestroyInstance();
 	MonsterFactory::DestoryInstance();
 
 	return 0;

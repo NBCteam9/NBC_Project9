@@ -14,6 +14,12 @@ Character::Character(string _name)
 	gold = 0;
 }
 
+void Character::DestroyInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
 Character::~Character()
 {
 	for (Item* a : inventory)
