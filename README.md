@@ -111,12 +111,14 @@ NBC_Project9
  ┃ ┣ NBC_Project9.vcxproj.filters
  ┃ ┣ NBC_Project9.vcxproj.user
  ┃ ┣ Shop.cpp                 // 상점 시스템
- ┃ ┗ Shop.h
+ ┃ ┣ Shop.h
+ ┃ ┣ StoryPrinter.cpp         // 스토리 출력
+ ┃ ┗ StoryPrinter.h
  ┗ 
 ```
 
 ## C++ 클래스 다이어그램
-![C++ 클래스 다이어그램 이미지](https://github.com/user-attachments/assets/14fc36bb-19b4-47b5-ae37-2291e8bc6a7d)
+![C++ 클래스 다이어그램](https://github.com/user-attachments/assets/694e32b5-e8ad-48c7-bb7a-e362ed972618)
 
 ## 클래스 설명 및 핵심 로직
 ### 박선우님 - (본인이 구현한 클래스들, , )
