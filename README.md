@@ -230,6 +230,10 @@ NBC_Project9
 - 체력·공격력은 기존 몬스터 레벨의 **1.5배** 범위를 랜덤으로 설정했습니다. 10Lv의 능력치라면 15Lv의 능력치로!
 - 보스 클리어하면 엔딩 메시지가 출력됩니다!
 
+  ![보스전 전투](https://github.com/user-attachments/assets/16197f60-ec4c-407b-941f-4744342c8f02)
+
+  ![승리 후 엔딩 메시지](https://github.com/user-attachments/assets/faff6460-255b-481d-9ed6-d9e24a61617b)
+
 ## 상점에서 아이템 구매 및 판매
 플레이어는 상점에서 아이템을 구매하거나 판매할 수 있습니다.
 
