@@ -14,6 +14,7 @@
 #include "Troll.h"
 #include "Dragon.h"
 #include "Monster.h"
+#include "StoryPrinter.h"
 
 using namespace std;
 
@@ -38,6 +39,9 @@ int main()
     cout << "Create your character." << endl;
     string name;
     cin.clear();
+    StoryPrinter storyPrinter;
+
+   
     while (1)
     {
         getline(cin, name);
@@ -49,13 +53,12 @@ int main()
         else
         {
             cout << "Your name : " << name << endl;
-            cout << "\n====================\n" << endl;
             break;
         }
     }
     Character* warrior = Character::GetInstance(name);
     string DefeatChoice;
-
+    storyPrinter.PrintIntro(warrior);
     while (true)
     {
         // 배틀 로직
@@ -65,20 +68,22 @@ int main()
             {
                 if (gameManager.Battle(warrior) == false) // 패배
                 {
-                    cout << "재도전 하시겠습니까? (Y/N): ";
+                    storyPrinter.PrintLose();
+                    
                     while (1)
                     {
                         cin >> DefeatChoice;
                         if (DefeatChoice == "Y" || DefeatChoice == "y") // Retry
                         {
-                            cout << "재도전합니다!" << endl;
+                            cout << endl;
+                            cout << "당신은 의지가 충만해진다." << endl;
+                            cout << "\n====================\n" << endl;
                             warrior->InitCharacter(); // 캐릭터 초기화
                             gameManager.Initialize();
                             break; // 내부 while 루프를 종료하고 외부 while 루프로 돌아감
                         }
                         else if (DefeatChoice == "N" || DefeatChoice == "n")
                         {
-                            cout << "게임을 종료합니다." << endl;
                             Character::DestroyInstance();
                             MonsterFactory::DestoryInstance();
                             return 0;
@@ -91,7 +96,7 @@ int main()
                 }
                 else
                 {
-                    cout << "Congratulations! Game Clear!" << endl;
+                    storyPrinter.PrintVictory(warrior);
                     gameManager.DisplayKilledMonsters();
                     Character::DestroyInstance();
                     MonsterFactory::DestoryInstance();
@@ -102,20 +107,22 @@ int main()
             {
                 if (gameManager.Battle(warrior) == false) // 패배
                 {
-                    cout << "재도전 하시겠습니까? (Y/N): ";
+                    storyPrinter.PrintLose();
+                    
                     while (1)
                     {
                         cin >> DefeatChoice;
                         if (DefeatChoice == "Y" || DefeatChoice == "y") // Retry
                         {
-                            cout << "재도전합니다!" << endl;
+                            cout << endl;
+                            cout << "당신은 의지가 충만해진다." << endl;
+                            cout << "\n====================\n" << endl;
                             warrior->InitCharacter(); // 캐릭터 초기화
                             gameManager.Initialize();
                             break; // 내부 while 루프를 종료하고 외부 while 루프로 돌아감
                         }
                         else if (DefeatChoice == "N" || DefeatChoice == "n")
                         {
-                            cout << "게임을 종료합니다." << endl;
                             Character::DestroyInstance();
                             MonsterFactory::DestoryInstance();
                             return 0;
