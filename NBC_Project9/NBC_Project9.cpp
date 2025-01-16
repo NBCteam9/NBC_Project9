@@ -78,6 +78,7 @@ int main()
                             cout << endl;
                             cout << "당신은 의지가 충만해진다." << endl;
                             cout << "\n====================\n" << endl;
+                            Sleep(1000);
                             warrior->InitCharacter(); // 캐릭터 초기화
                             gameManager.Initialize();
                             break; // 내부 while 루프를 종료하고 외부 while 루프로 돌아감
@@ -117,6 +118,7 @@ int main()
                             cout << endl;
                             cout << "당신은 의지가 충만해진다." << endl;
                             cout << "\n====================\n" << endl;
+                            Sleep(1000);
                             warrior->InitCharacter(); // 캐릭터 초기화
                             gameManager.Initialize();
                             break; // 내부 while 루프를 종료하고 외부 while 루프로 돌아감
