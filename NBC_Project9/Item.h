@@ -13,6 +13,7 @@ public:
 	int GetPrice() const;
 	virtual bool IsUsable(const Character* character) const = 0;
 	virtual void Use(Character* Character) = 0;
+	virtual void PrintExplanation() = 0;
 protected:
 	string name;
 	int price;

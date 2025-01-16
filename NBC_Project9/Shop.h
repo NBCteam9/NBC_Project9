@@ -16,4 +16,5 @@ public:
 	void SellItem(int selectNum, class Character* player);
 private:
 	vector<class Item*> availableItems;
+	float sellPriceRate = 0.6f;
 };
