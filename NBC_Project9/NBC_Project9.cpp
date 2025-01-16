@@ -36,7 +36,7 @@ int main()
     Shop shop;
 
     cout << "Welcome to Game!" << endl;
-    cout << "Create your character." << endl;
+    cout << "캐릭터의 이름을 입력해주세요." << endl;
     string name;
     cin.clear();
     StoryPrinter storyPrinter;
@@ -48,11 +48,11 @@ int main()
 
         if (name.find(' ') != string::npos)
         {
-            cout << "Your name contains space. Please try again" << endl;
+            cout << "이름에 공백이 있습니다. 다시 입력해주세요." << endl;
         }
         else
         {
-            cout << "Your name : " << name << endl;
+            cout << "당신의 이름 : " << name << endl;
             break;
         }
     }
@@ -142,7 +142,7 @@ int main()
 
         // 상점 방문
         cout << "\n====================\n" << endl;
-        cout << "Do you want to go shop?? (Y/N): ";
+        cout << "상점에 방문하시겠습니까? (Y/N): ";
         while (1)
         {
             string choice;
@@ -158,7 +158,7 @@ int main()
             }
             else
             {
-                cout << "Please re-enter (Y/N): ";
+                cout << "다시 입력해주세요. (Y/N): ";
             }
         }
         cout << "\n====================\n" << endl;
